@@ -118,6 +118,7 @@ header h2 {
     border-radius: 1rem;
     display:flex;
     flex-direction: column;
+    margin-top: 0.3rem;
 }
 
 .feature_item img{
