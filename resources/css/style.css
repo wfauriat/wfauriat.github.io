@@ -173,14 +173,13 @@ td {
 }
 
 #inlineb {
-    display:block;
+    display:inline;
     border: 1px solid blue;
     background-color: aqua;
-    /* width: 400px; */
 }
 
 #blockb {
-    display: inline;
+    display: block;
     border: 1px solid blue;
     color: red;
     background-color: blueviolet;
