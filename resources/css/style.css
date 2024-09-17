@@ -87,7 +87,7 @@ button{
 }
 
 header h2 {
-    background-image: url("/resources/images/stats_header_image_1_opt.jpg");
+    background-image: url("../../resources/images/stats_header_image_1_opt.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     /* background-position: 0 -100px; */
