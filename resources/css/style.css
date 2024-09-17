@@ -171,3 +171,23 @@ table {
 td {
     background-color: lightgrey;
 }
+
+#inlineb {
+    display:block;
+    border: 1px solid blue;
+    background-color: aqua;
+    /* width: 400px; */
+}
+
+#blockb {
+    display: inline;
+    border: 1px solid blue;
+    color: red;
+    background-color: blueviolet;
+}
+
+#blockinlineb {
+    display: inline-block;
+    border: 1px solid blue;
+    background-color: aqua;
+}
