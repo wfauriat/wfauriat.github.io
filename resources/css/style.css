@@ -156,3 +156,18 @@ header h2 {
     align-self: center;
     padding-right: 3rem;
 }
+
+thead {
+    text-decoration: underline;
+    background-color: blue;
+    color: white
+}
+
+table {
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+
+td {
+    background-color: lightgrey;
+}
