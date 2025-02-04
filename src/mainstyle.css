@@ -3,6 +3,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+p {
+    font-size: 1.2em;
+}
+
 #content {
     min-height: 100vh;
 }
@@ -126,10 +130,21 @@ main {
 
 
 #sub_nav{
-    top: 0px;
     background-color: white;
-    position: sticky;
 }
+
+@media only screen and((max-width: 650px) or (max-height: 500px)) {
+    #sub_nav{
+        position: relative;
+    }
+  }
+
+@media only screen and ((min-width: 650px) and (min-height: 500px)) {
+    #sub_nav{
+        top: 0px;
+        position: sticky;
+    }
+  }
 
 
 #sub_nav ul{
@@ -227,9 +242,57 @@ article h4 {
     display: none;
 }
 
+
+.art_feature img {
+    height: auto;
+    display: block;
+    
+}
+
+@media only screen and (max-width: 650px) {
+    .art_feature img {
+        max-width: 110%;
+        margin-left: -5%;
+        margin-right: 5%;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    .art_feature img {
+        max-width: 450px;
+        margin: 0px auto;
+    }
+}
+
+
+.art_feature h1 {
+    font-size: 2em;
+    font-style: italic;
+    color: rgb(39, 43, 49);
+    padding-bottom: 30px;
+}
+
+
+#techtable td {
+    padding: 0;
+    margin: 0;
+}
+
+#techtable img {
+    width: 160px;
+}
+
+#techtable p {
+    padding: 5px;
+    margin: 5px;
+}
+
+
+
 #Profile {
     overflow: scroll;
     scrollbar-width: none;
+    display: none;
 }
 
 #Profile ul {
@@ -239,6 +302,123 @@ article h4 {
 #Profile li {
     padding-bottom: 0.3em;
 }
+
+
+#Experience {
+    display: inline;
+}
+
+@media only screen and (max-width: 400px) {
+    #Experience ul {
+        list-style: none;
+        padding-left: 2%;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    #Experience ul {
+        list-style: none;
+        padding-left: 10%;
+    }
+}
+
+
+#Experience li{
+    width: 300px;
+    color: white;
+    text-align: center; 
+    background-color: rgb(3, 49, 87);
+    /* background-color: rgb(216, 216, 216); */
+    cursor: pointer;
+    border-top: 10px solid white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+/* #Experience li:hover::after {
+    color: red;
+    content: "I am currently working at CEA";
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    padding: 20px 20px;
+} */
+
+#Experience li:first-child {
+    border-top: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* #Experience li:first-child:hover::after {
+    color: black;
+    display: block;
+    content: "I am currently working at CEA I am in a scientific computing environnement";
+    position: relative;
+    bottom: 100px;
+    left: 100px;
+    background-color: grey;
+    padding: 20px 20px;
+    border-radius: 1em;
+}
+#Experience li:first-child:hover::before {
+    display: none;
+} */
+
+#tooled {
+    color: black;
+    background-color: rgb(216, 216, 216);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: inline-block;
+    bottom: 100px;
+    left: 200px;
+    border-radius: 1em;
+}
+
+
+
+.Expdiv0 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    height: 200px;
+}
+.Expdiv0 p:nth-child(1) {
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+    padding: 30px 5px;
+    margin-left: 5px;
+    font-weight: 700;
+    
+}
+.Expdiv0 p:nth-child(2) {
+    padding: 15px 15px;
+    width: 90%;
+}
+
+#Experience li:hover {
+    color: darkorange;
+}
+
+#Experience li:last-child {
+    background-color: orange;
+    color: black;
+}
+
+#Experience li:last-child:hover {
+    color: red;
+}
+
 
 
 footer {
