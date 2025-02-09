@@ -60,6 +60,7 @@ let loadOverview = function() {
                     articleOthers.css("display", "none");        
                     articleObj.css("display", "block");
                     $(this).css("background-color", "darkorange");
+                    articleObj.scrollTop(0);
                 }
             )
 
@@ -90,7 +91,6 @@ let loadOverview = function() {
                     }
                     else {
                         $(this).css("color", "inherit");
-                        // expItems.css("color", "inherit");
                     }
                 },
             )
