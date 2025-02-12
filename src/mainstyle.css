@@ -16,7 +16,6 @@ p {
 }
 
 
-
 /*  ***********************************************/
 /* Header */
 /*  ***********************************************/
@@ -367,6 +366,7 @@ article h4 {
     overflow: scroll;
     scrollbar-width: none;
     display: inline;
+    /* display: none; */
 }
 
 #Profile ul {
@@ -404,6 +404,7 @@ article h4 {
 
 #Experience {
     display: none;
+    /* display: inline; */
 }
 
 
@@ -415,7 +416,7 @@ article h4 {
 }
 
 #Experience li{
-    width: 300px;
+    width: 280px;
     text-align: center; 
     background-color: rgb(3, 49, 87);
     /* background-color: rgb(216, 216, 216); */
@@ -448,14 +449,26 @@ article h4 {
     color: red;
 }
 
+#exp_container {
+    font-size: 1em;
+}
 
 #exp_container ul {
-    width: 320px;
+    width: 300px;
     padding-left: 5px;
     list-style: none;
     /* border: 1px solid green; */
 }
 
+
+#exp_details {
+    border-radius: 20px;
+    background-color: lightgray;
+    transition: background-color 0.5s ease, transform 0.3s ease-in-out;
+    min-height: 200px; 
+    display: none;
+    margin-left: 5px;
+}
 
 
 @media only screen and (max-width: 650px) {
@@ -465,13 +478,7 @@ article h4 {
     }
     #exp_details {
         left: 0;
-        min-height: 250px;
         position:static;
-        display: none;
-        /* border: 1px solid grey; */
-        border-radius: 20px;
-        background-color: lightgray;
-        transition: background-color 0.3s ease;    
     }
 }
 
@@ -484,13 +491,7 @@ article h4 {
     }
     #exp_details {
         flex: 1;
-        min-height: 250px;
         position: relative;
-        display: none;
-        /* border: 1px solid grey; */
-        border-radius: 20px;
-        background-color: lightgray;
-        transition: background-color 0.3s ease;    
     }
 }
 
@@ -499,30 +500,30 @@ article h4 {
     padding: 5px 20px;
     margin-bottom: 0;
     line-height: 1.3;
-
 }
-
 
 .Expdiv0 {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
-    width: 300px;
-    height: 200px;
+    width: 280px;
+    height: 140px;
 }
 .Expdiv0 p:nth-child(1) {
     writing-mode: vertical-rl;
     rotate: 180deg;
-    padding: 30px 5px;
+    padding: 5px 5px;
     margin-left: 5px;
     font-weight: 700;
+    /* border: 1px solid orange; */
     
 }
 .Expdiv0 p:nth-child(2) {
     padding: 15px 15px;
     width: 90%;
     font-weight: 600;
+    /* border: 1px solid orange; */
 }
 
 .Expdiv0 .Expdesc {
@@ -547,4 +548,17 @@ footer {
     margin: 0px auto;
     /* line-height: 120px; */
     padding-top: 30px;
+}
+
+
+/*  ***********************************************/
+/* Other pages css */
+/*  ***********************************************/
+
+.contactlink {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
 }
