@@ -3,7 +3,7 @@
 <h2 style="text-align: center;">
     My book
 </h2>
-<p style="max-width: 60%; display: block; margin: 0 auto 30px;">
+<p id="book_summary">
 Notre confort de vie moderne résulte largement des progrès
  de notre capacité à anticiper : de notre « rationalité ».
   Avec l’amélioration de notre compréhension du monde, 
@@ -29,12 +29,11 @@ Aucune compétence spécifique en mathématiques ou en philosophie n’est
  différents protagonistes découvrent progressivement les idées essentielles.
 </p>
 
-<div style="display: flex; flex-wrap: wrap; 
-margin: 20px auto; width: 95%;">
+<div id="book_view">
     <img src="./ressources/CoverFinal140216_front.png"
-    style="max-width:500px; height: auto; padding-right: 10px;">
+    class="book_page">
     <img src="./ressources/CoverFinal140216_back.png"
-    style="max-width:500px; height: auto;">
+    class="book_page">
 </div>
 
 
@@ -44,14 +43,25 @@ margin: 20px auto; width: 95%;">
     A glimpse of my research work
 </h2>
 
-<iframe width="560" height="315" style="margin: 20px auto; 
-display: block;"
-    src="https://www.youtube.com/embed/mhgw6frQ8Eg">
- frameborder="0" 
+
+<div style="position: relative; 
+padding-bottom: 56.25%; 
+height: 0; overflow: hidden;">
+    <iframe style="position: 
+    absolute; top: 0; left: 0; 
+    width: 100%; height: 100%;" 
+    src="https://www.youtube.com/embed/mhgw6frQ8Eg"
+     frameborder="0" 
+    allowfullscreen></iframe>
+  </div>
+
+<!-- <iframe id="embed_previouswork"
+    src="https://www.youtube.com/embed/mhgw6frQ8Eg"
+ frameborder="0"
  allow="accelerometer; autoplay; clipboard-write; 
  encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
-</iframe>
+</iframe> -->
 
 
 

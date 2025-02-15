@@ -534,6 +534,76 @@ article h4 {
 
 
 /*  ***********************************************/
+/* Others */
+/*  ***********************************************/
+
+#book_view {
+    display: flex;
+    flex-wrap: wrap; 
+    height: auto;
+    justify-content: center;
+}
+
+#book_summary {
+    display: block; 
+    margin: 0 auto 30px; 
+    text-align: justify;
+}
+
+
+@media only screen and (max-width: 650px) {
+    #book_view {
+        max-width: 90%;
+        margin: 5px auto;
+    }
+    .book_page {
+        max-width: 90%; 
+        height: auto;
+    }
+    #book_summary {
+        max-width: 80%; 
+    }
+}
+@media only screen and (min-width: 650px) {
+    #book_view {
+        max-width: 80%;
+        margin: 20px auto;
+    }
+    .book_page {
+        max-width: 45%;
+        height: auto;
+        padding-right: 10px;
+    }
+    #book_summary {
+        max-width: 60%; 
+    }
+}
+
+/* #embed_previouswork {
+    margin: 20px auto; 
+    display: block; 
+    height: auto;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 650px) {
+    #embed_previouswork {
+        width: 100%;
+        min-height: 300px;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    #embed_previouswork {
+        width: 80%;
+        max-width: 800px;
+        min-height: 500px;
+    }
+} */
+
+
+/*  ***********************************************/
 /* Footer */
 /*  ***********************************************/
 
