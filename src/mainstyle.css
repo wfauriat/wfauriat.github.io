@@ -661,6 +661,13 @@ article {
     }
 }
 
+#pdf_embed {
+    display: none;
+    justify-content: center;
+    align-items: center; 
+    height: 80vh; 
+}
+
 .contact a{
     text-decoration: none;
     color:rgb(3, 49, 87);
@@ -668,6 +675,7 @@ article {
 .contact a:hover {
     color: darkorange;
 }
+
 
 
 /*  ***********************************************/
