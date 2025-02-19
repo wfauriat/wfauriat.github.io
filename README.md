@@ -1,3 +1,3 @@
-*Web page presenting my profile*
+**Web page presenting my profile**
 
-**(made by me with HTML/CSS/JS-jQuery)**
+*(made by me with HTML/CSS/JS-jQuery)*
