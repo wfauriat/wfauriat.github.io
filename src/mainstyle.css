@@ -587,6 +587,12 @@ article {
 /* Others */
 /*  ***********************************************/
 
+.prev {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
 
 .prev h2{
     font-size: 1.6rem;
@@ -645,7 +651,8 @@ article {
         max-width: 90%; 
     }
     #book_summary {
-        max-width: 80%; 
+        max-width: 90%;
+        font-size: 1.1rem; 
     }
 }
 @media only screen and (min-width: 650px) {
@@ -675,12 +682,46 @@ article {
     margin: 0 auto;
 }
 
+
+.contactlink {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
 .contact a{
     text-decoration: none;
     color:rgb(3, 49, 87);
 }
 .contact a:hover {
     color: darkorange;
+}
+
+.resume {
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    color: black;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border-radius: 20px;
+    border: 3px solid lightgray;
+}
+.resume a {
+    color: rgb(97, 97, 97);
+}
+
+.mail {
+    display: block;
+    width: 80%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: 80px auto 40px;
 }
 
 
@@ -706,11 +747,3 @@ footer {
 /*  ***********************************************/
 /* Other pages css */
 /*  ***********************************************/
-
-.contactlink {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-
-}
