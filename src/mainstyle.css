@@ -581,6 +581,16 @@ article {
     background-color: grey;
 }
 
+#certif {
+    text-decoration: none;
+    font-weight: 700;
+    font-style: oblique;
+    color:rgb(3, 49, 87);
+}
+#certif:hover {
+    color:darkorange;
+}
+
 
 
 /*  ***********************************************/
