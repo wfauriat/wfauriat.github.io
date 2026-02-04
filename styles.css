@@ -1,11 +1,3 @@
-/* ─── Tailwind directives ─── */
-/* These inject Tailwind's base reset, component defaults, and utility classes.
-   Tailwind CDN handles this automatically, but included here for clarity if you
-   ever switch to a build step. */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* ─────────────────────────────────────────────────────────────────────────────
  * CSS CUSTOM PROPERTIES — theme tokens
  *
@@ -53,11 +45,11 @@
   --toggle-bg:       #f3f4f6;           /* gray-100 */
   --toggle-hover-bg: #e5e7eb;           /* gray-200 */
 
-  /* Skill tags (tech stack) */
+  /* Skill tags (tech stack) — indigo pills */
   --skill-tag-bg:    rgba(79, 70, 229, 0.08);
   --skill-tag-color: #4f46e5;                   /* indigo-600 */
 
-  /* Concept tags (math / statistical concepts) — violet to differentiate from tech */
+  /* Concept tags (math / statistical concepts) — violet pills to differentiate from tech */
   --concept-tag-bg:    rgba(168, 85, 247, 0.10);
   --concept-tag-color: #7c3aed;                 /* violet-600 */
 
@@ -100,11 +92,11 @@ html.dark {
   --toggle-bg:       rgba(255, 255, 255, 0.10);
   --toggle-hover-bg: rgba(255, 255, 255, 0.20);
 
-  /* Skill tags (tech stack) */
+  /* Skill tags (tech stack) — indigo pills */
   --skill-tag-bg:    rgba(99, 102, 241, 0.15);
   --skill-tag-color: #a5b4fc;                   /* indigo-300 */
 
-  /* Concept tags (math / statistical concepts) */
+  /* Concept tags (math / statistical concepts) — violet pills */
   --concept-tag-bg:    rgba(168, 85, 247, 0.18);
   --concept-tag-color: #c4b5fd;                 /* violet-300 */
 
@@ -246,6 +238,65 @@ header.hero .tagline {
   }
 }
 
+/* ─── Compact hero bar (interior views) ─── */
+/* Slim nameplate shown on Focus, Resume, Skills, Portfolio views.
+   Keeps the viewer oriented without dominating the screen. */
+.hero-bar {
+  background:              var(--card-bg);
+  backdrop-filter:         blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border:                  1px solid var(--card-border);
+  border-left:             3px solid #4f46e5;   /* indigo accent on left edge */
+  border-radius:           1rem;
+  padding:                 1rem 1.5rem;
+  display:                 flex;
+  align-items:             center;
+  gap:                     1rem;
+  transition:              background 0.4s ease, border-color 0.4s ease;
+}
+
+.hero-bar-photo {
+  width:           3.5rem;
+  height:          3.5rem;
+  flex-shrink:     0;
+  border-radius:   9999px;
+  object-fit:      cover;
+  object-position: center 10%;
+  border:          2px solid var(--card-border);
+  box-shadow:      0 2px 8px rgba(0, 0, 0, 0.10);
+  transition:      border-color 0.4s ease;
+}
+
+.hero-bar-name {
+  font-size:      1.25rem;
+  font-weight:    600;
+  line-height:    1.2;
+  color:          var(--body-color);
+  letter-spacing: -0.01em;
+  transition:     color 0.4s ease;
+}
+
+.hero-bar-title {
+  font-size:   0.875rem;
+  color:       var(--subtitle-color);
+  margin-top:  0.125rem;
+  transition:  color 0.4s ease;
+}
+
+/* Mobile: tighten padding */
+@media (max-width: 639px) {
+  .hero-bar {
+    padding: 0.875rem 1rem;
+  }
+  .hero-bar-photo {
+    width:  3rem;
+    height: 3rem;
+  }
+  .hero-bar-name {
+    font-size: 1.1rem;
+  }
+}
+
 /* ─── Card component ─── */
 /* Glassmorphism in both modes:
      light  →  white-ish frosted panel
@@ -304,6 +355,18 @@ header.hero .tagline {
   line-height: 1.6;
   color:       var(--card-text-color);
   transition:  color 0.4s ease;
+}
+
+
+.card-focus {
+  border-top: 3px solid #4f46e5;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+  border-left: 3px solid #4f46e5;
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(99, 102, 241, 0.06) 100%);
+}
+
+.card-focus:hover {
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.18);
 }
 
 /* ─── Theme toggle button ─── */

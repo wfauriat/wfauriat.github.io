@@ -6,42 +6,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>William Fauriat — ML Engineer & Research Scientist</title>
-
   <!-- ─── SEO / social sharing ─── -->
   <meta name="description" content="Research scientist and ML engineer — Bayesian inference, uncertainty quantification, and full-stack scientific applications. PhD in Mechanical & Industrial Engineering. Portfolio of deployed ML tools and educational software." />
   <meta name="author" content="William Fauriat" />
-
   <!-- Open Graph — LinkedIn, Facebook, etc. share previews.
        og:url and og:image require absolute URLs; base is https://wfauriat.github.io/ -->
   <meta property="og:type"               content="profile" />
   <meta property="og:title"              content="William Fauriat — ML Engineer & Research Scientist" />
   <meta property="og:description"        content="Research scientist and ML engineer — Bayesian inference, uncertainty quantification, and full-stack scientific applications. Portfolio of deployed ML tools and educational software." />
   <meta property="og:url"                content="https://wfauriat.github.io/" />
-  <meta property="og:image"              content="https://wfauriat.github.io/ressource/FaceWilRed.png" />
+  <meta property="og:image"              content="https://wfauriat.github.io/resource/FaceWilRed.png" />
   <meta property="profile:first_name"    content="William" />
   <meta property="profile:last_name"     content="Fauriat" />
-
   <!-- Twitter / X card — falls back to og: tags if omitted, but explicit is safer -->
   <meta name="twitter:card"        content="summary" />
   <meta name="twitter:title"       content="William Fauriat — ML Engineer & Research Scientist" />
   <meta name="twitter:description" content="Research scientist and ML engineer — Bayesian inference, uncertainty quantification, and full-stack scientific applications." />
-  <meta name="twitter:image"       content="https://wfauriat.github.io/ressource/FaceWilRed.png" />
-
+  <meta name="twitter:image"       content="https://wfauriat.github.io/resource/FaceWilRed.png" />
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Alpine.js via CDN (defer so DOM is ready before it runs) -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
   <!-- Custom styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="min-h-screen font-sans">
-
-  <!-- ─── TOP NAR: theme toggle + view switcher ─── -->
+  <!-- ─── TOP NAV: theme toggle + view switcher ─── -->
   <nav class="sticky top-0 z-50 backdrop-blur-md border-b
               flex items-center justify-between px-4 py-3 gap-4">
-
     <!-- View mode buttons — order: overview → intent → deep dive → proof -->
     <div class="flex flex-wrap gap-2">
       <button @click="view = 'profile'"
@@ -70,7 +62,6 @@
         Portfolio
       </button>
     </div>
-
     <!-- Right-hand cluster: Contact button + theme toggle -->
     <div class="flex items-center gap-2 ml-auto">
       <button @click="view = 'contact'"
@@ -78,7 +69,6 @@
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
         Contact
       </button>
-
       <!-- Alpine: @click flips 'isDark'; also persists to localStorage via the toggle() method -->
       <button @click="toggleTheme()"
               class="text-xl px-3 py-1 rounded-full theme-toggle">
@@ -86,15 +76,14 @@
       </button>
     </div>
   </nav>
-
   <!-- ─── MAIN CONTENT AREA ─── -->
   <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
 
-    <!-- ── HERO / HEADER (shown in all views) ── -->
-    <header class="hero">
+    <!-- ── FULL HERO (Profile & Contact views) ── -->
+    <header x-show="['profile', 'contact'].includes(view)" x-transition class="hero">
       <!-- Text block (left) -->
       <div class="hero-text">
-        <h1><!-- placeholder — replace with your name -->William Fauriat</h1>
+        <h1>William Fauriat</h1>
         <p class="subtitle">ML Full-Stack Engineer</p>
         <p class="tagline">From research to production — ML systems engineered for reliability and trust.</p>
         <!-- Top skills: the handful of tags a recruiter should see immediately -->
@@ -106,7 +95,16 @@
         </div>
       </div>
       <!-- Photo (right) -->
-      <img src="ressource/FaceWilRed.png" alt="Profile photo" class="hero-photo">
+      <img src="resource/FaceWilRed.png" alt="Profile photo" class="hero-photo">
+    </header>
+
+    <!-- ── COMPACT HERO BAR (all other views) ── -->
+    <header x-show="!['profile', 'contact'].includes(view)" x-transition class="hero-bar">
+      <img src="resource/FaceWilRed.png" alt="" class="hero-bar-photo">
+      <div>
+        <h1 class="hero-bar-name">William Fauriat</h1>
+        <p class="hero-bar-title">ML Full-Stack Engineer</p>
+      </div>
     </header>
 
     <!-- ── PROFILE VIEW ── -->
@@ -126,29 +124,25 @@
         </ul>
       </div>
     </section>
-
     <!-- ── FOCUS VIEW ── -->
     <section x-show="view === 'focus'" x-transition class="space-y-6">
-      <div class="card">
-        <h2 class="section-title">Focus</h2>
+      <div class="card card-focus">
+        <h2 class="section-title">What I'm Looking For</h2>
         <p class="card-text">
-          Looking to contribute at the intersection of applied research and software engineering,
-          with a focus on building trustworthy, production-grade AI systems.
+          A role where rigorous ML meets real-world engineering — building AI systems that are not just accurate, but trustworthy.
         </p>
         <ul class="card-text mt-3">
-          <li>Design and deliver end-to-end ML and data science applications — from research prototype to production deployment</li>
-          <li>Bring expertise in uncertainty quantification and statistical decision theory to make ML systems more trustworthy and interpretable</li>
-          <li>Integrate AI-driven features and solutions into engineering workflows while rigorously addressing safety, risk assessment, and reliability</li>
+          <li>Ship end-to-end ML products, from messy data to production API</li>
+          <li>Make models explain themselves — uncertainty quantification, calibration, interpretability</li>
+          <li>Bring statistical rigor to high-stakes domains where "it usually works" isn't good enough</li>
         </ul>
       </div>
     </section>
-
     <!-- ── RESUME VIEW ── -->
     <section x-show="view === 'resume'" x-transition class="space-y-6">
       <!-- Experience -->
       <div class="card">
         <h2 class="section-title">Experience</h2>
-
         <!-- Each entry: click title row to expand / collapse.
              @click.stop on cross-links prevents them from re-toggling the accordion. -->
         <div class="card-entry accordion-entry" @click="toggleEntry('research')">
@@ -165,7 +159,6 @@
           </div>
         </div>
         <hr class="divider">
-
         <div class="card-entry accordion-entry" @click="toggleEntry('postdoc')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">Post-Doctoral Researcher</h3>
@@ -180,7 +173,6 @@
           </div>
         </div>
         <hr class="divider">
-
         <div class="card-entry accordion-entry" @click="toggleEntry('consultant')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">Consultant</h3>
@@ -194,7 +186,6 @@
           </div>
         </div>
         <hr class="divider">
-
         <div class="card-entry accordion-entry" @click="toggleEntry('phd')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">PhD Researcher</h3>
@@ -208,11 +199,9 @@
           </div>
         </div>
       </div>
-
       <!-- Education -->
       <div class="card">
         <h2 class="section-title">Education</h2>
-
         <div class="card-entry">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">Full-Stack Engineer — Professional Formation</h3>
@@ -221,7 +210,6 @@
           <p class="card-text">Codecademy</p>
         </div>
         <hr class="divider">
-
         <div class="card-entry">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">PhD — Mechanical & Industrial Engineering</h3>
@@ -229,7 +217,6 @@
           </div>
         </div>
         <hr class="divider">
-
         <div class="card-entry">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">M.Sc. — Mechanical Engineering</h3>
@@ -238,7 +225,6 @@
         </div>
       </div>
     </section>
-
     <!-- ── SKILLS VIEW ── -->
     <section x-show="view === 'skills'" x-transition class="space-y-6">
       <!-- data-id + :class highlight binding on each card — target of cross-links from Portfolio -->
@@ -252,7 +238,6 @@
         </div>
         <button @click="switchTo('portfolio', 'uq')" class="cross-link mt-3">→ See UQ project</button>
       </div>
-
       <div class="card" data-id="ml" :class="{ 'card-highlight': highlight === 'ml' }">
         <h2 class="section-title">Machine Learning</h2>
         <div class="flex flex-wrap gap-2 mt-2">
@@ -262,7 +247,6 @@
         </div>
         <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-3">→ See Bayesian Inference App</button>
       </div>
-
       <div class="card" data-id="scicomp" :class="{ 'card-highlight': highlight === 'scicomp' }">
         <h2 class="section-title">Scientific Computing</h2>
         <div class="flex flex-wrap gap-2 mt-2">
@@ -272,7 +256,6 @@
         </div>
         <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-3">→ See Bayesian Inference App</button>
       </div>
-
       <div class="card" data-id="software" :class="{ 'card-highlight': highlight === 'software' }">
         <h2 class="section-title">Software & Tools</h2>
         <div class="flex flex-wrap gap-2 mt-2">
@@ -285,7 +268,6 @@
         <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-3">→ See Bayesian Inference App</button>
       </div>
     </section>
-
     <!-- ── PORTFOLIO VIEW ── -->
     <section x-show="view === 'portfolio'" x-transition class="space-y-6">
       <!-- Bayesian Inference App — accordion: synthetic summary always visible, details on expand -->
@@ -315,7 +297,7 @@
             <li>Custom CSV data upload alongside pre-built cases (polynomial regression, California housing)</li>
             <li>Dual interface — web app accessible anywhere, desktop app for offline use</li>
           </ul>
-          <img src="ressource/BI_wepapp.gif" alt="Bayesian Inference App — live demo"
+          <img src="resource/BI_wepapp.gif" alt="Bayesian Inference App — live demo"
                style="max-width: 100%; height: auto;"
                class="mt-4 rounded">
           <div class="mt-4">
@@ -344,7 +326,6 @@
           </div>
         </div>
       </div>
-
       <!-- UQ Initiation App — same accordion pattern -->
       <div class="card accordion-entry" data-id="uq"
            :class="{ 'card-highlight': highlight === 'uq' }"
@@ -370,7 +351,7 @@
             <li>Covers core UQ methods — propagation of uncertainty through models</li>
             <li>Self-contained: no external server or backend required</li>
           </ul>
-          <img src="ressource/BallisticQT.gif" alt="UQ Initiation App — desktop GUI"
+          <img src="resource/BallisticQT.gif" alt="UQ Initiation App — desktop GUI"
                style="max-width: 100%; height: auto;"
                class="mt-4 rounded">
           <div class="mt-4">
@@ -390,7 +371,6 @@
           <button @click.stop="switchTo('skills', 'stats')" class="cross-link mt-4">→ See related skills</button>
         </div>
       </div>
-
       <!--
       <div class="card">
         <h2 class="section-title">GitHub Activity</h2>
@@ -401,7 +381,6 @@
       </div>
       -->
     </section>
-
     <!-- ── CONTACT VIEW ── -->
     <section x-show="view === 'contact'" x-transition class="space-y-6">
       <div class="card contact-view">
@@ -426,9 +405,7 @@
         </a>
       </div>
     </section>
-
   </main>
-
   <!-- ─── APP LOGIC ─── -->
   <script src="app.js"></script>
 </body>

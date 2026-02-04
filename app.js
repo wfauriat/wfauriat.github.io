@@ -16,7 +16,6 @@
  * The function below is registered as a "magic" component via Alpine.data() at the bottom.
  * index.html references it with:  x-data="resumeApp()"
  */
-
 function resumeApp() {
   return {
     // ── State ──────────────────────────────────────────────────
@@ -24,7 +23,10 @@ function resumeApp() {
     view: 'profile',
 
     // 'isDark' — drives the 'dark' class on <html>.
-    isDark: true,   // default to dark mode
+    // Default value here is just a placeholder; init() immediately overwrites it
+    // based on localStorage or system preference. We default to false (light) to
+    // avoid a flash-of-dark if the user prefers light mode.
+    isDark: false,
 
     // 'highlight' — data-id of a card that should pulse when it appears.
     // Set by switchTo(), auto-cleared after 1.8s. null = no highlight.
@@ -44,8 +46,7 @@ function resumeApp() {
     // ── Lifecycle hook ─────────────────────────────────────────
     // Alpine calls init() automatically once the component is ready (like React's useEffect on mount).
     init() {
-      const saved = localStorage.getItem('spprofile-theme');
-
+      const saved = localStorage.getItem('wfauriat-theme');
       if (saved !== null) {
         // User has an explicit preference stored — honour it.
         this.isDark = saved === 'dark';
@@ -62,7 +63,7 @@ function resumeApp() {
     // Toggle dark/light mode and persist the choice.
     toggleTheme() {
       this.isDark = !this.isDark;
-      localStorage.setItem('spprofile-theme', this.isDark ? 'dark' : 'light');
+      localStorage.setItem('wfauriat-theme', this.isDark ? 'dark' : 'light');
     },
 
     // Return the CSS class string for a nav button based on whether it's the active view.
@@ -83,6 +84,20 @@ function resumeApp() {
       this.view = viewKey;
       if (highlightId) {
         this.highlight = highlightId;
+
+        // Auto-expand if it's an accordion item
+        if (this.expanded.hasOwnProperty(highlightId)) {
+          this.expanded[highlightId] = true;
+        }
+
+        // Scroll the target card into view after DOM updates
+        this.$nextTick(() => {
+          const target = document.querySelector(`[data-id="${highlightId}"]`);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+
         setTimeout(() => { this.highlight = null; }, 1800);
       }
     }
