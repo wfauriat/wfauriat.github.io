@@ -23,8 +23,23 @@ function resumeApp() {
     // 'view'  — which content section is visible. Matches the x-show conditions in HTML.
     view: 'profile',
 
-    // 'isDark' — drives the 'dark' class on <html>, which Tailwind uses for dark: utilities.
+    // 'isDark' — drives the 'dark' class on <html>.
     isDark: true,   // default to dark mode
+
+    // 'highlight' — data-id of a card that should pulse when it appears.
+    // Set by switchTo(), auto-cleared after 1.8s. null = no highlight.
+    highlight: null,
+
+    // Accordion state — Resume (experience) and Portfolio cards.
+    // Keys match the first argument passed to toggleEntry() in the HTML.
+    expanded: {
+      research:   false,
+      postdoc:    false,
+      consultant: false,
+      phd:        false,
+      bayesian:   false,
+      uq:         false
+    },
 
     // ── Lifecycle hook ─────────────────────────────────────────
     // Alpine calls init() automatically once the component is ready (like React's useEffect on mount).
@@ -51,9 +66,25 @@ function resumeApp() {
     },
 
     // Return the CSS class string for a nav button based on whether it's the active view.
-    // Used in index.html via :class="activeBtn('profile')"
     activeBtn(viewKey) {
       return this.view === viewKey ? 'btn-active' : 'btn-inactive';
+    },
+
+    // Toggle one accordion entry open / closed.
+    // key must match a key in this.expanded (e.g. 'research').
+    toggleEntry(key) {
+      this.expanded[key] = !this.expanded[key];
+    },
+
+    // Switch to a view and optionally highlight a target card.
+    // highlightId should match a data-id attribute on the target card.
+    // The highlight auto-clears after 1.8 s so the pulse animation can finish.
+    switchTo(viewKey, highlightId) {
+      this.view = viewKey;
+      if (highlightId) {
+        this.highlight = highlightId;
+        setTimeout(() => { this.highlight = null; }, 1800);
+      }
     }
   };
 }

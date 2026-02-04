@@ -18,11 +18,15 @@ All dependencies loaded via CDN — no bundler, no build step, no package.json.
 ## File structure
 ```
 SPprofile/
-├── index.html      ← single entry point; imports CDNs, defines layout and Alpine markup
-├── styles.css      ← theming (CSS vars for dark/light), glassmorphism, transitions
-├── app.js          ← Alpine x-data component(s): state, view logic, theme toggle
-├── README.md       ← short public description of the project
-└── CLAUDE.md       ← this file
+├── index.html        ← single entry point; imports CDNs, defines layout and Alpine markup
+├── styles.css        ← theming (CSS vars for dark/light), glassmorphism, transitions
+├── app.js            ← Alpine x-data component(s): state, view logic, theme toggle
+├── ressource/        ← static assets (photos, gifs)
+│   ├── FaceWilRed.png      ← hero profile photo
+│   ├── BI_wepapp.gif       ← Bayesian Inference App demo
+│   └── BallisticQT.gif     ← UQ App desktop GUI demo
+├── README.md         ← short public description of the project
+└── CLAUDE.md         ← this file
 ```
 
 ## View modes (reader-facing)
@@ -35,6 +39,7 @@ The reader can switch between these views via buttons in the UI:
 | `resume`     | Full resume — experience timeline + education                   |
 | `skills`     | Reorganized around skill areas / tech stack                     |
 | `portfolio`  | Curated projects and achievements with tech-stack tags          |
+| `contact`    | Hypertext links — GitHub, LinkedIn, Google Scholar (SVG icons) |
 
 ## Theme modes
 - **Dark mode** / **Light mode** — toggled by the reader via a button in the nav.
@@ -66,13 +71,20 @@ All links are HTTPS. No build step required.
   git config user.email "your.email@example.com"
   git config user.name  "Your Name"
   ```
-
+- [ ] Add SEO / social-sharing meta tags to `<head>` in `index.html` before deploying:
+  - `<title>` — include your real name (currently generic: "ML Engineer — Resume & Portfolio")
+  - `<meta name="description">` — one-line summary for search engines
+  - Open Graph tags (`og:title`, `og:description`, `og:url`, `og:image`) — controls how the page looks when shared on LinkedIn, Twitter, etc.
 ## Status
 - [x] Project context documented
 - [x] HTML skeleton with CDN imports
 - [x] Base styles (Tailwind + custom CSS, full dark/light theming via CSS variables)
 - [x] Alpine state / view-switching logic
 - [x] Content populated (first pass — education, experience, skills, projects)
+- [x] Contact links wired (GitHub, LinkedIn, Google Scholar) — both Contact view and floating card
+- [x] Portfolio cards: accordion fold/unfold, gif demos, concept + tech tag rows
+- [x] Resume experience entries: accordion with cross-links to Portfolio
+- [x] Hero: profile photo with circular crop and vertical offset tuning
 - [ ] Content refined (owner iteration in progress)
 - [ ] Visual polish and transitions
 - [ ] Tested across browsers
