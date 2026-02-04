@@ -473,60 +473,6 @@ header.hero .tagline {
   background: var(--btn-inactive-hover-bg);
 }
 
-/* ─── Floating contact card ─── */
-/* Fixed bottom-right. The trigger button is always visible;
-   the panel pops up above it on click. Isolated Alpine component (x-data on its own). */
-.contact-float {
-  position: fixed;
-  bottom:   2rem;
-  right:    2rem;
-  z-index:  100;
-}
-
-/* Circular trigger button */
-.contact-btn {
-  width:           3rem;
-  height:          3rem;
-  border-radius:   9999px;
-  background:      #4f46e5;
-  color:           #fff;
-  border:          none;
-  cursor:          pointer;
-  font-size:       1.25rem;
-  display:         flex;
-  align-items:     center;
-  justify-content: center;
-  box-shadow:      0 4px 14px rgba(79, 70, 229, 0.45);
-  transition:      transform 0.2s ease, box-shadow 0.2s ease;
-}
-.contact-btn:hover {
-  transform:  scale(1.08);
-  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.55);
-}
-
-/* Panel that appears above the button */
-.contact-panel {
-  position:            absolute;
-  bottom:              3.5rem;
-  right:               0;
-  width:               210px;
-  background:          var(--card-bg);
-  backdrop-filter:     blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border:              1px solid var(--card-border);
-  border-radius:       1rem;
-  padding:             1.125rem;
-  box-shadow:          0 8px 28px rgba(0, 0, 0, 0.18);
-  transition:          background 0.4s ease, border-color 0.4s ease;
-}
-
-.contact-panel-title {
-  font-size:   0.875rem;
-  font-weight: 600;
-  color:       var(--section-title-color);
-  margin-bottom: 0.625rem;
-  transition:  color 0.4s ease;
-}
 
 .contact-link {
   display:     flex;

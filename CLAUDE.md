@@ -71,10 +71,8 @@ All links are HTTPS. No build step required.
   git config user.email "your.email@example.com"
   git config user.name  "Your Name"
   ```
-- [ ] Add SEO / social-sharing meta tags to `<head>` in `index.html` before deploying:
-  - `<title>` — include your real name (currently generic: "ML Engineer — Resume & Portfolio")
-  - `<meta name="description">` — one-line summary for search engines
-  - Open Graph tags (`og:title`, `og:description`, `og:url`, `og:image`) — controls how the page looks when shared on LinkedIn, Twitter, etc.
+- [x] SEO / social-sharing meta tags added (`<title>`, description, Open Graph, Twitter card)
+  - NOTE: `og:url` and `og:image` use `https://wfauriat.github.io/` as base (root user site).
 ## Status
 - [x] Project context documented
 - [x] HTML skeleton with CDN imports
