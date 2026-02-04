@@ -22,28 +22,32 @@
   <nav class="sticky top-0 z-50 backdrop-blur-md border-b
               flex items-center justify-between px-4 py-3 gap-4">
 
-    <!-- View mode buttons -->
-    <!-- Alpine: @click sets the reactive 'view' variable; 'text-white bg-indigo-600' highlights the active one -->
+    <!-- View mode buttons — order: overview → intent → deep dive → proof -->
     <div class="flex flex-wrap gap-2">
-      <button @click="view = 'synthesis'"
-              :class="activeBtn('synthesis')"
+      <button @click="view = 'profile'"
+              :class="activeBtn('profile')"
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Synthesis
+        Profile
       </button>
-      <button @click="view = 'detailed'"
-              :class="activeBtn('detailed')"
+      <button @click="view = 'focus'"
+              :class="activeBtn('focus')"
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Detailed
+        Focus
+      </button>
+      <button @click="view = 'resume'"
+              :class="activeBtn('resume')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Resume
       </button>
       <button @click="view = 'skills'"
               :class="activeBtn('skills')"
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
         Skills
       </button>
-      <button @click="view = 'projects'"
-              :class="activeBtn('projects')"
+      <button @click="view = 'portfolio'"
+              :class="activeBtn('portfolio')"
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Projects
+        Portfolio
       </button>
     </div>
 
@@ -59,21 +63,21 @@
   <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
 
     <!-- ── HERO / HEADER (shown in all views) ── -->
-    <header class="text-center space-y-2">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
-        <!-- placeholder — replace with your name -->
-        Your Name
-      </h1>
-      <p class="text-lg font-medium subtitle">ML Engineer</p>
-      <p class="text-sm max-w-xl mx-auto tagline">
-        Research Scientist & ML Engineer. Statistics, uncertainty quantification, and full-stack development.
-      </p>
+    <header class="hero">
+      <h1><!-- placeholder — replace with your name -->Your Name</h1>
+      <p class="subtitle">ML Full-Stack Engineer</p>
+      <p class="tagline">From research to production — ML systems engineered for reliability and trust.</p>
+      <!-- Top skills: the handful of tags a recruiter should see immediately -->
+      <div class="flex flex-wrap justify-center gap-2 mt-4">
+        <span class="skill-tag">Bayesian Inference</span>
+        <span class="skill-tag">Uncertainty Quantification</span>
+        <span class="skill-tag">Full-Stack ML</span>
+        <span class="skill-tag">Scientific Computing</span>
+      </div>
     </header>
 
-    <!-- ── SYNTHESIS VIEW ── -->
-    <!-- Alpine: x-show keeps the element in the DOM but toggles display. -->
-    <!--         Using x-transition for a smooth fade. -->
-    <section x-show="view === 'synthesis'" x-transition class="space-y-6">
+    <!-- ── PROFILE VIEW ── -->
+    <section x-show="view === 'profile'" x-transition class="space-y-6">
       <div class="card">
         <h2 class="section-title">At a Glance</h2>
         <p class="card-text">
@@ -90,8 +94,24 @@
       </div>
     </section>
 
-    <!-- ── DETAILED VIEW ── -->
-    <section x-show="view === 'detailed'" x-transition class="space-y-6">
+    <!-- ── FOCUS VIEW ── -->
+    <section x-show="view === 'focus'" x-transition class="space-y-6">
+      <div class="card">
+        <h2 class="section-title">Focus</h2>
+        <p class="card-text">
+          Looking to contribute at the intersection of applied research and software engineering,
+          with a focus on building trustworthy, production-grade AI systems.
+        </p>
+        <ul class="card-text mt-3">
+          <li>Design and deliver end-to-end ML and data science applications — from research prototype to production deployment</li>
+          <li>Bring expertise in uncertainty quantification and statistical decision theory to make ML systems more trustworthy and interpretable</li>
+          <li>Integrate AI-driven features and solutions into engineering workflows while rigorously addressing safety, risk assessment, and reliability</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── RESUME VIEW ── -->
+    <section x-show="view === 'resume'" x-transition class="space-y-6">
       <!-- Experience -->
       <div class="card">
         <h2 class="section-title">Experience</h2>
@@ -101,7 +121,7 @@
             <h3 class="font-semibold">Research Scientist</h3>
             <span class="text-xs subtitle">2021 – present</span>
           </div>
-          <p class="card-text text-sm">Public defense company — statistics, machine learning, uncertainty quantification for scientific computation and multidisciplinary physics.</p>
+          <p class="card-text">Public defense company — statistics, machine learning, uncertainty quantification for scientific computation and multidisciplinary physics.</p>
         </div>
         <hr class="divider">
 
@@ -110,7 +130,7 @@
             <h3 class="font-semibold">Post-Doctoral Researcher</h3>
             <span class="text-xs subtitle">2018 – 2020</span>
           </div>
-          <p class="card-text text-sm">Statistical Decision Theory — optimal maintenance scheduling.</p>
+          <p class="card-text">Statistical Decision Theory — optimal maintenance scheduling.</p>
         </div>
         <hr class="divider">
 
@@ -119,7 +139,7 @@
             <h3 class="font-semibold">Consultant</h3>
             <span class="text-xs subtitle">2016</span>
           </div>
-          <p class="card-text text-sm">Automotive industry — engineering consulting.</p>
+          <p class="card-text">Automotive industry — engineering consulting.</p>
         </div>
         <hr class="divider">
 
@@ -128,7 +148,7 @@
             <h3 class="font-semibold">PhD Researcher</h3>
             <span class="text-xs subtitle">2013 – 2016</span>
           </div>
-          <p class="card-text text-sm">Automotive industry — doctoral research in Mechanical & Industrial Engineering.</p>
+          <p class="card-text">Automotive industry — doctoral research in Mechanical & Industrial Engineering.</p>
         </div>
       </div>
 
@@ -141,7 +161,7 @@
             <h3 class="font-semibold">Full-Stack Engineer — Professional Formation</h3>
             <span class="text-xs subtitle">2024</span>
           </div>
-          <p class="card-text text-sm">Codecademy</p>
+          <p class="card-text">Codecademy</p>
         </div>
         <hr class="divider">
 
@@ -204,8 +224,8 @@
       </div>
     </section>
 
-    <!-- ── PROJECTS VIEW ── -->
-    <section x-show="view === 'projects'" x-transition class="space-y-6">
+    <!-- ── PORTFOLIO VIEW ── -->
+    <section x-show="view === 'portfolio'" x-transition class="space-y-6">
       <div class="card">
         <h2 class="section-title">Bayesian Inference App</h2>
         <p class="card-text">

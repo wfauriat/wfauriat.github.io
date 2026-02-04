@@ -30,10 +30,11 @@ The reader can switch between these views via buttons in the UI:
 
 | View key     | Description                                                     |
 |--------------|-----------------------------------------------------------------|
-| `synthesis`  | Condensed overview — key facts, headline summary                |
-| `detailed`   | Full resume — all sections expanded                             |
+| `profile`    | Condensed overview — who you are, top skills, key highlights    |
+| `focus`      | Forward-looking: priorities, directions, what you're after      |
+| `resume`     | Full resume — experience timeline + education                   |
 | `skills`     | Reorganized around skill areas / tech stack                     |
-| `projects`   | Reorganized around projects / portfolio / achievements          |
+| `portfolio`  | Curated projects and achievements with tech-stack tags          |
 
 ## Theme modes
 - **Dark mode** / **Light mode** — toggled by the reader via a button in the nav.

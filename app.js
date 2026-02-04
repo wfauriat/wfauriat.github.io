@@ -21,7 +21,7 @@ function resumeApp() {
   return {
     // ── State ──────────────────────────────────────────────────
     // 'view'  — which content section is visible. Matches the x-show conditions in HTML.
-    view: 'synthesis',
+    view: 'profile',
 
     // 'isDark' — drives the 'dark' class on <html>, which Tailwind uses for dark: utilities.
     isDark: true,   // default to dark mode
@@ -51,7 +51,7 @@ function resumeApp() {
     },
 
     // Return the CSS class string for a nav button based on whether it's the active view.
-    // Used in index.html via :class="activeBtn('synthesis')"
+    // Used in index.html via :class="activeBtn('profile')"
     activeBtn(viewKey) {
       return this.view === viewKey ? 'btn-active' : 'btn-inactive';
     }

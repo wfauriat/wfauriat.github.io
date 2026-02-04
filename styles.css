@@ -164,6 +164,52 @@ nav {
   transition:             background 0.5s ease, border-color 0.5s ease;
 }
 
+/* ─── Hero header ─── */
+/* Same glassmorphism as .card, but with an indigo top-accent border and
+   generous desktop padding. Mobile breakpoint at the bottom tightens it down. */
+header.hero {
+  background:              var(--card-bg);
+  backdrop-filter:         blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border:                  1px solid var(--card-border);
+  border-top:              3px solid #4f46e5;   /* indigo accent — same both modes */
+  border-radius:           1.5rem;
+  padding:                 3rem 2rem;
+  text-align:              center;
+  transition:              background 0.4s ease, border-color 0.4s ease;
+}
+
+header.hero h1 {
+  font-size:      3.5rem;
+  font-weight:    700;
+  line-height:    1.1;
+  letter-spacing: -0.025em;
+  color:          var(--body-color);
+  transition:     color 0.4s ease;
+}
+
+header.hero .subtitle {
+  font-size:  1.25rem;
+  margin-top: 0.5rem;
+}
+
+header.hero .tagline {
+  font-size:  0.95rem;
+  max-width:  36rem;
+  margin:     0.5rem auto 0;
+  font-style: italic;
+}
+
+/* Mobile: tighter */
+@media (max-width: 639px) {
+  header.hero {
+    padding: 1.75rem 1rem;
+  }
+  header.hero h1 {
+    font-size: 2.25rem;
+  }
+}
+
 /* ─── Card component ─── */
 /* Glassmorphism in both modes:
      light  →  white-ish frosted panel
@@ -206,8 +252,10 @@ nav {
 }
 
 .card-text {
-  color:      var(--card-text-color);
-  transition: color 0.4s ease;
+  font-size:   0.9375rem;          /* 15px — consistent base for all card body text */
+  line-height: 1.6;
+  color:       var(--card-text-color);
+  transition:  color 0.4s ease;
 }
 
 /* ─── Theme toggle button ─── */
@@ -242,8 +290,10 @@ nav {
   padding-top: 0;
 }
 
-/* Entry headings inherit body color so they stay readable in both modes. */
+/* Entry headings — one step below .section-title in the hierarchy. */
 .card h3 {
+  font-size:  1.05rem;             /* 16.8px — clear step down from section-title 20px */
+  line-height: 1.4;
   color:      var(--body-color);
   transition: color 0.4s ease;
 }
