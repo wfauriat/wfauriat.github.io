@@ -1,0 +1,266 @@
+/* ─── Tailwind directives ─── */
+/* These inject Tailwind's base reset, component defaults, and utility classes.
+   Tailwind CDN handles this automatically, but included here for clarity if you
+   ever switch to a build step. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * CSS CUSTOM PROPERTIES — theme tokens
+ *
+ * How this works with Alpine:
+ *   Alpine toggles a 'dark' class on <html>  →  :class="{ dark: isDark }"
+ *   ALL color theming is driven by these variables — we do NOT rely on Tailwind's
+ *   dark: utility prefix, because the CDN defaults to media-query-based dark mode
+ *   which doesn't respond to a .dark class toggle.
+ *   Tailwind is used only for layout, spacing, and typography sizing.
+ *
+ * :root          = light mode (default, no .dark class)
+ * html.dark      = dark mode  (when Alpine adds .dark to <html>)
+ * ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Cards */
+  --card-bg:            rgba(255, 255, 255, 0.82);
+  --card-border:        rgba(0, 0, 0, 0.07);
+  --card-hover-shadow:  0 8px 24px rgba(79, 70, 229, 0.10);
+
+  /* Section headings */
+  --section-title-color: #4f46e5;           /* indigo-600 — readable on white */
+
+  /* Nav buttons (inactive state) */
+  --btn-inactive-bg:       rgba(0, 0, 0, 0.05);
+  --btn-inactive-color:    #475569;         /* slate-600 */
+  --btn-inactive-hover-bg: rgba(0, 0, 0, 0.10);
+
+  /* Scrollbar */
+  --scrollbar-color:       rgba(99, 102, 241, 0.22);
+  --scrollbar-hover-color: rgba(99, 102, 241, 0.48);
+
+  /* Body + nav */
+  --body-bg:         #f9fafb;           /* gray-50  */
+  --body-color:      #111827;           /* gray-900 */
+  --nav-bg:          rgba(255, 255, 255, 0.80);
+  --nav-border:      #e5e7eb;           /* gray-200 */
+
+  /* Text elements */
+  --subtitle-color:  #4f46e5;           /* indigo-600 */
+  --tagline-color:   #6b7280;           /* gray-500  */
+  --card-text-color: #4b5563;           /* gray-600  */
+
+  /* Theme toggle button */
+  --toggle-bg:       #f3f4f6;           /* gray-100 */
+  --toggle-hover-bg: #e5e7eb;           /* gray-200 */
+
+  /* Background blobs — what the glassmorphism blurs against.
+     Light mode: very subtle indigo / violet wash. */
+  --blob-primary:   rgba(99,  102, 241, 0.10);  /* indigo */
+  --blob-secondary: rgba(168,  85, 247, 0.07);  /* violet */
+}
+
+html.dark {
+  /* Cards — frosted glass on dark */
+  --card-bg:            rgba(255, 255, 255, 0.05);
+  --card-border:        rgba(255, 255, 255, 0.08);
+  --card-hover-shadow:  0 8px 32px rgba(99, 102, 241, 0.18);
+
+  /* Section headings */
+  --section-title-color: #a5b4fc;           /* indigo-300 — softer on dark */
+
+  /* Nav buttons (inactive state) */
+  --btn-inactive-bg:       rgba(255, 255, 255, 0.08);
+  --btn-inactive-color:    #cbd5e1;         /* slate-300 */
+  --btn-inactive-hover-bg: rgba(255, 255, 255, 0.14);
+
+  /* Scrollbar */
+  --scrollbar-color:       rgba(99, 102, 241, 0.30);
+  --scrollbar-hover-color: rgba(99, 102, 241, 0.60);
+
+  /* Body + nav */
+  --body-bg:         #03060c;           /* gray-950 */
+  --body-color:      #f3f4f6;           /* gray-100 */
+  --nav-bg:          rgba(0, 0, 0, 0.30);
+  --nav-border:      rgba(255, 255, 255, 0.10);
+
+  /* Text elements */
+  --subtitle-color:  #818cf8;           /* indigo-400 */
+  --tagline-color:   #9ca3af;           /* gray-400  */
+  --card-text-color: #d1d5db;           /* gray-300  */
+
+  /* Theme toggle button */
+  --toggle-bg:       rgba(255, 255, 255, 0.10);
+  --toggle-hover-bg: rgba(255, 255, 255, 0.20);
+
+  /* Background blobs — stronger saturation on dark so they read through the glass */
+  --blob-primary:   rgba(99,  102, 241, 0.14);
+  --blob-secondary: rgba(168,  85, 247, 0.09);
+}
+
+/* ─── Base / reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ─── Typography ─── */
+body {
+  font-family:       'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color:  var(--body-bg);
+  color:             var(--body-color);
+  transition:        background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ─── Background blobs ─────────────────────────────────────────────────────
+ * Two large, blurred circles fixed behind the page content.
+ * They give the glassmorphism cards something to blur against — without them
+ * backdrop-blur on a flat solid background is invisible.
+ * Fixed positioning means they stay put while the user scrolls. */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;     /* don't intercept clicks */
+  z-index: 0;               /* behind nav + main */
+  transition: background 0.5s ease;
+}
+
+body::before {            /* top-right blob */
+  width: 520px;
+  height: 520px;
+  background: var(--blob-primary);
+  top:  -140px;
+  right: -120px;
+}
+
+body::after {             /* bottom-left blob */
+  width: 420px;
+  height: 420px;
+  background: var(--blob-secondary);
+  bottom: -100px;
+  left:   -100px;
+}
+
+/* Push nav and main above the blobs */
+nav, main {
+  position: relative;
+  z-index: 1;
+}
+
+nav {
+  background:             var(--nav-bg);
+  border-bottom-color:    var(--nav-border);
+  transition:             background 0.5s ease, border-color 0.5s ease;
+}
+
+/* ─── Card component ─── */
+/* Glassmorphism in both modes:
+     light  →  white-ish frosted panel
+     dark   →  dark frosted panel
+   The variables handle the difference; the blur and border-radius stay the same. */
+.card {
+  background:            var(--card-bg);
+  backdrop-filter:       blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border:                1px solid var(--card-border);
+  border-radius:         1rem;
+  padding:               1.75rem;
+  transition:            transform 0.2s ease, box-shadow 0.2s ease, background 0.4s ease, border-color 0.4s ease;
+}
+
+.card:hover {
+  transform:  translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* ─── Section titles ─── */
+.section-title {
+  font-size:      1.25rem;
+  font-weight:    600;
+  color:          var(--section-title-color);
+  margin-bottom:  0.75rem;
+  letter-spacing: 0.02em;
+  transition:     color 0.4s ease;
+}
+
+/* ─── Text elements ─── */
+.subtitle {
+  color:      var(--subtitle-color);
+  transition: color 0.4s ease;
+}
+
+.tagline {
+  color:      var(--tagline-color);
+  transition: color 0.4s ease;
+}
+
+.card-text {
+  color:      var(--card-text-color);
+  transition: color 0.4s ease;
+}
+
+/* ─── Theme toggle button ─── */
+.theme-toggle {
+  background: var(--toggle-bg);
+  transition: background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-hover-bg);
+}
+
+/* ─── View transitions ─── */
+/* Alpine x-transition applies these automatically when x-show toggles.
+   The selector targets sections that are currently visible. */
+[x-transition]:not([style*="display: none"]) {
+  animation: fadeSlideIn 0.3s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity:   0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Nav buttons ─── */
+/* .btn-active  — the currently selected view; same indigo in both modes.
+   .btn-inactive — all other buttons; color adapts via variables. */
+.btn-active {
+  background:  #4f46e5;                          /* indigo-600 */
+  color:       #fff;
+  box-shadow:  0 0 12px rgba(79, 70, 229, 0.40);
+}
+
+.btn-inactive {
+  background: var(--btn-inactive-bg);
+  color:      var(--btn-inactive-color);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-inactive:hover {
+  background: var(--btn-inactive-hover-bg);
+}
+
+/* ─── Scrollbar (webkit browsers / desktop) ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background:    var(--scrollbar-color);
+  border-radius: 3px;
+  transition:    background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover-color);
+}

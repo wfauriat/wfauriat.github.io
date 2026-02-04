@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"
+      :class="{ dark: isDark }"
+      x-data="resumeApp()">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML Engineer — Resume & Portfolio</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js via CDN (defer so DOM is ready before it runs) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen font-sans">
+
+  <!-- ─── TOP NAR: theme toggle + view switcher ─── -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md border-b
+              flex items-center justify-between px-4 py-3 gap-4">
+
+    <!-- View mode buttons -->
+    <!-- Alpine: @click sets the reactive 'view' variable; 'text-white bg-indigo-600' highlights the active one -->
+    <div class="flex flex-wrap gap-2">
+      <button @click="view = 'synthesis'"
+              :class="activeBtn('synthesis')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Synthesis
+      </button>
+      <button @click="view = 'detailed'"
+              :class="activeBtn('detailed')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Detailed
+      </button>
+      <button @click="view = 'skills'"
+              :class="activeBtn('skills')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Skills
+      </button>
+      <button @click="view = 'projects'"
+              :class="activeBtn('projects')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Projects
+      </button>
+    </div>
+
+    <!-- Dark / Light toggle -->
+    <!-- Alpine: @click flips 'isDark'; also persists to localStorage via the toggle() method -->
+    <button @click="toggleTheme()"
+            class="ml-auto text-xl px-3 py-1 rounded-full theme-toggle">
+      <span x-text="isDark ? '☀️' : '🌙'"></span>
+    </button>
+  </nav>
+
+  <!-- ─── MAIN CONTENT AREA ─── -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- ── HERO / HEADER (shown in all views) ── -->
+    <header class="text-center space-y-2">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+        <!-- placeholder — replace with your name -->
+        Your Name
+      </h1>
+      <p class="text-lg font-medium subtitle">ML Engineer</p>
+      <p class="text-sm max-w-xl mx-auto tagline">
+        <!-- placeholder — replace with a short tagline -->
+        Building intelligent systems at scale. Specializing in NLP, computer vision, and MLOps.
+      </p>
+    </header>
+
+    <!-- ── SYNTHESIS VIEW ── -->
+    <!-- Alpine: x-show keeps the element in the DOM but toggles display. -->
+    <!--         Using x-transition for a smooth fade. -->
+    <section x-show="view === 'synthesis'" x-transition class="space-y-6">
+      <!-- placeholder content — will be filled with real resume data -->
+      <div class="card">
+        <h2 class="section-title">At a Glance</h2>
+        <p class="card-text">Condensed summary of experience, key skills, and top achievements.</p>
+      </div>
+    </section>
+
+    <!-- ── DETAILED VIEW ── -->
+    <section x-show="view === 'detailed'" x-transition class="space-y-6">
+      <div class="card">
+        <h2 class="section-title">Experience</h2>
+        <p class="card-text">Full work history, responsibilities, and impact.</p>
+      </div>
+      <div class="card">
+        <h2 class="section-title">Education</h2>
+        <p class="card-text">Degrees, institutions, relevant coursework.</p>
+      </div>
+    </section>
+
+    <!-- ── SKILLS VIEW ── -->
+    <section x-show="view === 'skills'" x-transition class="space-y-6">
+      <div class="card">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="card-text">Skills grouped by category: ML/AI, Software Eng, Cloud/MLOps, etc.</p>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS VIEW ── -->
+    <section x-show="view === 'projects'" x-transition class="space-y-6">
+      <div class="card">
+        <h2 class="section-title">Portfolio & Achievements</h2>
+        <p class="card-text">Projects, open-source work, publications, awards.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── APP LOGIC ─── -->
+  <script src="app.js"></script>
+</body>
+</html>
