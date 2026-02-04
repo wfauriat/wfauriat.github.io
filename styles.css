@@ -369,6 +369,207 @@ header.hero .tagline {
   box-shadow: 0 8px 32px rgba(99, 102, 241, 0.18);
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SKILLS SECTION — Pillars & Tech Stack with Proficiency Chevrons
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Three Pillars (Core Competencies) ─── */
+.pillar {
+  padding: 0.5rem 0;
+}
+
+.pillar-header {
+  display:     flex;
+  align-items: center;
+  gap:         0.75rem;
+}
+
+.pillar-icon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           2rem;
+  height:          2rem;
+  border-radius:   0.5rem;
+  background:      var(--skill-tag-bg);
+  color:           var(--section-title-color);
+  flex-shrink:     0;
+  transition:      background 0.3s ease, color 0.3s ease;
+}
+
+.pillar-icon svg {
+  width:  1.125rem;
+  height: 1.125rem;
+}
+
+.pillar-title {
+  font-size:   1.05rem;
+  font-weight: 600;
+  color:       var(--body-color);
+  transition:  color 0.4s ease;
+}
+
+/* ─── Tech Stack Grid ─── */
+.tech-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:                   1.5rem;
+  margin-top:            1rem;
+}
+
+.tech-category {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.5rem;
+}
+
+.tech-category-title {
+  font-size:      0.75rem;
+  font-weight:    600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color:          var(--tagline-color);
+  margin-bottom:  0.25rem;
+  padding-bottom: 0.375rem;
+  border-bottom:  1px solid var(--card-border);
+  transition:     color 0.4s ease, border-color 0.4s ease;
+}
+
+.tech-item {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  padding:         0.375rem 0;
+}
+
+.tech-name {
+  font-size:   0.9rem;
+  font-weight: 500;
+  color:       var(--body-color);
+  transition:  color 0.4s ease;
+}
+
+/* ─── Proficiency Bar (SVG Chevrons) ─── */
+.proficiency-bar {
+  display:     flex;
+  align-items: center;
+  gap:         3px;
+}
+
+.proficiency-bar .chevron {
+  width:      10px;
+  height:     16px;
+  transition: all 0.3s ease;
+}
+
+/* Filled chevron — gradient from indigo to violet */
+.proficiency-bar .chevron.filled path {
+  fill: url(#chevron-gradient);
+}
+
+/* Fallback solid color if gradient not supported */
+@supports not (fill: url(#chevron-gradient)) {
+  .proficiency-bar .chevron.filled path {
+    fill: #6366f1;
+  }
+}
+
+/* Empty chevron — subtle outline */
+.proficiency-bar .chevron.empty path {
+  fill:           transparent;
+  stroke:         var(--card-border);
+  stroke-width:   1.5;
+  transition:     stroke 0.3s ease;
+}
+
+/* ─── Chevron gradient definitions ───
+   We inject this SVG once at the top of the body via CSS pseudo-element trick,
+   or you can add it directly to the HTML. For simplicity, we use solid colors
+   with a light-to-dark progression per chevron position instead. */
+
+/* Progressive fill intensity — each chevron slightly more saturated */
+.proficiency-bar .chevron.filled:nth-child(1) path { fill: #818cf8; }  /* indigo-400 */
+.proficiency-bar .chevron.filled:nth-child(2) path { fill: #6366f1; }  /* indigo-500 */
+.proficiency-bar .chevron.filled:nth-child(3) path { fill: #4f46e5; }  /* indigo-600 */
+.proficiency-bar .chevron.filled:nth-child(4) path { fill: #4338ca; }  /* indigo-700 */
+
+/* Dark mode — brighter fills */
+html.dark .proficiency-bar .chevron.filled:nth-child(1) path { fill: #a5b4fc; }  /* indigo-300 */
+html.dark .proficiency-bar .chevron.filled:nth-child(2) path { fill: #818cf8; }  /* indigo-400 */
+html.dark .proficiency-bar .chevron.filled:nth-child(3) path { fill: #6366f1; }  /* indigo-500 */
+html.dark .proficiency-bar .chevron.filled:nth-child(4) path { fill: #818cf8; }  /* indigo-400 */
+
+html.dark .proficiency-bar .chevron.empty path {
+  stroke: rgba(255, 255, 255, 0.15);
+}
+
+/* Hover effect — slight glow on the whole bar */
+.tech-item:hover .proficiency-bar .chevron.filled path {
+  filter: drop-shadow(0 0 3px rgba(99, 102, 241, 0.5));
+}
+
+/* ─── Proficiency Legend ─── */
+.proficiency-legend {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           1rem;
+  margin-bottom: 1.25rem;
+  padding:       0.75rem 1rem;
+  background:    var(--btn-inactive-bg);
+  border-radius: 0.5rem;
+  font-size:     0.75rem;
+  color:         var(--tagline-color);
+  transition:    background 0.3s ease, color 0.3s ease;
+}
+
+.legend-item {
+  display:     flex;
+  align-items: center;
+  gap:         0.4rem;
+}
+
+/* Mini chevrons for legend — using unicode triangles for simplicity */
+.legend-chevrons::before {
+  font-family: system-ui, sans-serif;
+  font-size:   0.65rem;
+  letter-spacing: 1px;
+  color:       var(--section-title-color);
+  transition:  color 0.3s ease;
+}
+
+.legend-chevrons[data-level="4"]::before { content: '▸▸▸▸'; }
+.legend-chevrons[data-level="3"]::before { content: '▸▸▸'; opacity: 0.85; }
+.legend-chevrons[data-level="2"]::before { content: '▸▸'; opacity: 0.7; }
+.legend-chevrons[data-level="1"]::before { content: '▸'; opacity: 0.55; }
+
+/* ─── Mobile adjustments ─── */
+@media (max-width: 639px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .proficiency-legend {
+    gap: 0.625rem;
+    font-size: 0.7rem;
+  }
+
+  .tech-item {
+    padding: 0.3rem 0;
+  }
+
+  .tech-name {
+    font-size: 0.85rem;
+  }
+
+  .proficiency-bar .chevron {
+    width:  9px;
+    height: 14px;
+  }
+}
+
+
 /* ─── Theme toggle button ─── */
 .theme-toggle {
   background: var(--toggle-bg);

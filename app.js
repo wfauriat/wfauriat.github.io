@@ -43,6 +43,18 @@ function resumeApp() {
       uq:         false
     },
 
+    // ── Accordion section config ───────────────────────────────
+    // Sections that support expand-all / collapse-all behavior
+    accordionSections: ['resume', 'skills', 'portfolio'],
+
+    // Keys grouped by section for expand/collapse all
+    // Skills has no accordions currently, but included for future-proofing
+    sectionAccordions: {
+      resume: ['research', 'postdoc', 'consultant', 'phd'],
+      skills: [],
+      portfolio: ['bayesian', 'uq']
+    },
+
     // ── Lifecycle hook ─────────────────────────────────────────
     // Alpine calls init() automatically once the component is ready (like React's useEffect on mount).
     init() {
@@ -67,6 +79,7 @@ function resumeApp() {
     },
 
     // Return the CSS class string for a nav button based on whether it's the active view.
+    // Used for simple views (Profile, Focus, Contact) that don't have accordions.
     activeBtn(viewKey) {
       return this.view === viewKey ? 'btn-active' : 'btn-inactive';
     },
@@ -100,6 +113,62 @@ function resumeApp() {
 
         setTimeout(() => { this.highlight = null; }, 1800);
       }
+    },
+
+    // ── Tri-state nav button methods ───────────────────────────
+    // For sections with accordions: inactive → active/collapsed → active/expanded
+
+    // Check if all accordions in a section are expanded
+    isAllExpanded(section) {
+      const keys = this.sectionAccordions[section];
+      if (!keys || keys.length === 0) return false;
+      return keys.every(key => this.expanded[key]);
+    },
+
+    // Check if any accordion in a section is expanded
+    isAnyExpanded(section) {
+      const keys = this.sectionAccordions[section];
+      if (!keys || keys.length === 0) return false;
+      return keys.some(key => this.expanded[key]);
+    },
+
+    // Toggle all accordions in a section to a given state
+    toggleAllInSection(section, state) {
+      const keys = this.sectionAccordions[section];
+      if (!keys) return;
+      keys.forEach(key => {
+        this.expanded[key] = state;
+      });
+    },
+
+    // Handle nav button click with tri-state logic
+    // 1. If not on this section → navigate (collapsed)
+    // 2. If on section but not all expanded → expand all
+    // 3. If on section and all expanded → collapse all
+    handleNavClick(section) {
+      if (this.view !== section) {
+        // State 1 → 2: Navigate to section (keep current accordion state)
+        this.view = section;
+      } else if (!this.isAllExpanded(section)) {
+        // State 2 → 3: Expand all
+        this.toggleAllInSection(section, true);
+      } else {
+        // State 3 → 2: Collapse all
+        this.toggleAllInSection(section, false);
+      }
+    },
+
+    // Return button class and indicator for tri-state sections
+    // indicator: '' (inactive), ' ›' (active/collapsed), ' ▾' (active/expanded)
+    navBtnState(section) {
+      const isActive = this.view === section;
+      const hasAccordions = this.accordionSections.includes(section);
+      const allExpanded = hasAccordions && this.isAllExpanded(section);
+
+      return {
+        classes: isActive ? 'btn-active' : 'btn-inactive',
+        indicator: !isActive ? '' : (allExpanded ? ' ▾' : ' ›')
+      };
     }
   };
 }
