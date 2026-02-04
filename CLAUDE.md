@@ -9,8 +9,8 @@ Deployed on **GitHub Pages** (static, no backend, no build step).
 | Layer        | Choice        | Why                                                                 |
 |--------------|---------------|---------------------------------------------------------------------|
 | Interactivity| **Alpine.js** | Lightweight reactive JS (~15KB). Declarative state in HTML.        |
-| Styling      | **Tailwind CSS** | Utility-first. Full visual control. Dark mode built-in.          |
-| Custom CSS   | `styles.css`  | Animations, transitions, glassmorphism, view-switch effects.       |
+| Styling      | **Tailwind CSS** | Utility-first. Layout, spacing, typography sizing (CDN only).   |
+| Custom CSS   | `styles.css`  | All theming (dark/light via CSS vars), glassmorphism, transitions. |
 | App logic    | `app.js`      | Alpine component state, view switching, theme toggle.               |
 
 All dependencies loaded via CDN — no bundler, no build step, no package.json.
@@ -19,8 +19,9 @@ All dependencies loaded via CDN — no bundler, no build step, no package.json.
 ```
 SPprofile/
 ├── index.html      ← single entry point; imports CDNs, defines layout and Alpine markup
-├── styles.css      ← custom CSS (animations, effects, overrides)
-├── app.js          ← Alpine x-data component(s): state, view logic, theme
+├── styles.css      ← theming (CSS vars for dark/light), glassmorphism, transitions
+├── app.js          ← Alpine x-data component(s): state, view logic, theme toggle
+├── README.md       ← short public description of the project
 └── CLAUDE.md       ← this file
 ```
 
@@ -35,7 +36,13 @@ The reader can switch between these views via buttons in the UI:
 | `projects`   | Reorganized around projects / portfolio / achievements          |
 
 ## Theme modes
-- **Dark mode** / **Light mode** — toggled by the reader. Persisted in `localStorage`.
+- **Dark mode** / **Light mode** — toggled by the reader via a button in the nav.
+- Default theme is detected from the browser / OS setting (`prefers-color-scheme`).
+- Explicit choice is persisted in `localStorage` and takes priority on next visit.
+- Implementation: Alpine sets/removes a `dark` class on `<html>`. All colors are
+  defined as CSS custom properties in `:root` (light) and `html.dark` (dark).
+  Tailwind's `dark:` utility prefix is **not used** — the CDN defaults to
+  media-query-based dark mode which doesn't respond to a class toggle.
 
 ## Design principles
 - Desktop-first, responsive down to mobile.
@@ -61,10 +68,11 @@ All links are HTTPS. No build step required.
 
 ## Status
 - [x] Project context documented
-- [ ] HTML skeleton with CDN imports
-- [ ] Base styles (Tailwind + custom CSS)
-- [ ] Alpine state / view-switching logic
-- [ ] Content populated (pending — owner will provide)
+- [x] HTML skeleton with CDN imports
+- [x] Base styles (Tailwind + custom CSS, full dark/light theming via CSS variables)
+- [x] Alpine state / view-switching logic
+- [x] Content populated (first pass — education, experience, skills, projects)
+- [ ] Content refined (owner iteration in progress)
 - [ ] Visual polish and transitions
 - [ ] Tested across browsers
 - [ ] Deployed to GitHub Pages

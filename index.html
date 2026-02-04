@@ -66,8 +66,7 @@
       </h1>
       <p class="text-lg font-medium subtitle">ML Engineer</p>
       <p class="text-sm max-w-xl mx-auto tagline">
-        <!-- placeholder — replace with a short tagline -->
-        Building intelligent systems at scale. Specializing in NLP, computer vision, and MLOps.
+        Research Scientist & ML Engineer. Statistics, uncertainty quantification, and full-stack development.
       </p>
     </header>
 
@@ -75,38 +74,162 @@
     <!-- Alpine: x-show keeps the element in the DOM but toggles display. -->
     <!--         Using x-transition for a smooth fade. -->
     <section x-show="view === 'synthesis'" x-transition class="space-y-6">
-      <!-- placeholder content — will be filled with real resume data -->
       <div class="card">
         <h2 class="section-title">At a Glance</h2>
-        <p class="card-text">Condensed summary of experience, key skills, and top achievements.</p>
+        <p class="card-text">
+          10+ years spanning mechanical engineering, statistical decision theory, and applied machine learning.
+          Currently a Research Scientist in a public defense company, working at the intersection of
+          ML, uncertainty quantification, and multidisciplinary physics simulations.
+        </p>
+        <ul class="card-text mt-3">
+          <li>PhD and post-doctoral research in engineering and statistical sciences</li>
+          <li>Core expertise in Bayesian methods, UQ, and predictive modeling</li>
+          <li>Full-stack developer — React, Python / Flask, PyQt</li>
+          <li>Built applied ML and simulation tools from research to deployment</li>
+        </ul>
       </div>
     </section>
 
     <!-- ── DETAILED VIEW ── -->
     <section x-show="view === 'detailed'" x-transition class="space-y-6">
+      <!-- Experience -->
       <div class="card">
         <h2 class="section-title">Experience</h2>
-        <p class="card-text">Full work history, responsibilities, and impact.</p>
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">Research Scientist</h3>
+            <span class="text-xs subtitle">2021 – present</span>
+          </div>
+          <p class="card-text text-sm">Public defense company — statistics, machine learning, uncertainty quantification for scientific computation and multidisciplinary physics.</p>
+        </div>
+        <hr class="divider">
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">Post-Doctoral Researcher</h3>
+            <span class="text-xs subtitle">2018 – 2020</span>
+          </div>
+          <p class="card-text text-sm">Statistical Decision Theory — optimal maintenance scheduling.</p>
+        </div>
+        <hr class="divider">
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">Consultant</h3>
+            <span class="text-xs subtitle">2016</span>
+          </div>
+          <p class="card-text text-sm">Automotive industry — engineering consulting.</p>
+        </div>
+        <hr class="divider">
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">PhD Researcher</h3>
+            <span class="text-xs subtitle">2013 – 2016</span>
+          </div>
+          <p class="card-text text-sm">Automotive industry — doctoral research in Mechanical & Industrial Engineering.</p>
+        </div>
       </div>
+
+      <!-- Education -->
       <div class="card">
         <h2 class="section-title">Education</h2>
-        <p class="card-text">Degrees, institutions, relevant coursework.</p>
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">Full-Stack Engineer — Professional Formation</h3>
+            <span class="text-xs subtitle">2024</span>
+          </div>
+          <p class="card-text text-sm">Codecademy</p>
+        </div>
+        <hr class="divider">
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">PhD — Mechanical & Industrial Engineering</h3>
+            <span class="text-xs subtitle">2016</span>
+          </div>
+        </div>
+        <hr class="divider">
+
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <h3 class="font-semibold">M.Sc. — Mechanical Engineering</h3>
+            <span class="text-xs subtitle">2012</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ── SKILLS VIEW ── -->
     <section x-show="view === 'skills'" x-transition class="space-y-6">
       <div class="card">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="card-text">Skills grouped by category: ML/AI, Software Eng, Cloud/MLOps, etc.</p>
+        <h2 class="section-title">Statistics & Mathematics</h2>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="skill-tag">Bayesian Inference</span>
+          <span class="skill-tag">Statistical Decision Theory</span>
+          <span class="skill-tag">Uncertainty Quantification</span>
+          <span class="skill-tag">Probability Theory</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Machine Learning</h2>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="skill-tag">Predictive Modeling</span>
+          <span class="skill-tag">Applied ML</span>
+          <span class="skill-tag">Scientific ML</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Scientific Computing</h2>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="skill-tag">Multidisciplinary Physics</span>
+          <span class="skill-tag">Scientific Simulations</span>
+          <span class="skill-tag">Computational Mechanics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Software & Tools</h2>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">PyQt</span>
+          <span class="skill-tag">Full-Stack Development</span>
+        </div>
       </div>
     </section>
 
     <!-- ── PROJECTS VIEW ── -->
     <section x-show="view === 'projects'" x-transition class="space-y-6">
       <div class="card">
-        <h2 class="section-title">Portfolio & Achievements</h2>
-        <p class="card-text">Projects, open-source work, publications, awards.</p>
+        <h2 class="section-title">Bayesian Inference App</h2>
+        <p class="card-text">
+          A full-stack application for interactive Bayesian statistical inference.
+          React-based frontend with a Python / Flask backend handling model computation and evaluation.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Flask</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">UQ Initiation App</h2>
+        <p class="card-text">
+          A desktop application designed as an initiation tool for uncertainty quantification.
+          Standalone PyQt GUI — accessible entry point for learners and practitioners.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PyQt</span>
+          <span class="skill-tag">Uncertainty Quantification</span>
+        </div>
       </div>
     </section>
 

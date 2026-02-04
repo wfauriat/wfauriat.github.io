@@ -53,6 +53,10 @@
   --toggle-bg:       #f3f4f6;           /* gray-100 */
   --toggle-hover-bg: #e5e7eb;           /* gray-200 */
 
+  /* Skill tags */
+  --skill-tag-bg:    rgba(79, 70, 229, 0.08);
+  --skill-tag-color: #4f46e5;                   /* indigo-600 */
+
   /* Background blobs — what the glassmorphism blurs against.
      Light mode: very subtle indigo / violet wash. */
   --blob-primary:   rgba(99,  102, 241, 0.10);  /* indigo */
@@ -91,6 +95,10 @@ html.dark {
   /* Theme toggle button */
   --toggle-bg:       rgba(255, 255, 255, 0.10);
   --toggle-hover-bg: rgba(255, 255, 255, 0.20);
+
+  /* Skill tags */
+  --skill-tag-bg:    rgba(99, 102, 241, 0.15);
+  --skill-tag-color: #a5b4fc;                   /* indigo-300 */
 
   /* Background blobs — stronger saturation on dark so they read through the glass */
   --blob-primary:   rgba(99,  102, 241, 0.14);
@@ -210,6 +218,57 @@ nav {
 
 .theme-toggle:hover {
   background: var(--toggle-hover-bg);
+}
+
+/* ─── Skill tags ─── */
+/* Pill badges used in the Skills and Projects views. */
+.skill-tag {
+  display:     inline-block;
+  padding:     0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size:   0.8125rem;
+  font-weight: 500;
+  background:  var(--skill-tag-bg);
+  color:       var(--skill-tag-color);
+  transition:  background 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Card internals ─── */
+/* Timeline entries (experience / education) and dividers between them. */
+.card-entry {
+  padding: 0.6rem 0;
+}
+.card-entry:first-of-type {
+  padding-top: 0;
+}
+
+/* Entry headings inherit body color so they stay readable in both modes. */
+.card h3 {
+  color:      var(--body-color);
+  transition: color 0.4s ease;
+}
+
+/* Horizontal rule between timeline entries — reuses card border color. */
+.divider {
+  border:     none;
+  border-top: 1px solid var(--card-border);
+  margin:     0;
+  transition: border-color 0.4s ease;
+}
+
+/* Styled list inside cards — arrow bullet in accent color. */
+.card ul {
+  list-style: none;
+  padding:    0;
+  margin:     0;
+}
+.card ul li {
+  padding: 0.15rem 0;
+}
+.card ul li::before {
+  content:     '→  ';
+  color:       var(--section-title-color);
+  font-weight: 600;
 }
 
 /* ─── View transitions ─── */
