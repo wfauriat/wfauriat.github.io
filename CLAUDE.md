@@ -11,7 +11,7 @@ Deployed on **GitHub Pages** via automated build pipeline (GitHub Actions).
 | Interactivity| **Alpine.js** | Lightweight reactive JS (~15KB). Declarative state in HTML.        |
 | Styling      | **Tailwind CSS** | Utility-first. Layout, spacing, typography sizing (CDN only).   |
 | Custom CSS   | `styles.css`  | All theming (dark/light via CSS vars), glassmorphism, transitions. |
-| App logic    | `app.js`      | Alpine component state, view switching, theme toggle.               |
+| App logic    | `app.js`      | Alpine component state, view switching, theme/language toggle.      |
 | Build tool   | **Vite**      | Dev server with hot reload, production bundler for optimization.    |
 
 Dependencies: Alpine.js and Tailwind loaded via CDN. Vite used for dev + build.
@@ -97,18 +97,19 @@ SPprofile/
 ## View modes (reader-facing)
 The reader can switch between these views via buttons in the UI:
 
-| View key     | Description                                                     |
-|--------------|-----------------------------------------------------------------|
-| `profile`    | Condensed overview — who you are, top skills, key highlights    |
-| `focus`      | Forward-looking: priorities, directions, what you're after      |
-| `resume`     | Full resume — experience timeline + education                   |
-| `skills`     | Reorganized around skill areas / tech stack                     |
-| `portfolio`  | Curated projects and achievements with tech-stack tags          |
-| `contact`    | Hypertext links — GitHub, LinkedIn, Google Scholar (SVG icons) |
+| View key       | Description                                                     |
+|----------------|-----------------------------------------------------------------|
+| `profile`      | Condensed overview — who you are, top skills, key highlights    |
+| `focus`        | Forward-looking: priorities, directions, what you're after      |
+| `resume`       | Full resume — experience timeline + education                   |
+| `skills`       | Reorganized around skill areas / tech stack                     |
+| `portfolio`    | Curated projects and achievements with tech-stack tags          |
+| `publications` | Research publications with citations and key contributions      |
+| `contact`      | Hypertext links — GitHub, LinkedIn, Google Scholar (SVG icons)  |
 
 ## Navigation UX
 
-### Tri-state buttons (Resume, Skills, Portfolio)
+### Tri-state buttons (Resume, Portfolio, Publications)
 Sections with accordion content use tri-state navigation buttons with three visual states:
 
 1. **Inactive** (gray) — Not on this section
@@ -130,9 +131,16 @@ Sections with accordion content use tri-state navigation buttons with three visu
 - Direct navigation (nav buttons) → collapses all accordions (fresh view)
 - Cross-links (internal links between sections) → expands target accordion (contextual)
 
-### Simple buttons (Profile, Focus, Contact)
+### Simple buttons (Profile, Focus, Skills, Contact)
 Sections without accordions use standard two-state buttons:
 - Inactive (gray) → Active (colored)
+
+### Mobile responsive navigation
+- **Desktop (≥768px):** Horizontal nav bar with all buttons visible
+- **Mobile (<768px):** Hamburger menu (☰) with dropdown
+  - Tap hamburger to reveal vertical button stack
+  - Auto-closes on selection or click outside
+  - Theme and language toggles always visible in top bar
 
 ## Language toggle (Bilingual: English / French)
 - **English** / **French** — toggled by the reader via a flag button (🇬🇧/🇫🇷) in the nav.
@@ -157,8 +165,8 @@ Sections without accordions use standard two-state buttons:
 
 ## Content structure
 
-### Accordion pattern (Resume & Portfolio)
-Experience, Education, and Portfolio entries use a **synthetic + detailed** accordion pattern:
+### Accordion pattern (Resume, Portfolio & Publications)
+Experience, Education, Portfolio, and Publications entries use a **synthetic + detailed** accordion pattern:
 
 **Synthetic content** (always visible):
 - Title, company/institution, date range
@@ -171,6 +179,7 @@ Experience, Education, and Portfolio entries use a **synthetic + detailed** acco
   - **Experience**: Context, Key Achievements, Technologies, Cross-links to Portfolio
   - **Education**: Dissertation, Research Focus, Outcomes, Cross-links
   - **Portfolio**: Full description, features list, screenshots/demos, concept tags, tech stack tags, cross-links to Skills
+  - **Publications**: Key contributions, concept tags, external links to articles, cross-links to Skills
 
 **Visual treatment:**
 - Expanded content appears as a nested "sub-card" within the entry
@@ -242,7 +251,8 @@ npm run dev                  # Start Vite dev server at http://localhost:5173
                              # Edit src/ files → browser updates instantly
 ```
 **What to edit:**
-- `src/partials/*.html` — modify view sections
+- `src/partials/en/*.html` — English content sections
+- `src/partials/fr/*.html` — French content sections
 - `src/styles.css` — styling changes
 - `src/public/app.js` — Alpine logic changes
 - `src/resources/` — add/replace images
@@ -262,7 +272,8 @@ npm run build                # Outputs optimized files to dist/
 - Bundles and minifies CSS → `dist/assets/main-[hash].css`
 - Optimizes images → `dist/assets/[name]-[hash].[ext]`
 - Updates all asset paths in HTML to hashed versions
-- Output: **26.4 KB HTML (5.5 KB gzipped)** + assets
+- Output: **~67 KB HTML (~9 KB gzipped)** + assets
+  - Note: Size doubled from ~36 KB due to bilingual content (both EN + FR included)
 
 ### Preview production build locally
 ```bash
@@ -349,9 +360,18 @@ If views don't work on deployed site:
 - [x] Cross-linking system between Resume, Portfolio, and Skills sections
 - [x] Hero: profile photo with circular crop and vertical offset tuning
 - [x] Skills section: proficiency visualization with chevron bars, three-pillar structure
-- [x] Tri-state navigation for accordion-heavy sections (Resume, Portfolio)
+- [x] Publications section with research papers
+  - Accordion cards with citations and key contributions
+  - Concept tags and external links to articles
+- [x] Tri-state navigation for accordion-heavy sections (Resume, Portfolio, Publications)
   - Visual states: inactive (gray) → active-collapsed (border highlight) → active-expanded (colored)
   - Discrete tooltips on hover explaining behavior
+- [x] Mobile responsive navigation
+  - Hamburger menu with dropdown for screens <768px
+  - Auto-close on selection or click-away
+- [x] 3-color pill taxonomy for visual categorization
+  - Orange (tech stack), Teal (CS concepts), Purple (data science concepts)
+  - Strong visual contrast for quick cognitive scanning
 - [x] HTML restructured into maintainable partials
 - [x] Vite build pipeline with hot reload
 - [x] GitHub Actions auto-deployment configured and tested
@@ -360,6 +380,7 @@ If views don't work on deployed site:
   - Partials organized in en/ and fr/ subdirectories
   - Language toggle button with localStorage persistence
   - Sample French translations in hero, profile, and focus sections
+- [x] Footer with WIP notice and co-design attribution
 - [ ] Content population in progress (English baseline, French translation pending)
 - [ ] Visual polish and transitions
 - [ ] Tested across browsers (Chrome/Firefox/Safari)
