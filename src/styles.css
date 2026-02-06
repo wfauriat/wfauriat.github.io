@@ -231,7 +231,7 @@ header.hero .subtitle {
 
 header.hero .tagline {
   font-size:  0.95rem;
-  max-width:  36rem;
+  /* max-width:  36rem; */
   margin:     0.5rem auto 0;
   font-style: italic;
 }
