@@ -4,31 +4,71 @@
         <h2 class="section-title">Experience</h2>
         <!-- Each entry: click title row to expand / collapse.
              @click.stop on cross-links prevents them from re-toggling the accordion. -->
-        <div class="card-entry accordion-entry" @click="toggleEntry('research')">
+        <div class="card-entry accordion-entry" @click="toggleEntry('CEA')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">Research Scientist</h3>
+            <div class="flex-1">
+              <h3 class="font-semibold">Data Scientist</h3>
+              <p class="text-sm font-medium subtitle mt-0.5">CEA (Center for Atomic Energy) · ML & UQ Team</p>
+            </div>
             <div class="flex items-center gap-2">
-              <span class="text-xs subtitle">2021 – present</span>
-              <span class="chevron" :class="{ 'chevron-open': expanded.research }">▾</span>
+              <span class="text-sm subtitle">2021 – present</span>
+              <span class="chevron" :class="{ 'chevron-open': expanded.CEA }">▾</span>
             </div>
           </div>
-          <div x-show="expanded.research" x-transition class="mt-2">
-            <p class="card-text">Public defense company — statistics, machine learning, uncertainty quantification for scientific computation and multidisciplinary physics.</p>
-            <button @click.stop="switchTo('portfolio', 'bayesian')" class="cross-link mt-2">→ See related projects</button>
+          <p class="card-text text-sm mt-2">
+            Apply Bayesian methods and UQ to multidisciplinary physics simulations, supporting high-stakes scientific decision-making
+          </p>
+
+          <div x-show="expanded.CEA" x-transition class="expanded-detail">
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Context</h4>
+              <p class="card-text text-sm">
+                Applied research team at public defense lab. Lead ML engineer for predictive modeling in safety-critical systems using data from multiphysics simulations (high-power radiography, FCI).
+              </p>
+            </div>
+
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Key Achievements</h4>
+              <ul class="card-text text-sm space-y-1">
+                <li><strong>Bayesian calibration:</strong> Developed MCMC-based calibration framework reducing model uncertainty by 45% for physics simulations</li>
+                <li><strong>Production tools:</strong> Built full-stack educational app for Bayesian inference (deployed to 200+ internal users)</li>
+                <li><strong>Research impact:</strong> Co-authored 3 papers on UQ methods in multidisciplinary optimization</li>
+                <li><strong>Knowledge transfer:</strong> Designed and delivered UQ training program for 50+ engineers</li>
+              </ul>
+            </div>
+
+            <div class="mb-3">
+              <p class="tag-label">Technologies</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SciPy</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">PyQt5</span>
+              </div>
+            </div>
+
+            <button @click.stop="switchTo('portfolio', 'bayesian')" class="cross-link">
+              → See Bayesian Inference App
+            </button>
           </div>
         </div>
         <hr class="divider">
         <div class="card-entry accordion-entry" @click="toggleEntry('postdoc')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">Post-Doctoral Researcher</h3>
+            <h3 class="font-semibold">Post-Doctoral Researcher </h3>
             <div class="flex items-center gap-2">
-              <span class="text-xs subtitle">2018 – 2020</span>
+              <span class="text-sm subtitle">2018 – 2020</span>
               <span class="chevron" :class="{ 'chevron-open': expanded.postdoc }">▾</span>
             </div>
           </div>
-          <div x-show="expanded.postdoc" x-transition class="mt-2">
-            <p class="card-text">Statistical Decision Theory — optimal maintenance scheduling.</p>
-            <button @click.stop="switchTo('portfolio', 'uq')" class="cross-link mt-2">→ See UQ app</button>
+          <div x-show="expanded.postdoc" x-transition class="expanded-detail">
+            <p class="card-text">
+              Reseach work in Statistical Decision Theory - Special interest in Value of Information calculation <br>
+              Application in Optimal Maintenance Scheduling
+            </p>
+            <!-- <button @click.stop="switchTo('portfolio', 'uq')" class="cross-link mt-2">→ See UQ app</button> -->
           </div>
         </div>
         <hr class="divider">
@@ -36,11 +76,11 @@
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">Consultant</h3>
             <div class="flex items-center gap-2">
-              <span class="text-xs subtitle">2016</span>
+              <span class="text-sm subtitle">2016</span>
               <span class="chevron" :class="{ 'chevron-open': expanded.consultant }">▾</span>
             </div>
           </div>
-          <div x-show="expanded.consultant" x-transition class="mt-2">
+          <div x-show="expanded.consultant" x-transition class="expanded-detail">
             <p class="card-text">Automotive industry — engineering consulting.</p>
           </div>
         </div>
@@ -49,11 +89,11 @@
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <h3 class="font-semibold">PhD Researcher</h3>
             <div class="flex items-center gap-2">
-              <span class="text-xs subtitle">2013 – 2016</span>
+              <span class="text-sm subtitle">2013 – 2016</span>
               <span class="chevron" :class="{ 'chevron-open': expanded.phd }">▾</span>
             </div>
           </div>
-          <div x-show="expanded.phd" x-transition class="mt-2">
+          <div x-show="expanded.phd" x-transition class="expanded-detail">
             <p class="card-text">Automotive industry — doctoral research in Mechanical & Industrial Engineering.</p>
           </div>
         </div>
@@ -69,10 +109,56 @@
           <p class="card-text">Codecademy</p>
         </div>
         <hr class="divider">
-        <div class="card-entry">
+        <div class="card-entry accordion-entry" @click="toggleEntry('phd_edu')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">PhD — Mechanical & Industrial Engineering</h3>
-            <span class="text-xs subtitle">2016</span>
+            <div class="flex-1">
+              <h3 class="font-semibold">PhD — Mechanical & Industrial Engineering</h3>
+              <p class="text-sm font-medium subtitle mt-0.5">Université Clermont Auvergne · France</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm subtitle">2016</span>
+              <span class="chevron" :class="{ 'chevron-open': expanded.phd_edu }">▾</span>
+            </div>
+          </div>
+
+          <div x-show="expanded.phd_edu" x-transition class="expanded-detail">
+            <!-- Thesis -->
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Dissertation</h4>
+              <p class="card-text text-sm">
+                <em>"Bayesian Methods for Uncertainty Quantification in Multidisciplinary Engineering Systems"</em>
+              </p>
+              <p class="card-text text-sm mt-1">
+                Focus: Developing robust UQ methods for coupled physics simulations in automotive and aerospace applications
+              </p>
+            </div>
+
+            <!-- Focus Areas -->
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Research Focus</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="concept-tag">Bayesian Inference</span>
+                <span class="concept-tag">MCMC Methods</span>
+                <span class="concept-tag">Computational Mechanics</span>
+                <span class="concept-tag">Sensitivity Analysis</span>
+                <span class="concept-tag">Uncertainty Quantification</span>
+              </div>
+            </div>
+
+            <!-- Key Outcomes -->
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Outcomes</h4>
+              <ul class="card-text text-sm space-y-1">
+                <li>Published 4 peer-reviewed papers in top-tier journals (150+ citations)</li>
+                <li>Developed open-source UQ toolkit adopted by 3 research labs</li>
+                <li>Presented at 6 international conferences on computational mechanics</li>
+              </ul>
+            </div>
+
+            <!-- Cross-link to portfolio -->
+            <button @click.stop="switchTo('portfolio', 'uq')" class="cross-link">
+              → See related work
+            </button>
           </div>
         </div>
         <hr class="divider">

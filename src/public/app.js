@@ -35,10 +35,11 @@ function resumeApp() {
     // Accordion state — Resume (experience) and Portfolio cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
     expanded: {
-      research:   false,
+      CEA:        false,
       postdoc:    false,
       consultant: false,
       phd:        false,
+      phd_edu:    false,  // PhD education entry
       bayesian:   false,
       uq:         false
     },
@@ -50,7 +51,7 @@ function resumeApp() {
     // Keys grouped by section for expand/collapse all
     // Skills has no accordions currently, but included for future-proofing
     sectionAccordions: {
-      resume: ['research', 'postdoc', 'consultant', 'phd'],
+      resume: ['CEA', 'postdoc', 'consultant', 'phd', 'phd_edu'],
       skills: [],
       portfolio: ['bayesian', 'uq']
     },
@@ -142,13 +143,14 @@ function resumeApp() {
     },
 
     // Handle nav button click with tri-state logic
-    // 1. If not on this section → navigate (collapsed)
+    // 1. If not on this section → navigate and collapse all
     // 2. If on section but not all expanded → expand all
     // 3. If on section and all expanded → collapse all
     handleNavClick(section) {
       if (this.view !== section) {
-        // State 1 → 2: Navigate to section (keep current accordion state)
+        // State 1 → 2: Navigate to section and collapse all accordions
         this.view = section;
+        this.toggleAllInSection(section, false);
       } else if (!this.isAllExpanded(section)) {
         // State 2 → 3: Expand all
         this.toggleAllInSection(section, true);
@@ -158,17 +160,49 @@ function resumeApp() {
       }
     },
 
-    // Return button class and indicator for tri-state sections
-    // indicator: '' (inactive), ' ›' (active/collapsed), ' ▾' (active/expanded)
+    // Return button class for tri-state sections
+    // Three visual states: inactive (gray) → active-collapsed (border) → active-expanded (colored)
     navBtnState(section) {
       const isActive = this.view === section;
       const hasAccordions = this.accordionSections.includes(section);
       const allExpanded = hasAccordions && this.isAllExpanded(section);
 
+      let classes = 'btn-inactive';
+      if (isActive) {
+        if (allExpanded) {
+          classes = 'btn-active-expanded';
+        } else {
+          classes = 'btn-active-collapsed';
+        }
+      }
+
       return {
-        classes: isActive ? 'btn-active' : 'btn-inactive',
-        indicator: !isActive ? '' : (allExpanded ? ' ▾' : ' ›')
+        classes: classes,
+        indicator: ''  // No text indicators - visual states only
       };
+    },
+
+    // Return tooltip text for tri-state nav buttons
+    // Explains the current state and what the next click will do
+    navTooltip(section) {
+      const isActive = this.view === section;
+      const hasAccordions = this.accordionSections.includes(section);
+
+      if (!hasAccordions) {
+        // Simple button - no accordion behavior
+        return `View ${section.charAt(0).toUpperCase() + section.slice(1)}`;
+      }
+
+      if (!isActive) {
+        // State 1: Not on this section yet
+        return `View ${section.charAt(0).toUpperCase() + section.slice(1)}`;
+      } else if (!this.isAllExpanded(section)) {
+        // State 2: On section but collapsed - clicking will expand all
+        return 'Click again to expand all';
+      } else {
+        // State 3: On section and expanded - clicking will collapse all
+        return 'Click again to collapse all';
+      }
     }
   };
 }

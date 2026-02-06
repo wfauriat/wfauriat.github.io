@@ -46,21 +46,27 @@
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
         Focus
       </button>
-      <button @click="handleNavClick('resume')"
-              :class="navBtnState('resume').classes"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Resume<span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
-      </button>
+      <div class="nav-tooltip-wrapper">
+        <button @click="handleNavClick('resume')"
+                :class="navBtnState('resume').classes"
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+          Resume<span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
+        </button>
+        <span class="nav-tooltip" x-text="navTooltip('resume')"></span>
+      </div>
       <button @click="view = 'skills'"
               :class="activeBtn('skills')"
               class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
         Skills
       </button>
-      <button @click="handleNavClick('portfolio')"
-              :class="navBtnState('portfolio').classes"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Portfolio<span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
-      </button>
+      <div class="nav-tooltip-wrapper">
+        <button @click="handleNavClick('portfolio')"
+                :class="navBtnState('portfolio').classes"
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+          Portfolio<span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
+        </button>
+        <span class="nav-tooltip" x-text="navTooltip('portfolio')"></span>
+      </div>
     </div>
     <!-- Right-hand cluster: Contact button + theme toggle -->
     <div class="flex items-center gap-2 ml-auto">
