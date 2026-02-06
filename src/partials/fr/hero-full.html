@@ -1,0 +1,18 @@
+<!-- ── HERO COMPLET (vues Profil & Contact) ── -->
+<header x-show="['profile', 'contact'].includes(view)" x-transition class="hero">
+  <!-- Bloc texte (gauche) -->
+  <div class="hero-text">
+    <h1>William Fauriat</h1>
+    <p class="subtitle">Ingénieur ML Full-Stack</p>
+    <p class="tagline">De la recherche à la production — systèmes ML conçus pour la fiabilité et la confiance.</p>
+    <!-- Compétences principales : les quelques tags qu'un recruteur devrait voir immédiatement -->
+    <div class="flex flex-wrap gap-2 mt-4">
+      <span class="concept-ds">Inférence Bayésienne</span>
+      <span class="concept-ds">Quantification d'Incertitude</span>
+      <span class="concept-cs">ML Full-Stack</span>
+      <span class="concept-ds">Calcul Scientifique</span>
+    </div>
+  </div>
+  <!-- Photo (droite) -->
+  <img src="resources/FaceWilRed.png" alt="Photo de profil" class="hero-photo">
+</header>

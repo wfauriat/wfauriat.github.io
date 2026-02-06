@@ -21,15 +21,27 @@ Dependencies: Alpine.js and Tailwind loaded via CDN. Vite used for dev + build.
 SPprofile/
 ├── src/                     ← source files (you edit these)
 │   ├── index.html           ← shell with partial includes (EJS syntax)
-│   ├── partials/            ← view sections split for maintainability
-│   │   ├── hero-full.html   ← full hero (Profile/Contact views)
-│   │   ├── hero-bar.html    ← compact hero bar (other views)
-│   │   ├── profile.html     ← Profile view section
-│   │   ├── focus.html       ← Focus view section
-│   │   ├── resume.html      ← Resume view section
-│   │   ├── skills.html      ← Skills view section
-│   │   ├── portfolio.html   ← Portfolio view section
-│   │   └── contact.html     ← Contact view section
+│   ├── partials/            ← view sections split for maintainability (bilingual)
+│   │   ├── en/              ← English partials
+│   │   │   ├── hero-full.html   ← full hero (Profile/Contact views)
+│   │   │   ├── hero-bar.html    ← compact hero bar (other views)
+│   │   │   ├── profile.html     ← Profile view section
+│   │   │   ├── focus.html       ← Focus view section
+│   │   │   ├── resume.html      ← Resume view section
+│   │   │   ├── skills.html      ← Skills view section
+│   │   │   ├── portfolio.html   ← Portfolio view section
+│   │   │   ├── publications.html ← Publications view section
+│   │   │   └── contact.html     ← Contact view section
+│   │   └── fr/              ← French partials (same structure as en/)
+│   │       ├── hero-full.html
+│   │       ├── hero-bar.html
+│   │       ├── profile.html
+│   │       ├── focus.html
+│   │       ├── resume.html
+│   │       ├── skills.html
+│   │       ├── portfolio.html
+│   │       ├── publications.html
+│   │       └── contact.html
 │   ├── public/              ← files copied as-is to dist/ (no processing)
 │   │   └── app.js           ← Alpine logic (must be in public/ to deploy)
 │   ├── styles.css           ← theming (CSS vars), glassmorphism, transitions
@@ -121,6 +133,18 @@ Sections with accordion content use tri-state navigation buttons with three visu
 ### Simple buttons (Profile, Focus, Contact)
 Sections without accordions use standard two-state buttons:
 - Inactive (gray) → Active (colored)
+
+## Language toggle (Bilingual: English / French)
+- **English** / **French** — toggled by the reader via a flag button (🇬🇧/🇫🇷) in the nav.
+- Default language is English
+- Language choice is persisted in `localStorage` and restored on next visit.
+- **Implementation:**
+  - Alpine state: `lang: 'en'` or `'fr'`
+  - Method: `toggleLang()` switches between languages and saves to localStorage
+  - HTML structure: Two conditional divs with `x-show="lang === 'en'"` and `x-show="lang === 'fr'"`
+  - Partials organized in `src/partials/en/` and `src/partials/fr/` subdirectories
+  - Vite includes both language versions in build (content duplication acceptable for static site)
+  - Alpine's `x-transition` provides smooth fade between languages
 
 ## Theme modes
 - **Dark mode** / **Light mode** — toggled by the reader via a button in the nav.
@@ -332,6 +356,10 @@ If views don't work on deployed site:
 - [x] Vite build pipeline with hot reload
 - [x] GitHub Actions auto-deployment configured and tested
 - [x] **Deployed to GitHub Pages** — `https://wfauriat.github.io/` ✅
-- [ ] Content refined (owner iteration in progress)
+- [x] Bilingual implementation (English/French toggle)
+  - Partials organized in en/ and fr/ subdirectories
+  - Language toggle button with localStorage persistence
+  - Sample French translations in hero, profile, and focus sections
+- [ ] Content population in progress (English baseline, French translation pending)
 - [ ] Visual polish and transitions
 - [ ] Tested across browsers (Chrome/Firefox/Safari)

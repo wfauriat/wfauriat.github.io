@@ -96,6 +96,12 @@
                 class="text-xl px-3 py-1 rounded-full theme-toggle">
           <span x-text="isDark ? '☀️' : '🌙'"></span>
         </button>
+        <!-- Language toggle -->
+        <button @click="toggleLang()"
+                class="text-lg px-3 py-1 rounded-full theme-toggle"
+                :title="lang === 'en' ? 'Switch to French' : 'Passer en anglais'">
+          <span x-text="lang === 'en' ? '🇬🇧' : '🇫🇷'"></span>
+        </button>
       </div>
     </div>
 
@@ -140,16 +146,32 @@
   </nav>
 
   <!-- ─── MAIN CONTENT AREA ─── -->
-  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
-    <%- include('hero-full.html') %>
-    <%- include('hero-bar.html') %>
-    <%- include('profile.html') %>
-    <%- include('focus.html') %>
-    <%- include('resume.html') %>
-    <%- include('skills.html') %>
-    <%- include('portfolio.html') %>
-    <%- include('publications.html') %>
-    <%- include('contact.html') %>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <!-- English content -->
+    <div x-show="lang === 'en'" x-transition class="space-y-10">
+      <%- include('en/hero-full.html') %>
+      <%- include('en/hero-bar.html') %>
+      <%- include('en/profile.html') %>
+      <%- include('en/focus.html') %>
+      <%- include('en/resume.html') %>
+      <%- include('en/skills.html') %>
+      <%- include('en/portfolio.html') %>
+      <%- include('en/publications.html') %>
+      <%- include('en/contact.html') %>
+    </div>
+
+    <!-- French content -->
+    <div x-show="lang === 'fr'" x-transition class="space-y-10">
+      <%- include('fr/hero-full.html') %>
+      <%- include('fr/hero-bar.html') %>
+      <%- include('fr/profile.html') %>
+      <%- include('fr/focus.html') %>
+      <%- include('fr/resume.html') %>
+      <%- include('fr/skills.html') %>
+      <%- include('fr/portfolio.html') %>
+      <%- include('fr/publications.html') %>
+      <%- include('fr/contact.html') %>
+    </div>
   </main>
 
   <!-- ─── FOOTER ─── -->

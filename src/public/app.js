@@ -35,6 +35,9 @@ function resumeApp() {
     // 'mobileMenuOpen' — controls mobile hamburger menu visibility
     mobileMenuOpen: false,
 
+    // 'lang' — current language (en or fr)
+    lang: localStorage.getItem('wfauriat-lang') || 'en',
+
     // Accordion state — Resume (experience), Portfolio, and Publications cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
     expanded: {
@@ -83,6 +86,12 @@ function resumeApp() {
     toggleTheme() {
       this.isDark = !this.isDark;
       localStorage.setItem('wfauriat-theme', this.isDark ? 'dark' : 'light');
+    },
+
+    // Toggle language between English and French
+    toggleLang() {
+      this.lang = this.lang === 'en' ? 'fr' : 'en';
+      localStorage.setItem('wfauriat-lang', this.lang);
     },
 
     // Toggle mobile menu open/closed
