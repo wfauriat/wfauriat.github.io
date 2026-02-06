@@ -160,6 +160,40 @@ Internal navigation links between sections that auto-expand target content:
 - Portfolio projects → Skills sections
 - Education → Portfolio/research work
 
+## Color coding system
+
+Visual categorization through a 3-color pill taxonomy:
+
+### **Tech Stack (Orange)** 🟠
+Languages, frameworks, libraries, tools
+- **Light mode:** `rgba(251, 146, 60, 0.12)` bg + `#ea580c` text (orange-600)
+- **Dark mode:** `rgba(251, 146, 60, 0.18)` bg + `#fdba74` text (orange-300)
+- **CSS class:** `.tech-tag`
+- **Examples:** Python, React, Flask, Docker, NumPy, Git
+
+### **CS Concepts (Teal)** 🟦
+Software engineering, algorithms, architecture
+- **Light mode:** `rgba(20, 184, 166, 0.12)` bg + `#0d9488` text (teal-600)
+- **Dark mode:** `rgba(20, 184, 166, 0.18)` bg + `#5eead4` text (teal-300)
+- **CSS class:** `.concept-cs`
+- **Examples:** Full-Stack Development, Software Engineering, API Design, System Architecture
+
+### **Data Science Concepts (Purple)** 🟣
+Mathematics, statistics, domain expertise
+- **Light mode:** `rgba(147, 51, 234, 0.10)` bg + `#7c3aed` text (purple-600)
+- **Dark mode:** `rgba(147, 51, 234, 0.18)` bg + `#c4b5fd` text (purple-300)
+- **CSS class:** `.concept-ds`
+- **Examples:** Bayesian Inference, MCMC, Uncertainty Quantification, Statistical Decision Theory
+
+### **UI Structure (Indigo)**
+Titles, subtitles, accents remain indigo (neutral brand color, separate from content categorization)
+
+**Design rationale:**
+- Strong visual contrast between categories (warm orange vs cool teal/purple)
+- Semantic grouping: Theory (purple) vs Application (teal) vs Tools (orange)
+- Quick cognitive scanning for recruiters and readers
+- Works beautifully in both light and dark themes
+
 ## Design principles
 - Desktop-first, responsive down to mobile.
 - Modern / cutting-edge look (not generic Bootstrap). Glassmorphism, smooth transitions.

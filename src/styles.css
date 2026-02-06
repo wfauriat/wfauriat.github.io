@@ -50,13 +50,17 @@
   --toggle-bg:       #f3f4f6;           /* gray-100 */
   --toggle-hover-bg: #e5e7eb;           /* gray-200 */
 
-  /* Skill tags (tech stack) — indigo pills */
-  --skill-tag-bg:    rgba(79, 70, 229, 0.08);
-  --skill-tag-color: #4f46e5;                   /* indigo-600 */
+  /* Tech tags (languages, frameworks, tools) — orange pills */
+  --tech-tag-bg:    rgba(251, 146, 60, 0.12);
+  --tech-tag-color: #ea580c;                      /* orange-600 */
 
-  /* Concept tags (math / statistical concepts) — violet pills to differentiate from tech */
-  --concept-tag-bg:    rgba(168, 85, 247, 0.10);
-  --concept-tag-color: #7c3aed;                 /* violet-600 */
+  /* CS concept tags — teal pills */
+  --concept-cs-bg:    rgba(20, 184, 166, 0.12);
+  --concept-cs-color: #0d9488;                    /* teal-600 */
+
+  /* Data Science concept tags (Maths/Stats + Domain) — purple pills */
+  --concept-ds-bg:    rgba(147, 51, 234, 0.10);
+  --concept-ds-color: #7c3aed;                    /* purple-600 */
 
   /* Background blobs — what the glassmorphism blurs against.
      Light mode: very subtle indigo / violet wash. */
@@ -102,13 +106,17 @@ html.dark {
   --toggle-bg:       rgba(255, 255, 255, 0.10);
   --toggle-hover-bg: rgba(255, 255, 255, 0.20);
 
-  /* Skill tags (tech stack) — indigo pills */
-  --skill-tag-bg:    rgba(99, 102, 241, 0.15);
-  --skill-tag-color: #a5b4fc;                   /* indigo-300 */
+  /* Tech tags (languages, frameworks, tools) — orange pills */
+  --tech-tag-bg:    rgba(251, 146, 60, 0.18);
+  --tech-tag-color: #fdba74;                      /* orange-300 */
 
-  /* Concept tags (math / statistical concepts) — violet pills */
-  --concept-tag-bg:    rgba(168, 85, 247, 0.18);
-  --concept-tag-color: #c4b5fd;                 /* violet-300 */
+  /* CS concept tags — teal pills */
+  --concept-cs-bg:    rgba(20, 184, 166, 0.18);
+  --concept-cs-color: #5eead4;                    /* teal-300 */
+
+  /* Data Science concept tags (Maths/Stats + Domain) — purple pills */
+  --concept-ds-bg:    rgba(147, 51, 234, 0.18);
+  --concept-ds-color: #c4b5fd;                    /* purple-300 */
 
   /* Background blobs — stronger saturation on dark so they read through the glass */
   --blob-primary:   rgba(99,  102, 241, 0.14);
@@ -599,29 +607,43 @@ html.dark .proficiency-bar .chevron.empty path {
   background: var(--toggle-hover-bg);
 }
 
-/* ─── Skill tags ─── */
-/* Pill badges used in the Skills and Projects views. */
-.skill-tag {
-  display:     inline-block;
-  padding:     0.25rem 0.75rem;
+/* ─── Tag styles ─── */
+/* Pill badges used in Resume, Portfolio, and Publications views. */
+
+/* Tech tags — languages, frameworks, libraries, tools (Orange) */
+.tech-tag {
+  display:       inline-block;
+  padding:       0.25rem 0.75rem;
   border-radius: 9999px;
-  font-size:   0.8125rem;
-  font-weight: 500;
-  background:  var(--skill-tag-bg);
-  color:       var(--skill-tag-color);
-  transition:  background 0.3s ease, color 0.3s ease;
+  font-size:     0.8125rem;
+  font-weight:   500;
+  background:    var(--tech-tag-bg);
+  color:         var(--tech-tag-color);
+  transition:    background 0.3s ease, color 0.3s ease;
 }
 
-/* Concept tags — violet pills for math / statistical keywords */
-.concept-tag {
-  display:     inline-block;
-  padding:     0.25rem 0.75rem;
+/* CS concept tags — software engineering, algorithms, architecture (Teal) */
+.concept-cs {
+  display:       inline-block;
+  padding:       0.25rem 0.75rem;
   border-radius: 9999px;
-  font-size:   0.8125rem;
-  font-weight: 500;
-  background:  var(--concept-tag-bg);
-  color:       var(--concept-tag-color);
-  transition:  background 0.3s ease, color 0.3s ease;
+  font-size:     0.8125rem;
+  font-weight:   500;
+  background:    var(--concept-cs-bg);
+  color:         var(--concept-cs-color);
+  transition:    background 0.3s ease, color 0.3s ease;
+}
+
+/* Data Science concept tags — maths, stats, domain expertise (Purple) */
+.concept-ds {
+  display:       inline-block;
+  padding:       0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size:     0.8125rem;
+  font-weight:   500;
+  background:    var(--concept-ds-bg);
+  color:         var(--concept-ds-color);
+  transition:    background 0.3s ease, color 0.3s ease;
 }
 
 /* Small uppercase label above a tag row */
