@@ -32,7 +32,10 @@ function resumeApp() {
     // Set by switchTo(), auto-cleared after 1.8s. null = no highlight.
     highlight: null,
 
-    // Accordion state — Resume (experience) and Portfolio cards.
+    // 'mobileMenuOpen' — controls mobile hamburger menu visibility
+    mobileMenuOpen: false,
+
+    // Accordion state — Resume (experience), Portfolio, and Publications cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
     expanded: {
       CEA:        false,
@@ -41,19 +44,22 @@ function resumeApp() {
       phd:        false,
       phd_edu:    false,  // PhD education entry
       bayesian:   false,
-      uq:         false
+      uq:         false,
+      aksys:      false,  // AK-SYS publication
+      voi:        false   // Value of Information publication
     },
 
     // ── Accordion section config ───────────────────────────────
     // Sections that support expand-all / collapse-all behavior
-    accordionSections: ['resume', 'skills', 'portfolio'],
+    accordionSections: ['resume', 'skills', 'portfolio', 'publications'],
 
     // Keys grouped by section for expand/collapse all
     // Skills has no accordions currently, but included for future-proofing
     sectionAccordions: {
       resume: ['CEA', 'postdoc', 'consultant', 'phd', 'phd_edu'],
       skills: [],
-      portfolio: ['bayesian', 'uq']
+      portfolio: ['bayesian', 'uq'],
+      publications: ['aksys', 'voi']
     },
 
     // ── Lifecycle hook ─────────────────────────────────────────
@@ -77,6 +83,16 @@ function resumeApp() {
     toggleTheme() {
       this.isDark = !this.isDark;
       localStorage.setItem('wfauriat-theme', this.isDark ? 'dark' : 'light');
+    },
+
+    // Toggle mobile menu open/closed
+    toggleMobileMenu() {
+      this.mobileMenuOpen = !this.mobileMenuOpen;
+    },
+
+    // Close mobile menu (called when a nav button is clicked)
+    closeMobileMenu() {
+      this.mobileMenuOpen = false;
     },
 
     // Return the CSS class string for a nav button based on whether it's the active view.
@@ -158,6 +174,7 @@ function resumeApp() {
         // State 3 → 2: Collapse all
         this.toggleAllInSection(section, false);
       }
+      this.closeMobileMenu();  // Close mobile menu after navigation
     },
 
     // Return button class for tri-state sections

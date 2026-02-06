@@ -1,0 +1,99 @@
+    <!-- ── PUBLICATIONS VIEW ── -->
+    <section x-show="view === 'publications'" x-transition class="space-y-6">
+      <!-- AK-SYS Article -->
+      <div class="card accordion-entry" data-id="aksys"
+           :class="{ 'card-highlight': highlight === 'aksys' }"
+           @click="toggleEntry('aksys')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">AK-SYS: System Reliability Method</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.aksys }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong>, & Gayton, N. (2014).
+          AK-SYS: an adaptation of the AK-MCS method for system reliability.
+          <em>Reliability Engineering & System Safety</em>, 123, 137-144.
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.aksys" x-transition class="expanded-detail">
+          <p class="card-text">
+            Novel adaptive Kriging method for efficient system reliability analysis.
+            Extends the AK-MCS approach to handle series/parallel systems and complex
+            failure configurations through intelligent sampling strategies.
+          </p>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Key Contributions</h4>
+            <ul class="card-text text-sm space-y-1">
+              <li>Adaptive enrichment strategy for Kriging surrogate models in system reliability</li>
+              <li>Efficient rare event probability estimation for series and parallel systems</li>
+              <li>Significant reduction in computational cost compared to Monte Carlo methods</li>
+              <li>Demonstrated on structural mechanics and engineering reliability problems</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-tag">Adaptive Kriging</span>
+              <span class="concept-tag">System Reliability</span>
+              <span class="concept-tag">Surrogate Modeling</span>
+              <span class="concept-tag">Uncertainty Quantification</span>
+              <span class="concept-tag">Rare Event Simulation</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832013002949"
+               class="cross-link" target="_blank" rel="noopener">→ View on ScienceDirect</a>
+            <button @click.stop="switchTo('skills', 'stats')" class="cross-link">→ See related skills</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Value of Information Article -->
+      <div class="card accordion-entry" data-id="voi"
+           :class="{ 'card-highlight': highlight === 'voi' }"
+           @click="toggleEntry('voi')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Value of Information in Maintenance</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.voi }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong>, & Zio, E. (2020).
+          Optimization of an aperiodic sequential inspection and condition-based maintenance policy
+          driven by value of information.
+          <em>Reliability Engineering & System Safety</em>, 204, 107133.
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.voi" x-transition class="expanded-detail">
+          <p class="card-text">
+            Decision-theoretic framework for optimal maintenance scheduling using Value of Information (VoI).
+            Addresses when and how to inspect degrading systems by quantifying the economic benefit
+            of condition monitoring versus the cost of inspections and failures.
+          </p>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Key Contributions</h4>
+            <ul class="card-text text-sm space-y-1">
+              <li>VoI-driven framework for aperiodic inspection scheduling optimization</li>
+              <li>Bayesian updating of degradation models with sequential inspection data</li>
+              <li>Trade-off analysis between inspection costs, failure risks, and information gain</li>
+              <li>Application to condition-based maintenance in industrial systems</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-tag">Value of Information</span>
+              <span class="concept-tag">Bayesian Decision Theory</span>
+              <span class="concept-tag">Maintenance Optimization</span>
+              <span class="concept-tag">Sequential Inspection</span>
+              <span class="concept-tag">Degradation Modeling</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832020306347"
+               class="cross-link" target="_blank" rel="noopener">→ View on ScienceDirect</a>
+            <button @click.stop="switchTo('skills', 'stats')" class="cross-link">→ See related skills</button>
+          </div>
+        </div>
+      </div>
+    </section>

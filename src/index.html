@@ -32,54 +32,110 @@
 </head>
 <body class="min-h-screen font-sans">
   <!-- ─── TOP NAV: theme toggle + view switcher ─── -->
-  <nav class="sticky top-0 z-50 backdrop-blur-md border-b
-              flex items-center justify-between px-4 py-3 gap-4">
-    <!-- View mode buttons — order: overview → intent → deep dive → proof -->
-    <div class="flex flex-wrap gap-2">
-      <button @click="view = 'profile'"
-              :class="activeBtn('profile')"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Profile
+  <nav class="sticky top-0 z-50 backdrop-blur-md border-b">
+    <div class="flex items-center justify-between px-4 py-3 gap-4">
+      <!-- Hamburger button (mobile only) -->
+      <button @click="toggleMobileMenu()"
+              class="md:hidden text-xl px-2 py-1 rounded hover:bg-opacity-10 transition-colors"
+              aria-label="Toggle menu">
+        <span x-text="mobileMenuOpen ? '✕' : '☰'"></span>
       </button>
-      <button @click="view = 'focus'"
-              :class="activeBtn('focus')"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Focus
-      </button>
-      <div class="nav-tooltip-wrapper">
-        <button @click="handleNavClick('resume')"
-                :class="navBtnState('resume').classes"
+
+      <!-- View mode buttons — horizontal on desktop, hidden on mobile (dropdown shown separately) -->
+      <div class="hidden md:flex flex-wrap gap-2">
+        <button @click="view = 'profile'; closeMobileMenu()"
+                :class="activeBtn('profile')"
                 class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-          Resume<span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
+          Profile
         </button>
-        <span class="nav-tooltip" x-text="navTooltip('resume')"></span>
+        <button @click="view = 'focus'; closeMobileMenu()"
+                :class="activeBtn('focus')"
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+          Focus
+        </button>
+        <div class="nav-tooltip-wrapper">
+          <button @click="handleNavClick('resume')"
+                  :class="navBtnState('resume').classes"
+                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+            Resume<span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
+          </button>
+          <span class="nav-tooltip" x-text="navTooltip('resume')"></span>
+        </div>
+        <button @click="view = 'skills'; closeMobileMenu()"
+                :class="activeBtn('skills')"
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+          Skills
+        </button>
+        <div class="nav-tooltip-wrapper">
+          <button @click="handleNavClick('portfolio')"
+                  :class="navBtnState('portfolio').classes"
+                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+            Portfolio<span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
+          </button>
+          <span class="nav-tooltip" x-text="navTooltip('portfolio')"></span>
+        </div>
+        <div class="nav-tooltip-wrapper">
+          <button @click="handleNavClick('publications')"
+                  :class="navBtnState('publications').classes"
+                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+            Publications<span x-text="navBtnState('publications').indicator" class="ml-0.5 text-xs"></span>
+          </button>
+          <span class="nav-tooltip" x-text="navTooltip('publications')"></span>
+        </div>
       </div>
-      <button @click="view = 'skills'"
-              :class="activeBtn('skills')"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Skills
-      </button>
-      <div class="nav-tooltip-wrapper">
-        <button @click="handleNavClick('portfolio')"
-                :class="navBtnState('portfolio').classes"
+
+      <!-- Right-hand cluster: Contact button + theme toggle (always visible) -->
+      <div class="flex items-center gap-2 ml-auto">
+        <button @click="view = 'contact'; closeMobileMenu()"
+                :class="activeBtn('contact')"
                 class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-          Portfolio<span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
+          Contact
         </button>
-        <span class="nav-tooltip" x-text="navTooltip('portfolio')"></span>
+        <!-- Alpine: @click flips 'isDark'; also persists to localStorage via the toggle() method -->
+        <button @click="toggleTheme()"
+                class="text-xl px-3 py-1 rounded-full theme-toggle">
+          <span x-text="isDark ? '☀️' : '🌙'"></span>
+        </button>
       </div>
     </div>
-    <!-- Right-hand cluster: Contact button + theme toggle -->
-    <div class="flex items-center gap-2 ml-auto">
-      <button @click="view = 'contact'"
-              :class="activeBtn('contact')"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
-        Contact
-      </button>
-      <!-- Alpine: @click flips 'isDark'; also persists to localStorage via the toggle() method -->
-      <button @click="toggleTheme()"
-              class="text-xl px-3 py-1 rounded-full theme-toggle">
-        <span x-text="isDark ? '☀️' : '🌙'"></span>
-      </button>
+
+    <!-- Mobile dropdown menu (visible only when hamburger is clicked) -->
+    <div x-show="mobileMenuOpen"
+         x-transition
+         @click.away="closeMobileMenu()"
+         class="md:hidden mobile-dropdown">
+      <div class="flex flex-col gap-2 p-4">
+        <button @click="view = 'profile'; closeMobileMenu()"
+                :class="activeBtn('profile')"
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+          Profile
+        </button>
+        <button @click="view = 'focus'; closeMobileMenu()"
+                :class="activeBtn('focus')"
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+          Focus
+        </button>
+        <button @click="handleNavClick('resume')"
+                :class="navBtnState('resume').classes"
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+          Resume
+        </button>
+        <button @click="view = 'skills'; closeMobileMenu()"
+                :class="activeBtn('skills')"
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+          Skills
+        </button>
+        <button @click="handleNavClick('portfolio')"
+                :class="navBtnState('portfolio').classes"
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+          Portfolio
+        </button>
+        <button @click="handleNavClick('publications')"
+                :class="navBtnState('publications').classes"
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+          Publications
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -92,6 +148,7 @@
     <%- include('resume.html') %>
     <%- include('skills.html') %>
     <%- include('portfolio.html') %>
+    <%- include('publications.html') %>
     <%- include('contact.html') %>
   </main>
 
