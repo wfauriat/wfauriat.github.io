@@ -1,0 +1,27 @@
+{
+  "name": "spprofile",
+  "version": "1.0.0",
+  "description": "Interactive, responsive single-page portfolio for an ML engineer.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wfauriat/wfauriat.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/wfauriat/wfauriat.github.io/issues"
+  },
+  "homepage": "https://github.com/wfauriat/wfauriat.github.io#readme",
+  "devDependencies": {
+    "vite": "^7.3.1",
+    "vite-plugin-html": "^3.2.2"
+  }
+}

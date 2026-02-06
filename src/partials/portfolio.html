@@ -1,0 +1,113 @@
+    <!-- ── PORTFOLIO VIEW ── -->
+    <section x-show="view === 'portfolio'" x-transition class="space-y-6">
+      <!-- Bayesian Inference App — accordion: synthetic summary always visible, details on expand -->
+      <div class="card accordion-entry" data-id="bayesian"
+           :class="{ 'card-highlight': highlight === 'bayesian' }"
+           @click="toggleEntry('bayesian')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Bayesian Inference App</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.bayesian }">▾</span>
+        </div>
+        <!-- Synthetic: one-liner visible at all times -->
+        <p class="card-text mt-2">
+          Full-stack educational app for interactive Bayesian inference via MCMC —
+          posterior visualization and classical ML comparison. Deployed in production.
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.bayesian" x-transition class="mt-3">
+          <p class="card-text">
+            Modular architecture with a NumPy-only inference engine, a Flask REST API
+            (6 blueprints covering configuration, data, computation, and results), a
+            React frontend with Recharts visualizations, and a parallel PyQt5 desktop version.
+          </p>
+          <ul class="card-text mt-2">
+            <li>Metropolis-Hastings MCMC with adaptive proposal tuning during burn-in</li>
+            <li>Configurable priors — Uniform, Normal, Half-Normal per parameter</li>
+            <li>Direct Bayesian vs. scikit-learn model comparison (Linear, ElasticNet, RandomForest, SVR)</li>
+            <li>Custom CSV data upload alongside pre-built cases (polynomial regression, California housing)</li>
+            <li>Dual interface — web app accessible anywhere, desktop app for offline use</li>
+          </ul>
+          <img src="resources/BI_wepapp.gif" alt="Bayesian Inference App — live demo"
+               style="max-width: 100%; height: auto;"
+               class="mt-4 rounded">
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-tag">Bayesian Inference</span>
+              <span class="concept-tag">MCMC</span>
+              <span class="concept-tag">Posterior Estimation</span>
+              <span class="concept-tag">Prior Distributions</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <p class="tag-label">Tech stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Flask</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">PyQt5</span>
+              <span class="skill-tag">scikit-learn</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+            <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Live demo</a>
+            <button @click.stop="switchTo('skills', 'software')" class="cross-link">→ See related skills</button>
+          </div>
+        </div>
+      </div>
+      <!-- UQ Initiation App — same accordion pattern -->
+      <div class="card accordion-entry" data-id="uq"
+           :class="{ 'card-highlight': highlight === 'uq' }"
+           @click="toggleEntry('uq')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">UQ Initiation App</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.uq }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          Desktop tool for learning uncertainty quantification —
+          interactive simulations with a standalone PyQt GUI.
+        </p>
+        <!-- Detailed -->
+        <div x-show="expanded.uq" x-transition class="mt-3">
+          <p class="card-text">
+            Standalone PyQt5 application designed as an accessible entry point into UQ concepts.
+            Bridges the gap between statistical theory and practical application through
+            guided, interactive workflows.
+          </p>
+          <ul class="card-text mt-2">
+            <li>Interactive interface for practitioners and learners alike</li>
+            <li>Covers core UQ methods — propagation of uncertainty through models</li>
+            <li>Self-contained: no external server or backend required</li>
+          </ul>
+          <img src="resources/BallisticQT.gif" alt="UQ Initiation App — desktop GUI"
+               style="max-width: 100%; height: auto;"
+               class="mt-4 rounded">
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-tag">Uncertainty Quantification</span>
+              <span class="concept-tag">Propagation of Uncertainty</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <p class="tag-label">Tech stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PyQt5</span>
+            </div>
+          </div>
+          <button @click.stop="switchTo('skills', 'stats')" class="cross-link mt-4">→ See related skills</button>
+        </div>
+      </div>
+      <!--
+      <div class="card">
+        <h2 class="section-title">GitHub Activity</h2>
+        <img src="https://github.pumbas.net/api/contributions/wfauriat"
+             alt="GitHub contribution graph"
+             style="max-width: 100%; height: auto;"
+             class="mt-2 rounded">
+      </div>
+      -->
+    </section>

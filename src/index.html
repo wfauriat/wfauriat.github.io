@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"
+      :class="{ dark: isDark }"
+      x-data="resumeApp()">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Fauriat — ML Engineer & Research Scientist</title>
+  <!-- ─── SEO / social sharing ─── -->
+  <meta name="description" content="Research scientist and ML engineer — Bayesian inference, uncertainty quantification, and full-stack scientific applications. PhD in Mechanical & Industrial Engineering. Portfolio of deployed ML tools and educational software." />
+  <meta name="author" content="William Fauriat" />
+  <!-- Open Graph — LinkedIn, Facebook, etc. share previews.
+       og:url and og:image require absolute URLs; base is https://wfauriat.github.io/ -->
+  <meta property="og:type"               content="profile" />
+  <meta property="og:title"              content="William Fauriat — ML Engineer & Research Scientist" />
+  <meta property="og:description"        content="Research scientist and ML engineer — Bayesian inference, uncertainty quantification, and full-stack scientific applications. Portfolio of deployed ML tools and educational software." />
+  <meta property="og:url"                content="https://wfauriat.github.io/" />
+  <meta property="og:image"              content="https://wfauriat.github.io/resources/FaceWilRed.png" />
+  <meta property="profile:first_name"    content="William" />
+  <meta property="profile:last_name"     content="Fauriat" />
+  <!-- Twitter / X card — falls back to og: tags if omitted, but explicit is safer -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="William Fauriat — ML Engineer & Research Scientist" />
+  <meta name="twitter:description" content="Research scientist and ML engineer — Bayesian inference, uncertainty quantification, and full-stack scientific applications." />
+  <meta name="twitter:image"       content="https://wfauriat.github.io/resources/FaceWilRed.png" />
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js via CDN (defer so DOM is ready before it runs) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="min-h-screen font-sans">
+  <!-- ─── TOP NAV: theme toggle + view switcher ─── -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md border-b
+              flex items-center justify-between px-4 py-3 gap-4">
+    <!-- View mode buttons — order: overview → intent → deep dive → proof -->
+    <div class="flex flex-wrap gap-2">
+      <button @click="view = 'profile'"
+              :class="activeBtn('profile')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Profile
+      </button>
+      <button @click="view = 'focus'"
+              :class="activeBtn('focus')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Focus
+      </button>
+      <button @click="handleNavClick('resume')"
+              :class="navBtnState('resume').classes"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Resume<span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
+      </button>
+      <button @click="view = 'skills'"
+              :class="activeBtn('skills')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Skills
+      </button>
+      <button @click="handleNavClick('portfolio')"
+              :class="navBtnState('portfolio').classes"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Portfolio<span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
+      </button>
+    </div>
+    <!-- Right-hand cluster: Contact button + theme toggle -->
+    <div class="flex items-center gap-2 ml-auto">
+      <button @click="view = 'contact'"
+              :class="activeBtn('contact')"
+              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+        Contact
+      </button>
+      <!-- Alpine: @click flips 'isDark'; also persists to localStorage via the toggle() method -->
+      <button @click="toggleTheme()"
+              class="text-xl px-3 py-1 rounded-full theme-toggle">
+        <span x-text="isDark ? '☀️' : '🌙'"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MAIN CONTENT AREA ─── -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+    <%- include('hero-full.html') %>
+    <%- include('hero-bar.html') %>
+    <%- include('profile.html') %>
+    <%- include('focus.html') %>
+    <%- include('resume.html') %>
+    <%- include('skills.html') %>
+    <%- include('portfolio.html') %>
+    <%- include('contact.html') %>
+  </main>
+
+  <!-- ─── APP LOGIC ─── -->
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
