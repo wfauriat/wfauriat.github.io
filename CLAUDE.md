@@ -131,6 +131,35 @@ Sections without accordions use standard two-state buttons:
   Tailwind's `dark:` utility prefix is **not used** — the CDN defaults to
   media-query-based dark mode which doesn't respond to a class toggle.
 
+## Content structure
+
+### Accordion pattern (Resume & Portfolio)
+Experience, Education, and Portfolio entries use a **synthetic + detailed** accordion pattern:
+
+**Synthetic content** (always visible):
+- Title, company/institution, date range
+- One-line summary of role/project
+
+**Detailed content** (expandable via accordion):
+- Sub-card appearance with `.expanded-detail` class
+- Styled with subtle background, left border accent, and padding for visual hierarchy
+- Structured sections:
+  - **Experience**: Context, Key Achievements, Technologies, Cross-links to Portfolio
+  - **Education**: Dissertation, Research Focus, Outcomes, Cross-links
+  - **Portfolio**: Full description, features list, screenshots/demos, concept tags, tech stack tags, cross-links to Skills
+
+**Visual treatment:**
+- Expanded content appears as a nested "sub-card" within the entry
+- Date ranges sized at `text-sm` (increased from `text-xs` for readability)
+- Company/institution names use `font-medium` subtitle styling
+- Larger padding and distinct background differentiate from synthetic summary
+
+### Cross-linking system
+Internal navigation links between sections that auto-expand target content:
+- Resume (Experience) → Portfolio projects
+- Portfolio projects → Skills sections
+- Education → Portfolio/research work
+
 ## Design principles
 - Desktop-first, responsive down to mobile.
 - Modern / cutting-edge look (not generic Bootstrap). Glassmorphism, smooth transitions.
@@ -255,8 +284,11 @@ If views don't work on deployed site:
 - [x] Alpine state / view-switching logic
 - [x] Content populated (first pass — education, experience, skills, projects)
 - [x] Contact links wired (GitHub, LinkedIn, Google Scholar)
-- [x] Portfolio cards: accordion fold/unfold, gif demos, concept + tech tag rows
+- [x] Experience/Education templates: synthetic+detailed accordion pattern with structured sections
+- [x] Sub-card styling (.expanded-detail) for visually distinct expanded accordion content
+- [x] Portfolio cards: accordion fold/unfold, gif demos, concept + tech tag rows, tech stack tags
 - [x] Resume experience entries: accordion with cross-links to Portfolio
+- [x] Cross-linking system between Resume, Portfolio, and Skills sections
 - [x] Hero: profile photo with circular crop and vertical offset tuning
 - [x] Skills section: proficiency visualization with chevron bars, three-pillar structure
 - [x] Tri-state navigation for accordion-heavy sections (Resume, Portfolio)
