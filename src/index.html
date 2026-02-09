@@ -45,31 +45,31 @@
       <div class="hidden md:flex flex-wrap gap-2">
         <button @click="view = 'profile'; closeMobileMenu()"
                 :class="activeBtn('profile')"
-                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
           Profile
         </button>
         <button @click="view = 'focus'; closeMobileMenu()"
                 :class="activeBtn('focus')"
-                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
           Focus
         </button>
         <div class="nav-tooltip-wrapper">
           <button @click="handleNavClick('resume')"
                   :class="navBtnState('resume').classes"
-                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
             Resume<span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
           </button>
           <span class="nav-tooltip" x-text="navTooltip('resume')"></span>
         </div>
         <button @click="view = 'skills'; closeMobileMenu()"
                 :class="activeBtn('skills')"
-                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
           Skills
         </button>
         <div class="nav-tooltip-wrapper">
           <button @click="handleNavClick('portfolio')"
                   :class="navBtnState('portfolio').classes"
-                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
             Portfolio<span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
           </button>
           <span class="nav-tooltip" x-text="navTooltip('portfolio')"></span>
@@ -77,7 +77,7 @@
         <div class="nav-tooltip-wrapper">
           <button @click="handleNavClick('publications')"
                   :class="navBtnState('publications').classes"
-                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                  class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
             Publications<span x-text="navBtnState('publications').indicator" class="ml-0.5 text-xs"></span>
           </button>
           <span class="nav-tooltip" x-text="navTooltip('publications')"></span>
@@ -88,17 +88,17 @@
       <div class="flex items-center gap-2 ml-auto">
         <button @click="view = 'contact'; closeMobileMenu()"
                 :class="activeBtn('contact')"
-                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200">
+                class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
           Contact
         </button>
         <!-- Alpine: @click flips 'isDark'; also persists to localStorage via the toggle() method -->
         <button @click="toggleTheme()"
-                class="text-xl px-3 py-1 rounded-full theme-toggle">
+                class="text-xl px-3 py-1 rounded-full theme-toggle cursor-pointer">
           <span x-text="isDark ? '☀️' : '🌙'"></span>
         </button>
         <!-- Language toggle -->
         <button @click="toggleLang()"
-                class="text-lg px-3 py-1 rounded-full theme-toggle"
+                class="text-lg px-3 py-1 rounded-full theme-toggle cursor-pointer"
                 :title="lang === 'en' ? 'Switch to French' : 'Passer en anglais'">
           <span x-text="lang === 'en' ? '🇬🇧' : '🇫🇷'"></span>
         </button>
@@ -113,32 +113,32 @@
       <div class="flex flex-col gap-2 p-4">
         <button @click="view = 'profile'; closeMobileMenu()"
                 :class="activeBtn('profile')"
-                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer">
           Profile
         </button>
         <button @click="view = 'focus'; closeMobileMenu()"
                 :class="activeBtn('focus')"
-                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer">
           Focus
         </button>
         <button @click="handleNavClick('resume')"
                 :class="navBtnState('resume').classes"
-                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer">
           Resume
         </button>
         <button @click="view = 'skills'; closeMobileMenu()"
                 :class="activeBtn('skills')"
-                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer">
           Skills
         </button>
         <button @click="handleNavClick('portfolio')"
                 :class="navBtnState('portfolio').classes"
-                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer">
           Portfolio
         </button>
         <button @click="handleNavClick('publications')"
                 :class="navBtnState('publications').classes"
-                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left">
+                class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer">
           Publications
         </button>
       </div>
