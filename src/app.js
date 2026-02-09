@@ -17,7 +17,7 @@
  * index.html references it with:  x-data="resumeApp()"
  */
 
-import '../styles.css'
+import './styles.css'
 import Alpine from 'alpinejs'
 
 // Register the component BEFORE starting Alpine
