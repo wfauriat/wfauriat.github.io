@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import tailwindcss from '@tailwindcss/vite'
 import fs from 'fs'
 import path from 'path'
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     createHtmlPlugin({
       minify: true,
       inject: {

@@ -1,3 +1,7 @@
+@import "tailwindcss";
+
+
+
 /* ─────────────────────────────────────────────────────────────────────────────
  * CSS CUSTOM PROPERTIES — theme tokens
  *
@@ -11,6 +15,7 @@
  * :root          = light mode (default, no .dark class)
  * html.dark      = dark mode  (when Alpine adds .dark to <html>)
  * ───────────────────────────────────────────────────────────────────────────── */
+
 
 :root {
   /* Cards */

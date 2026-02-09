@@ -16,6 +16,16 @@
  * The function below is registered as a "magic" component via Alpine.data() at the bottom.
  * index.html references it with:  x-data="resumeApp()"
  */
+
+import '../styles.css'
+import Alpine from 'alpinejs'
+
+// Register the component BEFORE starting Alpine
+Alpine.data('resumeApp', resumeApp)
+
+window.Alpine = Alpine
+Alpine.start()
+
 function resumeApp() {
   return {
     // ── State ──────────────────────────────────────────────────
