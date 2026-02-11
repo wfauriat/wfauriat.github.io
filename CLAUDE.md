@@ -9,12 +9,12 @@ Deployed on **GitHub Pages** via automated build pipeline (GitHub Actions).
 | Layer        | Choice        | Why                                                                 |
 |--------------|---------------|---------------------------------------------------------------------|
 | Interactivity| **Alpine.js** | Lightweight reactive JS (~15KB). Declarative state in HTML.        |
-| Styling      | **Tailwind CSS** | Utility-first. Layout, spacing, typography sizing (CDN only).   |
+| Styling      | **Tailwind CSS** | Utility-first. Layout, spacing, typography sizing.   |
 | Custom CSS   | `styles.css`  | All theming (dark/light via CSS vars), glassmorphism, transitions. |
 | App logic    | `app.js`      | Alpine component state, view switching, theme/language toggle.      |
 | Build tool   | **Vite**      | Dev server with hot reload, production bundler for optimization.    |
 
-Dependencies: Alpine.js and Tailwind loaded via CDN. Vite used for dev + build.
+Dependencies: Alpine.js and Tailwind. Vite used for dev + build.
 
 ## File structure
 ```

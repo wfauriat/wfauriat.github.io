@@ -235,7 +235,8 @@ header.hero .subtitle {
 }
 
 header.hero .tagline {
-  font-size:  0.95rem;
+  font-size:  1rem;
+  font-weight: 600;
   /* max-width:  36rem; */
   margin:     0.5rem auto 0;
   font-style: italic;
@@ -363,8 +364,8 @@ header.hero .tagline {
 
 /* ─── Section titles ─── */
 .section-title {
-  font-size:      1.25rem;
-  font-weight:    600;
+  font-size:      1.35rem;
+  font-weight:    700;
   color:          var(--section-title-color);
   margin-bottom:  0.75rem;
   letter-spacing: 0.02em;
