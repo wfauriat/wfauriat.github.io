@@ -731,7 +731,6 @@ html.dark .proficiency-bar .chevron.empty path {
 /* Creates visual separation between synthetic summary and detailed content.
    Applied to the expanded section to make it feel like a nested card. */
 .expanded-detail {
-  /* margin-top:    0.75rem; */
   width: 98%;
   margin: 0.75rem auto;
   padding:       1rem;
