@@ -22,7 +22,7 @@
   --card-bg:            rgba(255, 255, 255, 0.82);
   --card-border:        rgba(0, 0, 0, 0.07);
   --card-hover-shadow:  0 8px 24px rgba(79, 70, 229, 0.10);
-  --expanded-detail-bg: rgba(0, 0, 0, 0.02);        /* subtle inset for expanded accordion content */
+  --expanded-detail-bg: rgba(0, 0, 0, 0.04);        /* subtle inset for expanded accordion content */
 
   /* Section headings */
   --section-title-color: #4f46e5;           /* indigo-600 — readable on white */
@@ -78,7 +78,7 @@ html.dark {
   --card-bg:            rgba(255, 255, 255, 0.05);
   --card-border:        rgba(255, 255, 255, 0.08);
   --card-hover-shadow:  0 8px 32px rgba(99, 102, 241, 0.18);
-  --expanded-detail-bg: rgba(0, 0, 0, 0.25);        /* subtle inset for expanded accordion content */
+  --expanded-detail-bg: rgba(0, 0, 0, 0.4);        /* subtle inset for expanded accordion content */
 
   /* Section headings */
   --section-title-color: #a5b4fc;           /* indigo-300 — softer on dark */
@@ -731,7 +731,9 @@ html.dark .proficiency-bar .chevron.empty path {
 /* Creates visual separation between synthetic summary and detailed content.
    Applied to the expanded section to make it feel like a nested card. */
 .expanded-detail {
-  margin-top:    0.75rem;
+  /* margin-top:    0.75rem; */
+  width: 98%;
+  margin: 0.75rem auto;
   padding:       1rem;
   border-radius: 0.5rem;
   border-left:   3px solid var(--skill-tag-bg);
