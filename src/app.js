@@ -53,6 +53,7 @@ function resumeApp() {
     expanded: {
       CEA:        false,
       postdoc:    false,
+      fullst_deg: false,
       phd_edu:    false,  // PhD education entry
       bayesian:   false,
       uq:         false,
@@ -68,7 +69,7 @@ function resumeApp() {
     // Keys grouped by section for expand/collapse all
     // Skills has no accordions currently, but included for future-proofing
     sectionAccordions: {
-      resume: ['CEA', 'postdoc', 'phd_edu'],
+      resume: ['CEA', 'postdoc', 'fullst_deg' ,'phd_edu'],
       skills: [],
       portfolio: ['bayesian', 'uq'],
       publications: ['aksys', 'voi', 'roadinf']
