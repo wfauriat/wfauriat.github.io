@@ -67,6 +67,10 @@
   --concept-ds-bg:    rgba(147, 51, 234, 0.10);
   --concept-ds-color: #7c3aed;                    /* purple-600 */
 
+  /* Data type tags — red pills */
+  --data-type-bg:    rgba(239, 68, 68, 0.08);
+  --data-type-color: #dc2626e0;                      /* red-600 */
+
   /* Background blobs — what the glassmorphism blurs against.
      Light mode: very subtle indigo / violet wash. */
   --blob-primary:   rgba(99,  102, 241, 0.10);  /* indigo */
@@ -122,6 +126,10 @@ html.dark {
   /* Data Science concept tags (Maths/Stats + Domain) — purple pills */
   --concept-ds-bg:    rgba(147, 51, 234, 0.18);
   --concept-ds-color: #c4b5fd;                    /* purple-300 */
+
+    /* Data type tags — red pills */
+  --data-type-bg:    rgba(244, 63, 94, 0.08);
+  --data-type-color: #e11d47d0;    
 
   /* Background blobs — stronger saturation on dark so they read through the glass */
   --blob-primary:   rgba(99,  102, 241, 0.14);
@@ -392,9 +400,9 @@ header.hero .tagline {
 
 
 .card-focus {
-  border-top: 3px solid #4f46e5;
+  border-top: 3px solid #4f46e5;  
   box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
-  border-left: 3px solid #4f46e5;
+  /* border-left: 3px solid #4f46e5; */
   background: linear-gradient(135deg, var(--card-bg) 0%, rgba(99, 102, 241, 0.06) 100%);
 }
 
@@ -650,6 +658,18 @@ html.dark .proficiency-bar .chevron.empty path {
   background:    var(--concept-ds-bg);
   color:         var(--concept-ds-color);
   transition:    background 0.3s ease, color 0.3s ease;
+}
+
+.data-type {
+  display:       inline-block;
+  padding:       0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size:     0.8125rem;
+  font-weight:   500;
+  background: var(--data-type-bg);
+  color:      var(--data-type-color);
+  transition:    background 0.3s ease, color 0.3s ease;
+
 }
 
 /* Small uppercase label above a tag row */

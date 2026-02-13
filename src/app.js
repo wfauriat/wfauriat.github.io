@@ -30,7 +30,7 @@ function resumeApp() {
   return {
     // ── State ──────────────────────────────────────────────────
     // 'view'  — which content section is visible. Matches the x-show conditions in HTML.
-    view: 'profile',
+    view: sessionStorage.getItem('view') || 'profile',
 
     // 'isDark' — drives the 'dark' class on <html>.
     // Default value here is just a placeholder; init() immediately overwrites it
@@ -46,39 +46,38 @@ function resumeApp() {
     mobileMenuOpen: false,
 
     // 'lang' — current language (en or fr)
-    lang: localStorage.getItem('wfauriat-lang') || 'en',
+    lang: localStorage.getItem('default-lang') || 'en',
 
     // Accordion state — Resume (experience), Portfolio, and Publications cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
     expanded: {
       CEA:        false,
       postdoc:    false,
-      consultant: false,
-      phd:        false,
       phd_edu:    false,  // PhD education entry
       bayesian:   false,
       uq:         false,
       aksys:      false,  // AK-SYS publication
-      voi:        false   // Value of Information publication
+      voi:        false,   // Value of Information publication
+      roadinf:    false
     },
 
     // ── Accordion section config ───────────────────────────────
     // Sections that support expand-all / collapse-all behavior
-    accordionSections: ['resume', 'skills', 'portfolio', 'publications'],
+    accordionSections: ['resume', 'portfolio', 'publications'],
 
     // Keys grouped by section for expand/collapse all
     // Skills has no accordions currently, but included for future-proofing
     sectionAccordions: {
-      resume: ['CEA', 'postdoc', 'consultant', 'phd', 'phd_edu'],
+      resume: ['CEA', 'postdoc', 'phd_edu'],
       skills: [],
       portfolio: ['bayesian', 'uq'],
-      publications: ['aksys', 'voi']
+      publications: ['aksys', 'voi', 'roadinf']
     },
 
     // ── Lifecycle hook ─────────────────────────────────────────
     // Alpine calls init() automatically once the component is ready (like React's useEffect on mount).
     init() {
-      const saved = localStorage.getItem('wfauriat-theme');
+      const saved = localStorage.getItem('default-theme');
       if (saved !== null) {
         // User has an explicit preference stored — honour it.
         this.isDark = saved === 'dark';
@@ -88,6 +87,14 @@ function resumeApp() {
         // user's system theme (Settings → Appearance on most OS).
         this.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
+
+      window.scrollTo(0, 0);
+
+      this.$watch('view', (v) => {
+        sessionStorage.setItem('view', v);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
     },
 
     // ── Methods ────────────────────────────────────────────────
@@ -95,13 +102,13 @@ function resumeApp() {
     // Toggle dark/light mode and persist the choice.
     toggleTheme() {
       this.isDark = !this.isDark;
-      localStorage.setItem('wfauriat-theme', this.isDark ? 'dark' : 'light');
+      localStorage.setItem('default-theme', this.isDark ? 'dark' : 'light');
     },
 
     // Toggle language between English and French
     toggleLang() {
       this.lang = this.lang === 'en' ? 'fr' : 'en';
-      localStorage.setItem('wfauriat-lang', this.lang);
+      localStorage.setItem('default-lang', this.lang);
     },
 
     // Toggle mobile menu open/closed

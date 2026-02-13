@@ -1,7 +1,7 @@
     <!-- ── SKILLS VIEW ── -->
     <section x-show="view === 'skills'" x-transition class="space-y-6">
 
-      <!-- ── Core Competencies: The Three Pillars ── -->
+      <!-- ── Core Competencies: The Three Pillars of Data Science ── -->
       <div class="card" data-id="competencies" :class="{ 'card-highlight': highlight === 'competencies' }">
         <h2 class="section-title">Core Competencies</h2>
 
@@ -18,10 +18,10 @@
             <h3 class="pillar-title">Mathematics & Statistics</h3>
           </div>
           <div class="flex flex-wrap gap-2 mt-2 ml-8">
-            <span class="concept-ds">Bayesian Inference</span>
             <span class="concept-ds">Probability Theory</span>
-            <span class="concept-ds">Stochastic Modeling</span>
             <span class="concept-ds">Statistical Decision Theory</span>
+            <span class="concept-ds">Bayesian Inference</span>
+            <span class="concept-ds">Numerical Methods</span>
           </div>
         </div>
 
@@ -40,8 +40,8 @@
           </div>
           <div class="flex flex-wrap gap-2 mt-2 ml-8">
             <span class="concept-cs">Full-Stack Development</span>
-            <span class="concept-cs">Software Engineering</span>
             <span class="concept-cs">API Design</span>
+            <span class="concept-cs">Software Engineering</span>
             <span class="concept-cs">System Architecture</span>
           </div>
         </div>
@@ -62,15 +62,16 @@
           </div>
           <div class="flex flex-wrap gap-2 mt-2 ml-8">
             <span class="concept-ds">Uncertainty Quantification</span>
+            <span class="concept-ds">Decision under Uncertainty</span>
             <span class="concept-ds">Risk Analysis</span>
+            <span class="concept-ds">Prediction Models</span>
             <span class="concept-ds">Scientific Computing</span>
-            <span class="concept-ds">Computational Mechanics</span>
-            <span class="concept-ds">Multidisciplinary Physics</span>
           </div>
         </div>
-
-        <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-4">→ See projects applying these skills</button>
+        <!-- <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-4">→ See projects applying these skills</button> -->
       </div>
+
+
 
       <!-- ── Tech Stack with Proficiency ── -->
       <div class="card" data-id="techstack" :class="{ 'card-highlight': highlight === 'techstack' }">
@@ -100,19 +101,28 @@
             </div>
             <div class="tech-item">
               <span class="tech-tag">JavaScript</span>
-              <span class="proficiency-bar" data-level="3" title="Advanced">
+              <span class="proficiency-bar" data-level="2" title="Proficient">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
             <div class="tech-item">
               <span class="tech-tag">SQL</span>
-              <span class="proficiency-bar" data-level="3" title="Advanced">
+              <span class="proficiency-bar" data-level="1" title="Familiar">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+              </span>
+            </div>
+            <div class="tech-item">
+              <span class="tech-tag">C++</span>
+              <span class="proficiency-bar" data-level="1" title="Familiar">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
@@ -123,15 +133,6 @@
             <h4 class="tech-category-title">Backend</h4>
             <div class="tech-item">
               <span class="tech-tag">Flask</span>
-              <span class="proficiency-bar" data-level="4" title="Expert">
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-              </span>
-            </div>
-            <div class="tech-item">
-              <span class="tech-tag">PostgreSQL</span>
               <span class="proficiency-bar" data-level="2" title="Proficient">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
@@ -141,13 +142,23 @@
             </div>
             <div class="tech-item">
               <span class="tech-tag">REST APIs</span>
-              <span class="proficiency-bar" data-level="4" title="Expert">
+              <span class="proficiency-bar" data-level="2" title="Proficient">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
+            <div class="tech-item">
+              <span class="tech-tag">Node.JS</span>
+              <span class="proficiency-bar" data-level="2" title="Proficient">
+                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+              </span>
+            </div>
+
           </div>
 
           <!-- Frontend -->
@@ -155,10 +166,10 @@
             <h4 class="tech-category-title">Frontend</h4>
             <div class="tech-item">
               <span class="tech-tag">React</span>
-              <span class="proficiency-bar" data-level="3" title="Advanced">
+              <span class="proficiency-bar" data-level="2" title="Proficient">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
@@ -187,11 +198,11 @@
             <h4 class="tech-category-title">ML & Scientific</h4>
             <div class="tech-item">
               <span class="tech-tag">NumPy / SciPy</span>
-              <span class="proficiency-bar" data-level="4" title="Expert">
+              <span class="proficiency-bar" data-level="3" title="Advanced">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
             <div class="tech-item">
@@ -214,11 +225,29 @@
             </div>
             <div class="tech-item">
               <span class="tech-tag">Pandas</span>
-              <span class="proficiency-bar" data-level="4" title="Expert">
+              <span class="proficiency-bar" data-level="2" title="Proficient">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+              </span>
+            </div>
+            <div class="tech-item">
+              <span class="tech-tag">Matlab</span>
+              <span class="proficiency-bar" data-level="1" title="Advanced">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+              </span>
+            </div>
+            <div class="tech-item">
+              <span class="tech-tag">R</span>
+              <span class="proficiency-bar" data-level="1" title="Familiar">
+                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
           </div>
@@ -228,18 +257,18 @@
             <h4 class="tech-category-title">DevOps & Tools</h4>
             <div class="tech-item">
               <span class="tech-tag">Git</span>
-              <span class="proficiency-bar" data-level="4" title="Expert">
+              <span class="proficiency-bar" data-level="3" title="Advanced">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
             </div>
             <div class="tech-item">
               <span class="tech-tag">Docker</span>
-              <span class="proficiency-bar" data-level="2" title="Proficient">
+              <span class="proficiency-bar" data-level="1" title="Familiar">
                 <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
-                <svg class="chevron filled" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
+                <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
                 <svg class="chevron empty" viewBox="0 0 12 20"><path d="M0 0 L12 10 L0 20 Z"/></svg>
               </span>
@@ -256,49 +285,7 @@
           </div>
         </div>
 
-        <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-4">→ See these technologies in action</button>
+        <!-- <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-4">→ See these technologies in action</button> -->
       </div>
 
     </section>
-
-    <!-- <section x-show="view === 'skills'" x-transition class="space-y-6">
-      <div class="card" data-id="stats" :class="{ 'card-highlight': highlight === 'stats' }">
-        <h2 class="section-title">Statistics & Mathematics</h2>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <span class="concept-tag">Bayesian Inference</span>
-          <span class="concept-tag">Statistical Decision Theory</span>
-          <span class="concept-tag">Uncertainty Quantification</span>
-          <span class="concept-tag">Probability Theory</span>
-        </div>
-        <button @click="switchTo('portfolio', 'uq')" class="cross-link mt-3">→ See UQ project</button>
-      </div>
-      <div class="card" data-id="ml" :class="{ 'card-highlight': highlight === 'ml' }">
-        <h2 class="section-title">Machine Learning</h2>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <span class="concept-tag">Predictive Modeling</span>
-          <span class="concept-tag">Applied ML</span>
-          <span class="concept-tag">Scientific ML</span>
-        </div>
-        <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-3">→ See Bayesian Inference App</button>
-      </div>
-      <div class="card" data-id="scicomp" :class="{ 'card-highlight': highlight === 'scicomp' }">
-        <h2 class="section-title">Scientific Computing</h2>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <span class="concept-tag">Multidisciplinary Physics</span>
-          <span class="concept-tag">Scientific Simulations</span>
-          <span class="concept-tag">Computational Mechanics</span>
-        </div>
-        <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-3">→ See Bayesian Inference App</button>
-      </div>
-      <div class="card" data-id="software" :class="{ 'card-highlight': highlight === 'software' }">
-        <h2 class="section-title">Software & Tools</h2>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Flask</span>
-          <span class="skill-tag">PyQt</span>
-          <span class="skill-tag">Full-Stack Development</span>
-        </div>
-        <button @click="switchTo('portfolio', 'bayesian')" class="cross-link mt-3">→ See Bayesian Inference App</button>
-      </div>
-    </section> -->

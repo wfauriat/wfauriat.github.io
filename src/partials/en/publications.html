@@ -96,4 +96,28 @@
           </div>
         </div>
       </div>
+
+
+<!-- Value of Information Article -->
+      <div class="card accordion-entry" data-id="roadinf"
+           :class="{ 'card-highlight': highlight === 'roadinf' }"
+           @click="toggleEntry('roadinf')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Estimation of road profile variability</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.roadinf }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong>, et. al (2016).
+            Estimation of road profile variability from measured vehicle responses
+          <em>Vehicle System Dynamics</em>, 54(5), 585-605.
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.roadinf" x-transition class="expanded-detail">
+          <p class="card-text">
+            Inference of road profile from measured vehicle displacement and acceleration. Inverse problem tacked via
+            Kalman Filtering
+          </p>
+      </div>
+
     </section>
