@@ -1,0 +1,173 @@
+%% William Fauriat - One-Page Resume
+%% Compile with: pdflatex resume.tex
+
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter} % Charter font for better screen rendering
+\usepackage[margin=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\setlength{\parskip}{0pt}
+
+% Custom color
+\definecolor{accentcolor}{RGB}{79,70,229}  % Indigo
+\definecolor{darkgray}{RGB}{64,64,64}
+\definecolor{mediumgray}{RGB}{102,102,102}
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdftitle={William Fauriat - Resume},
+    pdfauthor={William Fauriat}
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{accentcolor}}
+  {}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+% Subsection formatting (for job titles)
+\titleformat{\subsection}[runin]
+  {\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\resumeitem}[1]{\item\small{#1}}
+\newcommand{\experience}[4]{
+  \textbf{#1} \hfill \textcolor{mediumgray}{#2}\\
+  \textit{\color{mediumgray}#3}%
+  #4
+  \vspace{1mm}
+}
+
+% Reduce list spacing
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*, before=\vspace{-0.5mm}, after=\vspace{1mm}}
+
+\begin{document}
+
+% ========== HEADER ==========
+\begin{center}
+  {\LARGE\bfseries\color{accentcolor} WILLIAM FAURIAT}\\[1mm]
+  {\normalsize Senior Data Scientist building models for production}\\[2mm]
+  \href{mailto:wfauriat@gmail.com}{wfauriat@gmail.com} ~|~
+  \href{https://wfauriat.github.io}{wfauriat.github.io} ~|~
+  \href{https://github.com/wfauriat}{github.com/wfauriat} ~|~
+  \href{https://www.linkedin.com/in/william-fauriat}{linkedin.com/in/william-fauriat}
+\end{center}
+
+\vspace{1mm}
+
+% ========== PROFESSIONAL SUMMARY ==========
+\section*{Professional Summary}
+\small
+10+ years in Statistics and Data Science for industrial applications and scientific computing.
+Senior researcher in Uncertainty Quantification leveraging stochastic modeling and statistical
+learning for decision-making. Current focus: turning research into production APIs and full-stack ML applications.
+
+% ========== EXPERIENCE ==========
+\section*{Experience}
+
+\experience{Senior Data Scientist}{2021--present}{CEA (French Atomic Energy Commission)}{
+\begin{itemize}
+  \resumeitem{Fine-tuned inversion algorithms for high-power tomography}
+  \resumeitem{Designed data processing APIs and visualization tools for model calibration}
+  \resumeitem{Led Bayesian Optimization of experimental conditions for Inertial Confinement Fusion}
+  \resumeitem{Leading training on Uncertainty Quantification (20+ persons)}
+\end{itemize}
+}
+
+\experience{Post-Doctoral Researcher}{2018--2020}{CentraleSupélec (French Grande École)}{
+\begin{itemize}
+  \resumeitem{Research on optimal information collection for decision under uncertainty}
+  \resumeitem{Published Value of Information framework for maintenance optimization}
+  \resumeitem{Bayesian decision theory applied to conditional maintenance scheduling}
+  \resumeitem{100+ hours courses on reliability and industrial engineering}
+\end{itemize}
+}
+
+\textbf{Gap Year} — \textit{Travelling} \hfill \textcolor{mediumgray}{2017}
+\vspace{1mm}
+
+\experience{Consultant}{2016}{ALTEN for PSA (now Stellantis — automotive manufacturer)}{
+\\
+Product development engineer working on design and validation of suspension system architecture
+}
+
+\experience{PhD Researcher}{2013--2016}{Renault (automotive manufacturer)}{
+\begin{itemize}
+  \resumeitem{Stochastic modeling of road-induced fatigue loads on suspension systems}
+  \resumeitem{Published road profile identification method using Kalman filtering}
+\end{itemize}
+}
+
+% ========== EDUCATION ==========
+\section*{Education}
+
+\experience{PhD, Mechanical \& Industrial Engineering}{2016}{Université Clermont Auvergne}{
+\textit{Dissertation:} "Stochastic modeling of road-induced fatigue loads on suspension systems"
+}
+
+\experience{Engineering degree (Master's level)}{2012}{IFMA (French Grande École)}{}
+
+\experience{Full-Stack Engineer Certification}{2024}{Codecademy}{
+150+ hours online courses, projects \& exams: React, Node.js, Express, REST APIs, SQL, Git, CI/CD
+}
+
+% ========== SKILLS ==========
+\section*{Skills}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Core Competencies}
+\begin{itemize}
+  \resumeitem{Bayesian Inference}
+  \resumeitem{Uncertainty Quantification}
+  \resumeitem{Machine Learning}
+  \resumeitem{Statistical Decision Theory}
+  \resumeitem{Full-Stack Development}
+  \resumeitem{API Design}
+  \resumeitem{AI-enhanced Development}
+  \resumeitem{Scientific Computing}
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Tech Stack}
+\begin{itemize}
+  \resumeitem{\textbf{Languages:} Python (expert), JavaScript (proficient), SQL}
+  \resumeitem{\textbf{Backend:} Flask, FastAPI, NumPy, SciPy, scikit-learn}
+  \resumeitem{\textbf{Frontend:} React, HTML/CSS, PyQt5}
+  \resumeitem{\textbf{Tools:} Git, Docker, Linux}
+\end{itemize}
+\end{minipage}
+
+% ========== PUBLICATIONS ==========
+\section*{Selected Publications}
+
+\small
+\textbf{[1]} Fauriat, W. \& Zio, E. (2020). Optimization of an aperiodic sequential inspection and condition-based maintenance policy driven by value of information. \textit{Reliability Engineering \& System Safety}, 204, 107133.
+
+\textbf{[2]} Fauriat, W., Mattrand, C., Gayton, N., Beakou, A., \& Cembrzynski, T. (2016). Estimation of road profile variability from measured vehicle responses. \textit{Vehicle System Dynamics}, 54(5), 585-605.
+
+\textbf{[3]} Fauriat, W. \& Gayton, N. (2014). AK-SYS: An adaptation of the AK-MCS method for system reliability. \textit{Reliability Engineering \& System Safety}, 123, 137-144.
+
+% ========== PROJECTS ==========
+\section*{Selected Projects}
+
+\textbf{Bayesian Inference Web App:} Production-deployed full-stack application for interactive Bayesian inference. NumPy-only inference engine, Flask backend, React frontend. \textit{Tech:} Python, NumPy, Flask, React, scikit-learn | \href{https://bi-webapp.onrender.com}{bi-webapp.onrender.com}
+
+\textbf{UQ Initiation App:} Standalone desktop tool for learning uncertainty quantification through interactive simulations. \textit{Tech:} Python, PyQt5
+
+\end{document}
