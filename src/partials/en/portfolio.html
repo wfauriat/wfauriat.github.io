@@ -53,7 +53,7 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Live demo</a>
-            <button @click.stop="switchTo('skills', 'software')" class="cross-link">→ See related skills</button>
+            <button @click.stop="switchTo('skills', 'techstack')" class="cross-link">→ See related skills</button>
           </div>
         </div>
       </div>
@@ -100,17 +100,17 @@
               <span class="tech-tag">PyQt5</span>
             </div>
           </div>
-          <button @click.stop="switchTo('skills', 'software')" class="cross-link mt-4">→ See related skills</button>
+          <button @click.stop="switchTo('skills', 'techstack')" class="cross-link mt-4">→ See related skills</button>
         </div>
       </div>
 
-      <!-- UQ Initiation App — same accordion pattern -->
+      <!-- Image Processing API -->
       <div class="card accordion-entry" data-id="imgAPI"
            :class="{ 'card-highlight': highlight === 'imgAPI' }"
            @click="toggleEntry('imgAPI')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
           <h2 class="section-title" style="margin-bottom: 0;">Image processing API for high power tomography</h2>
-          <span class="chevron" :class="{ 'chevron-open': expanded.uq }">▾</span>
+          <span class="chevron" :class="{ 'chevron-open': expanded.imgAPI }">▾</span>
         </div>
         <!-- Synthetic -->
         <p class="card-text mt-2">

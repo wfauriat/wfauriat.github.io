@@ -1,46 +1,47 @@
     <!-- ── PORTFOLIO VIEW ── -->
     <section x-show="view === 'portfolio'" x-transition class="space-y-6">
+
       <!-- Bayesian Inference App — accordion: synthetic summary always visible, details on expand -->
       <div class="card accordion-entry" data-id="bayesian"
            :class="{ 'card-highlight': highlight === 'bayesian' }"
            @click="toggleEntry('bayesian')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Bayesian Inference App</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Application d'Inférence Bayésienne</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.bayesian }">▾</span>
         </div>
         <!-- Synthetic: one-liner visible at all times -->
         <p class="card-text mt-2">
-          Full-stack educational app for interactive Bayesian inference via MCMC —
-          posterior visualization and classical ML comparison. Deployed in production.
+          Application full-stack éducative pour l'inférence bayésienne interactive via MCMC —
+          visualisation de la distribution a posteriori et comparaison avec des méthodes ML classiques. Déployée en production.
         </p>
         <!-- Detailed: visible only when expanded -->
         <div x-show="expanded.bayesian" x-transition class="expanded-detail">
           <p class="card-text">
-            Modular architecture with a NumPy-only inference engine, a Flask REST API
-            (6 blueprints covering configuration, data, computation, and results), a
-            React frontend with Recharts visualizations, and a parallel PyQt5 desktop version.
+            Architecture modulaire avec un moteur d'inférence basé uniquement sur NumPy, une API REST Flask
+            (6 blueprints couvrant configuration, données, calcul et résultats), un
+            frontend React avec visualisations Recharts, et une version desktop parallèle en PyQt5.
           </p>
           <ul class="card-text mt-2">
-            <li>Metropolis-Hastings MCMC with adaptive proposal tuning during burn-in</li>
-            <li>Configurable priors — Uniform, Normal, Half-Normal per parameter</li>
-            <li>Direct Bayesian vs. scikit-learn model comparison (Linear, ElasticNet, RandomForest, SVR)</li>
-            <li>Custom CSV data upload alongside pre-built cases (polynomial regression, California housing)</li>
-            <li>Dual interface — web app accessible anywhere, desktop app for offline use</li>
+            <li>MCMC Metropolis-Hastings avec ajustement adaptatif de la proposition pendant le burn-in</li>
+            <li>A priori configurables — Uniforme, Normal, Demi-Normal par paramètre</li>
+            <li>Comparaison directe Bayésien vs. modèles scikit-learn (Linear, ElasticNet, RandomForest, SVR)</li>
+            <li>Upload de données CSV personnalisées en plus de cas préconstruits (régression polynomiale, logement Californie)</li>
+            <li>Interface double — application web accessible partout, application desktop pour usage hors ligne</li>
           </ul>
-          <img src="resources/BI_wepapp.gif" alt="Bayesian Inference App — live demo"
+          <img src="resources/BI_wepapp.gif" alt="Application d'Inférence Bayésienne — démo en ligne"
                style="max-width: 100%; height: auto;"
                class="mt-4 rounded">
           <div class="mt-4">
-            <p class="tag-label">Key concepts</p>
+            <p class="tag-label">Concepts clés</p>
             <div class="flex flex-wrap gap-2">
-              <span class="concept-ds">Bayesian Inference</span>
+              <span class="concept-ds">Inférence Bayésienne</span>
               <span class="concept-ds">MCMC</span>
-              <span class="concept-ds">Posterior Estimation</span>
-              <span class="concept-ds">Prior Distributions</span>
+              <span class="concept-ds">Estimation a Posteriori</span>
+              <span class="concept-ds">Distributions a Priori</span>
             </div>
           </div>
           <div class="mt-3">
-            <p class="tag-label">Tech stack</p>
+            <p class="tag-label">Stack technique</p>
             <div class="flex flex-wrap gap-2">
               <span class="tech-tag">React</span>
               <span class="tech-tag">Python</span>
@@ -51,61 +52,87 @@
             </div>
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
-            <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Live demo</a>
-            <button @click.stop="switchTo('skills', 'software')" class="cross-link">→ See related skills</button>
+            <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Démo en ligne</a>
+            <button @click.stop="switchTo('skills', 'techstack')" class="cross-link">→ Voir compétences associées</button>
           </div>
         </div>
       </div>
+
       <!-- UQ Initiation App — same accordion pattern -->
       <div class="card accordion-entry" data-id="uq"
            :class="{ 'card-highlight': highlight === 'uq' }"
            @click="toggleEntry('uq')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">UQ Initiation App</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Application d'Initiation à la Quantification d'Incertitude</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.uq }">▾</span>
         </div>
         <!-- Synthetic -->
         <p class="card-text mt-2">
-          Desktop tool for learning uncertainty quantification —
-          interactive simulations with a standalone PyQt GUI.
+          Outil desktop pour l'apprentissage de la quantification d'incertitude —
+          simulations interactives avec une interface PyQt autonome.
         </p>
         <!-- Detailed -->
         <div x-show="expanded.uq" x-transition class="expanded-detail">
           <p class="card-text">
-            Standalone PyQt5 application designed as an accessible entry point into UQ concepts.
-            Bridges the gap between statistical theory and practical application through
-            guided, interactive workflows.
+            Application PyQt5 autonome conçue comme un point d'entrée accessible aux concepts de quantification d'incertitude.
+            Comble le fossé entre la théorie statistique et l'application pratique à travers
+            des workflows guidés et interactifs.
           </p>
           <ul class="card-text mt-2">
-            <li>Interactive interface for practitioners and learners alike</li>
-            <li>Covers core UQ methods — propagation of uncertainty through models</li>
-            <li>Self-contained: no external server or backend required</li>
+            <li>Interface interactive pour praticiens et apprenants</li>
+            <li>Couvre les méthodes UQ essentielles — propagation d'incertitude à travers des modèles</li>
+            <li>Autonome : aucun serveur externe ou backend requis</li>
           </ul>
-          <img src="resources/BallisticQT.gif" alt="UQ Initiation App — desktop GUI"
+          <img src="resources/BallisticQT.gif" alt="Application d'Initiation UQ — interface desktop"
                style="max-width: 100%; height: auto;"
                class="mt-4 rounded">
           <div class="mt-4">
-            <p class="tag-label">Key concepts</p>
+            <p class="tag-label">Concepts clés</p>
             <div class="flex flex-wrap gap-2">
-              <span class="concept-ds">Uncertainty Quantification</span>
-              <span class="concept-ds">Propagation of Uncertainty</span>
+              <span class="concept-ds">Quantification d'Incertitude</span>
+              <span class="concept-ds">Propagation d'Incertitude</span>
             </div>
           </div>
           <div class="mt-3">
-            <p class="tag-label">Tech stack</p>
+            <p class="tag-label">Stack technique</p>
             <div class="flex flex-wrap gap-2">
               <span class="tech-tag">Python</span>
               <span class="tech-tag">PyQt5</span>
             </div>
           </div>
-          <button @click.stop="switchTo('skills', 'stats')" class="cross-link mt-4">→ See related skills</button>
+          <button @click.stop="switchTo('skills', 'techstack')" class="cross-link mt-4">→ Voir compétences associées</button>
         </div>
       </div>
+
+      <!-- Image Processing API -->
+      <div class="card accordion-entry" data-id="imgAPI"
+           :class="{ 'card-highlight': highlight === 'imgAPI' }"
+           @click="toggleEntry('imgAPI')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">API de traitement d'images pour tomographie haute puissance</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.imgAPI }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          Travaux en cours
+        </p>
+        <!-- Detailed -->
+        <div x-show="expanded.imgAPI" x-transition class="expanded-detail">
+          <p class="card-text">
+            Travaux en cours
+          </p>
+            <div class="flex flex-wrap gap-2">
+            <span class="tech-tag">Python</span>
+            <span class="concept-cs">Conception d'API</span>
+          </div>
+
+      </div>
+
       <!--
       <div class="card">
-        <h2 class="section-title">GitHub Activity</h2>
+        <h2 class="section-title">Activité GitHub</h2>
         <img src="https://github.pumbas.net/api/contributions/wfauriat"
-             alt="GitHub contribution graph"
+             alt="Graphique de contributions GitHub"
              style="max-width: 100%; height: auto;"
              class="mt-2 rounded">
       </div>

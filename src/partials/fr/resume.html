@@ -1,171 +1,281 @@
     <section x-show="view === 'resume'" x-transition class="space-y-6">
-      <!-- Experience -->
+
+      <!-- ===========================  EXPERIENCE  =================================-->
       <div class="card">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title">Expérience</h2>
         <!-- Each entry: click title row to expand / collapse.
              @click.stop on cross-links prevents them from re-toggling the accordion. -->
+
+        <!-- ===========================  CEA  =================================-->
         <div class="card-entry accordion-entry" @click="toggleEntry('CEA')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <div class="flex-1">
-              <h3 class="font-semibold">Data Scientist</h3>
-              <p class="text-sm font-medium subtitle mt-0.5">CEA (Center for Atomic Energy) · ML & UQ Team</p>
+              <h3 class="font-semibold">Data Scientist Senior</h3>
+              <p class="text-base subtitle mt-0.5">CEA (Commissariat à l'énergie atomique et aux énergies alternatives)</p>
             </div>
             <div class="flex items-center gap-2">
-              <span class="text-sm subtitle">2021 – present</span>
+              <span class="text-base subtitle">2021 – présent</span>
               <span class="chevron" :class="{ 'chevron-open': expanded.CEA }">▾</span>
             </div>
           </div>
           <p class="card-text text-sm mt-2">
-            Apply Bayesian methods and UQ to multidisciplinary physics simulations, supporting high-stakes scientific decision-making
+            Analyse de données expérimentales, calibration de simulations physiques multidisciplinaires et quantification de l'incertitude des prédictions.
           </p>
+          <span class="data-type mt-2">Données de simulations et de mesures (physique des hautes énergies)</span>
 
           <div x-show="expanded.CEA" x-transition class="expanded-detail">
             <div class="mb-3">
-              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Context</h4>
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Contexte</h4>
               <p class="card-text text-sm">
-                Applied research team at public defense lab. Lead ML engineer for predictive modeling in safety-critical systems using data from multiphysics simulations (high-power radiography, FCI).
+                Laboratoires publics de défense nationale. Apport d'expertise en quantification d'incertitude et ML auprès de physiciens et d'ingénieurs produit sur la calibration et l'utilisation de codes de simulation de pointe.
               </p>
             </div>
 
             <div class="mb-3">
-              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Key Achievements</h4>
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Réalisations Clés</h4>
               <ul class="card-text text-sm space-y-1">
-                <li><strong>Bayesian calibration:</strong> Developed MCMC-based calibration framework reducing model uncertainty by 45% for physics simulations</li>
-                <li><strong>Production tools:</strong> Built full-stack educational app for Bayesian inference (deployed to 200+ internal users)</li>
-                <li><strong>Research impact:</strong> Co-authored 3 papers on UQ methods in multidisciplinary optimization</li>
-                <li><strong>Knowledge transfer:</strong> Designed and delivered UQ training program for 50+ engineers</li>
+                <li>Optimisation d'algorithme d'inversion pour tomographie haute puissance.</li>
+                <li>Conception d'APIs de traitement de données et d'outils de visualisation pour guider la calibration de modèles.</li>
+                <li>Mise en œuvre d'optimisation bayésienne de conditions expérimentales pour la Fusion par Confinement Inertiel (FCI).</li>
+                <li>Animation de formation sur la quantification d'incertitude (formation interne d'une semaine pour environ 20 personnes).</li>
               </ul>
             </div>
 
             <div class="mb-3">
-              <p class="tag-label">Technologies</p>
+              <p class="tag-label">Outils et compétences</p>
               <div class="flex flex-wrap gap-2">
                 <span class="tech-tag">Python</span>
-                <span class="tech-tag">NumPy</span>
-                <span class="tech-tag">SciPy</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">scikit-learn</span>
                 <span class="tech-tag">PyQt5</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">React</span>
+                <span class="concept-ds">Quantification d'Incertitude</span>
+                <span class="concept-ds">Machine Learning</span>
+                <span class="concept-ds">Inférence Bayésienne</span>
+                <span class="concept-ds">Calcul Scientifique</span>
+                <span class="concept-cs">Conception d'API</span>
+                <span class="concept-cs">Développement Full-stack</span>
               </div>
             </div>
 
-            <button @click.stop="switchTo('portfolio', 'bayesian')" class="cross-link">
-              → See Bayesian Inference App
+            <button @click.stop="switchTo('portfolio', 'bayesian')" class="cross-link mr-8">
+              → Voir App d'Inférence Bayésienne
+            </button>
+            <button @click.stop="switchTo('portfolio', 'uq')" class="cross-link mr-8">
+              → Voir App de formation UQ
+            </button>
+            <button @click.stop="switchTo('portfolio', 'imgAPI')" class="cross-link mr-8">
+              → Voir App de traitement d'images
             </button>
           </div>
         </div>
+
         <hr class="divider">
+
+        <!-- ===========================  postdoc  =================================-->
         <div class="card-entry accordion-entry" @click="toggleEntry('postdoc')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">Post-Doctoral Researcher </h3>
+            <div class="flex-1">
+              <h3 class="font-semibold">Chercheur Post-Doctoral</h3>
+              <p class="text-base subtitle mt-0.5">CentraleSupélec (Grande École d'Ingénieur)</p>
+            </div>
             <div class="flex items-center gap-2">
-              <span class="text-sm subtitle">2018 – 2020</span>
+              <span class="text-base subtitle">2018 – 2020</span>
               <span class="chevron" :class="{ 'chevron-open': expanded.postdoc }">▾</span>
             </div>
           </div>
+          <p class="card-text text-sm mt-2">
+            Travaux de recherche sur la collecte optimale d'information pour la décision sous incertitude. Application à la maintenance conditionnelle.
+          </p>
+          <span class="data-type mt-2">Données d'état / santé simulées</span>
+
           <div x-show="expanded.postdoc" x-transition class="expanded-detail">
-            <p class="card-text">
-              Reseach work in Statistical Decision Theory - Special interest in Value of Information calculation <br>
-              Application in Optimal Maintenance Scheduling
-            </p>
-            <!-- <button @click.stop="switchTo('portfolio', 'uq')" class="cross-link mt-2">→ See UQ app</button> -->
-          </div>
-        </div>
-        <hr class="divider">
-        <div class="card-entry accordion-entry" @click="toggleEntry('consultant')">
-          <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">Consultant</h3>
-            <div class="flex items-center gap-2">
-              <span class="text-sm subtitle">2016</span>
-              <span class="chevron" :class="{ 'chevron-open': expanded.consultant }">▾</span>
+
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Contexte</h4>
+              <p class="card-text text-sm">
+                Laboratoire académique en génie industriel. Travaux de recherche au croisement de la modélisation stochastique, de la théorie de la décision et de l'apprentissage statistique.
+              </p>
             </div>
-          </div>
-          <div x-show="expanded.consultant" x-transition class="expanded-detail">
-            <p class="card-text">Automotive industry — engineering consulting.</p>
-          </div>
-        </div>
-        <hr class="divider">
-        <div class="card-entry accordion-entry" @click="toggleEntry('phd')">
-          <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">PhD Researcher</h3>
-            <div class="flex items-center gap-2">
-              <span class="text-sm subtitle">2013 – 2016</span>
-              <span class="chevron" :class="{ 'chevron-open': expanded.phd }">▾</span>
+
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Réalisations Clés</h4>
+              <ul class="card-text text-sm space-y-1">
+                <li>Publication d'article sur la valeur de l'information et la planification optimale d'inspections pour la maintenance.</li>
+                <li>Plus de 100 heures de cours dispensés en modélisation stochastique, fiabilité et génie industriel.</li>
+              </ul>
             </div>
+
+            <div class="mb-3">
+              <p class="tag-label">Outils et compétences</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-tag">Python</span>
+                <span class="concept-ds">Modélisation Stochastique</span>
+                <span class="concept-ds">Décision sous Incertitude</span>
+              </div>
+            </div>
+            <button @click.stop="switchTo('publications', 'voi')" class="cross-link mr-8">
+              → Voir Publications
+            </button>
           </div>
-          <div x-show="expanded.phd" x-transition class="expanded-detail">
-            <p class="card-text">Automotive industry — doctoral research in Mechanical & Industrial Engineering.</p>
-          </div>
+
         </div>
-      </div>
-      <!-- Education -->
-      <div class="card">
-        <h2 class="section-title">Education</h2>
+
+        <hr class="divider">
+
+        <!-- ===========================  gap - year  =================================-->
         <div class="card-entry">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">Full-Stack Engineer — Professional Formation</h3>
-            <span class="text-xs subtitle">2024</span>
+            <h3 class="font-semibold">Année sabbatique — Voyages</h3>
+            <span class="text-base subtitle">2017</span>
           </div>
-          <p class="card-text">Codecademy</p>
+          <p class="card-text">Asie du Sud-Est, Océanie, Amérique du Sud</p>
         </div>
+
         <hr class="divider">
+
+        <!-- ===========================  consultant  =================================-->
+        <!-- <div class="card-entry accordion-entry" @click="toggleEntry('consultant')"> -->
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <div class="flex-1">
+              <h3 class="font-semibold">Consultant</h3>
+              <p class="text-base subtitle mt-0.5">ALTEN pour PSA (maintenant Stellantis — constructeur automobile)</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-base subtitle">2016</span>
+              <!-- <span class="chevron" :class="{ 'chevron-open': expanded.consultant}">▾</span> -->
+            </div>
+          </div>
+          <p class="card-text text-sm mt-2">
+            Ingénieur développement produit travaillant sur la conception et la validation d'architectures de systèmes de suspension
+          </p>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ===========================  PHD  =================================-->
+        <!-- <div class="card-entry accordion-entry" @click="toggleEntry('phd')"> -->
+        <div class="card-entry">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <div class="flex-1">
+              <h3 class="font-semibold">Doctorat en Génie Mécanique</h3>
+              <p class="text-base subtitle mt-0.5">Renault (constructeur automobile)</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-base subtitle">2013 – 2016</span>
+              <!-- <span class="chevron" :class="{ 'chevron-open': expanded.phd }">▾</span> -->
+            </div>
+          </div>
+          <p class="card-text text-sm mt-2">
+            Travaux de doctorat sur l'exploitation de données vibratoires pour l'analyse statistique de la durée de vie en fatigue des véhicules.
+          </p>
+          <span class="data-type mt-2">Données de mesures vibratoires</span>
+        </div>
+
+      </div>
+
+
+      <!-- ===========================  EDUCATION  =================================-->
+      <div class="card">
+        <h2 class="section-title">Formation</h2>
+
+        <!-- ===========================  full-stack training  =================================-->
+        <div class="card-entry accordion-entry" @click="toggleEntry('fullst_deg')">
+          <div class="flex justify-between items-baseline flex-wrap gap-1">
+            <div class="flex-1">
+              <h3 class="font-semibold">Ingénieur Full-Stack — Certification Professionnelle</h3>
+              <p class="text-base subtitle mt-0.5">Codecademy (Plateforme de Formation en Ligne)</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-base subtitle">2024</span>
+              <span class="chevron" :class="{ 'chevron-open': expanded.fullst_deg }">▾</span>
+            </div>
+          </div>
+
+          <div x-show="expanded.fullst_deg" x-transition class="expanded-detail">
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Contenu de la Formation</h4>
+              <p class="card-text text-sm mb-2">
+                Environ 150 heures de cours en ligne, projets et examens de certification.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="concept-cs">Développement Front-end</span>
+                <span class="tech-tag"> HTML, CSS, JS, React</span>
+                <span class="concept-cs">Développement Back-end</span>
+                <span class="tech-tag"> Node.JS, Express.JS, RestAPI, SQL</span>
+                <span class="concept-cs">Informatique</span>
+                <span class="concept-cs"> -- Architecture Système, Structures de Données, Algorithmes -- </span>
+                <span class="concept-cs">Génie Logiciel</span>
+                <span class="concept-cs"> -- Git, CI/CD, Sécurité Web --</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+              <a href="https://www.codecademy.com/profiles/wfauriat/certificates/ffd0f42cce1a44e9a0108b365047a0a6"
+               class="cross-link" target="_blank" rel="noopener">→ Certification Professionnelle</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ===========================  PHD EDU  =================================-->
         <div class="card-entry accordion-entry" @click="toggleEntry('phd_edu')">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
             <div class="flex-1">
-              <h3 class="font-semibold">PhD — Mechanical & Industrial Engineering</h3>
-              <p class="text-sm font-medium subtitle mt-0.5">Université Clermont Auvergne · France</p>
+              <h3 class="font-semibold">Doctorat — Génie Mécanique et Industriel</h3>
+              <p class="text-base subtitle mt-0.5">Université Clermont Auvergne</p>
             </div>
             <div class="flex items-center gap-2">
-              <span class="text-sm subtitle">2016</span>
+              <span class="text-base subtitle">2016</span>
               <span class="chevron" :class="{ 'chevron-open': expanded.phd_edu }">▾</span>
             </div>
           </div>
 
           <div x-show="expanded.phd_edu" x-transition class="expanded-detail">
-            <!-- Thesis -->
             <div class="mb-3">
-              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Dissertation</h4>
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Thèse</h4>
               <p class="card-text text-sm">
-                <em>"Bayesian Methods for Uncertainty Quantification in Multidisciplinary Engineering Systems"</em>
+                <em>"Modélisation stochastique des efforts de fatigue d'origine routière sur les systèmes de suspension et la caisse."</em>
               </p>
-              <p class="card-text text-sm mt-1">
-                Focus: Developing robust UQ methods for coupled physics simulations in automotive and aerospace applications
-              </p>
+              <span class="data-type mt-2">Données de mesures vibratoires</span>
             </div>
 
-            <!-- Focus Areas -->
             <div class="mb-3">
-              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Research Focus</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="concept-ds">Bayesian Inference</span>
-                <span class="concept-ds">MCMC Methods</span>
-                <span class="concept-ds">Computational Mechanics</span>
-                <span class="concept-ds">Sensitivity Analysis</span>
-                <span class="concept-ds">Uncertainty Quantification</span>
-              </div>
-            </div>
-
-            <!-- Key Outcomes -->
-            <div class="mb-3">
-              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Outcomes</h4>
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Réalisations Clés</h4>
               <ul class="card-text text-sm space-y-1">
-                <li>Published 4 peer-reviewed papers in top-tier journals (150+ citations)</li>
-                <li>Developed open-source UQ toolkit adopted by 3 research labs</li>
-                <li>Presented at 6 international conferences on computational mechanics</li>
+                <li>Publication d'article sur l'identification de profils de route à partir de mesures véhicule</li>
+                <li>Publication d'article sur la modélisation stochastique des efforts d'origine routière sur les véhicules</li>
               </ul>
             </div>
 
-            <!-- Cross-link to portfolio -->
-            <button @click.stop="switchTo('portfolio', 'uq')" class="cross-link">
-              → See related work
+            <div class="mb-3">
+              <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Outils et Compétences</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-tag">Matlab</span>
+                <span class="concept-ds">Modélisation Stochastique</span>
+                <span class="concept-ds">Apprentissage Statistique</span>
+                <span class="concept-ds">Mécanique Numérique</span>
+              </div>
+            </div>
+
+            <button @click.stop="switchTo('publications', 'roadinf')" class="cross-link">
+              → Voir publication sur l'estimation de profil de route
             </button>
           </div>
         </div>
+
         <hr class="divider">
+
+        <!-- ===========================  MSC  =================================-->
+
         <div class="card-entry">
           <div class="flex justify-between items-baseline flex-wrap gap-1">
-            <h3 class="font-semibold">M.Sc. — Mechanical Engineering</h3>
-            <span class="text-xs subtitle">2012</span>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold">MSc. / Diplôme d'Ingénieur — Génie Mécanique</h3>
+              <p class="text-base subtitle mt-0.5">IFMA (Institut Français de Mécanique Avancée, maintenant SIGMA-Clermont)</p>
+            </div>
+            <span class="text-base subtitle">2012</span>
           </div>
         </div>
       </div>
