@@ -21,6 +21,8 @@ Dependencies: Alpine.js and Tailwind. Vite used for dev + build.
 SPprofile/
 ├── src/                     ← source files (you edit these)
 │   ├── index.html           ← shell with partial includes (EJS syntax)
+│   ├── app.js               ← Alpine logic (ES6 module, bundled by Vite)
+│   ├── styles.css           ← theming (CSS vars), glassmorphism, transitions
 │   ├── partials/            ← view sections split for maintainability (bilingual)
 │   │   ├── en/              ← English partials
 │   │   │   ├── hero-full.html   ← full hero (Profile/Contact views)
@@ -32,28 +34,26 @@ SPprofile/
 │   │   │   ├── portfolio.html   ← Portfolio view section
 │   │   │   ├── publications.html ← Publications view section
 │   │   │   └── contact.html     ← Contact view section
-│   │   └── fr/              ← French partials (same structure as en/)
-│   │       ├── hero-full.html
-│   │       ├── hero-bar.html
-│   │       ├── profile.html
-│   │       ├── focus.html
-│   │       ├── resume.html
-│   │       ├── skills.html
-│   │       ├── portfolio.html
-│   │       ├── publications.html
-│   │       └── contact.html
-│   ├── public/              ← files copied as-is to dist/ (no processing)
-│   │   └── app.js           ← Alpine logic (must be in public/ to deploy)
-│   ├── styles.css           ← theming (CSS vars), glassmorphism, transitions
+│   │   ├── fr/              ← French partials (same structure as en/)
+│   │   │   ├── hero-full.html
+│   │   │   ├── hero-bar.html
+│   │   │   ├── profile.html
+│   │   │   ├── focus.html
+│   │   │   ├── resume.html
+│   │   │   ├── skills.html
+│   │   │   ├── portfolio.html
+│   │   │   ├── publications.html
+│   │   │   └── contact.html
+│   │   └── backup/          ← backup of original monolingual partials (archived)
 │   └── resources/           ← static assets (photos, gifs)
 │       ├── FaceWilRed.png   ← hero profile photo
 │       ├── BI_wepapp.gif    ← Bayesian Inference App demo
 │       └── BallisticQT.gif  ← UQ App desktop GUI demo
 ├── dist/                    ← built output (git-ignored, auto-deployed)
 │   ├── index.html           ← single compiled file with all partials inlined
-│   ├── app.js               ← copied from src/public/app.js (unprocessed)
-│   └── assets/              ← bundled/minified CSS and optimized images
-│       ├── main-*.css       ← minified styles.css with hash
+│   └── assets/              ← bundled/minified JS, CSS, and optimized images
+│       ├── index-*.js       ← bundled app.js with hash
+│       ├── index-*.css      ← bundled styles.css with hash
 │       ├── FaceWilRed-*.png ← optimized images with hash
 │       ├── BI_wepapp-*.gif
 │       └── BallisticQT-*.gif
@@ -66,7 +66,9 @@ SPprofile/
 ├── vite.config.js           ← Vite config: HTML partial injection, public folder
 ├── .gitignore               ← ignore node_modules, dist, OS files
 ├── README.md                ← short public description
-└── CLAUDE.md                ← this file
+├── CLAUDE.md                ← this file (project context and instructions)
+├── CONTENT_REVIEW.md        ← technical fixes and content issues to address
+└── CONTENT_ASSESSMENT.md    ← overall content quality and strategic assessment
 ```
 
 ## How Vite bundling works
@@ -74,19 +76,21 @@ SPprofile/
 ### Build process (`npm run build`):
 1. **Reads** `src/index.html`
 2. **Injects** all partials inline via `<%- include('filename.html') %>` syntax
-3. **Copies** `src/public/*` files to `dist/` as-is (no processing)
-   - `src/public/app.js` → `dist/app.js` (preserves Alpine global function)
-4. **Bundles & minifies** `src/styles.css` → `dist/assets/main-[hash].css`
+3. **Bundles & minifies** `src/app.js` → `dist/assets/index-[hash].js`
+   - Imports Alpine.js and registers the `resumeApp()` component
+   - ES6 module properly bundled with Alpine
+4. **Bundles & minifies** `src/styles.css` → `dist/assets/index-[hash].css`
+   - Includes Tailwind CSS processing
 5. **Optimizes & fingerprints** images from `src/resources/` → `dist/assets/[name]-[hash].[ext]`
 6. **Updates** all asset paths in HTML to point to hashed filenames
 7. **Outputs** single `dist/index.html` with all content inlined + optimized assets
 
-### Why app.js is in `public/`:
-- Alpine.js expects `resumeApp()` as a **global function**
-- Using `<script type="module">` breaks Alpine (puts function in module scope)
-- Using `<script src="./app.js">` (no module) requires Vite to copy the file as-is
-- Vite's `public/` folder = files copied without bundling
-- Result: `dist/app.js` exists and Alpine can call `resumeApp()`
+### How app.js works with Alpine:
+- `src/app.js` is an ES6 module that imports Alpine.js
+- Registers `resumeApp()` function via `Alpine.data('resumeApp', resumeApp)`
+- Vite bundles it with proper module scope
+- `index.html` loads it as `<script type="module" src="./app.js"></script>`
+- Alpine automatically initializes and finds the registered component
 
 ### Dev server (`npm run dev`):
 - Serves `src/` directory directly
@@ -195,7 +199,7 @@ Internal navigation links between sections that auto-expand target content:
 
 ## Color coding system
 
-Visual categorization through a 3-color pill taxonomy:
+Visual categorization through a 4-color pill taxonomy:
 
 ### **Tech Stack (Orange)** 🟠
 Languages, frameworks, libraries, tools
@@ -218,12 +222,19 @@ Mathematics, statistics, domain expertise
 - **CSS class:** `.concept-ds`
 - **Examples:** Bayesian Inference, MCMC, Uncertainty Quantification, Statistical Decision Theory
 
+### **Data Types (Red)** 🔴
+Types of data handled in specific roles/projects
+- **Light mode:** `rgba(239, 68, 68, 0.08)` bg + `#dc2626` text (red-600)
+- **Dark mode:** `rgba(244, 63, 94, 0.08)` bg + `#e11d47` text (rose-600)
+- **CSS class:** `.data-type`
+- **Examples:** Simulations and measurement data, Vibration measurement data, Condition/health simulated data
+
 ### **UI Structure (Indigo)**
 Titles, subtitles, accents remain indigo (neutral brand color, separate from content categorization)
 
 **Design rationale:**
 - Strong visual contrast between categories (warm orange vs cool teal/purple)
-- Semantic grouping: Theory (purple) vs Application (teal) vs Tools (orange)
+- Semantic grouping: Theory (purple) vs Application (teal) vs Tools (orange) vs Data Context (red)
 - Quick cognitive scanning for recruiters and readers
 - Works beautifully in both light and dark themes
 
@@ -254,7 +265,7 @@ npm run dev                  # Start Vite dev server at http://localhost:5173
 - `src/partials/en/*.html` — English content sections
 - `src/partials/fr/*.html` — French content sections
 - `src/styles.css` — styling changes
-- `src/public/app.js` — Alpine logic changes
+- `src/app.js` — Alpine logic changes
 - `src/resources/` — add/replace images
 
 **Hot reload behavior:**
@@ -268,8 +279,8 @@ npm run build                # Outputs optimized files to dist/
 ```
 **What happens:**
 - Inlines all partials into single `dist/index.html`
-- Copies `src/public/app.js` → `dist/app.js` (unprocessed)
-- Bundles and minifies CSS → `dist/assets/main-[hash].css`
+- Bundles and minifies JS → `dist/assets/index-[hash].js`
+- Bundles and minifies CSS → `dist/assets/index-[hash].css`
 - Optimizes images → `dist/assets/[name]-[hash].[ext]`
 - Updates all asset paths in HTML to hashed versions
 - Output: **~67 KB HTML (~9 KB gzipped)** + assets
@@ -329,9 +340,9 @@ If site shows README instead of app:
 - ✅ Hard refresh browser (Ctrl+Shift+R)
 
 If views don't work on deployed site:
-- ✅ Check `dist/app.js` exists (should be 7.4 KB)
-- ✅ Verify `src/public/app.js` is committed
-- ✅ Check browser console for 404 errors
+- ✅ Check `dist/assets/index-*.js` exists in build output
+- ✅ Verify `src/app.js` is committed
+- ✅ Check browser console for 404 errors or module loading issues
 
 ## TODO — before pushing / after cloning
 - [ ] Set your real git identity (currently placeholder values):
@@ -379,8 +390,17 @@ If views don't work on deployed site:
 - [x] Bilingual implementation (English/French toggle)
   - Partials organized in en/ and fr/ subdirectories
   - Language toggle button with localStorage persistence
-  - Sample French translations in hero, profile, and focus sections
+  - English content fully populated
+  - French translation in progress
 - [x] Footer with WIP notice and co-design attribution
-- [ ] Content population in progress (English baseline, French translation pending)
-- [ ] Visual polish and transitions
+- [x] Content population complete for English (with known issues documented in CONTENT_REVIEW.md)
+  - Profile, Focus, Resume, Skills, Portfolio, Publications, Contact sections
+  - 2 portfolio projects with demos (Bayesian Inference App, UQ Initiation App)
+  - 3 publications with detailed contributions
+  - Full experience and education timeline
+- [ ] Content fixes needed (see CONTENT_REVIEW.md for 6 critical issues)
+  - Broken cross-links between sections
+  - Incomplete publication entry (roadinf)
+  - Proficiency inconsistencies in Skills section
+- [ ] French translation pending (structure ready, content needs translation)
 - [ ] Tested across browsers (Chrome/Firefox/Safari)

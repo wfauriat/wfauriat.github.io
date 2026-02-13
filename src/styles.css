@@ -69,7 +69,7 @@
 
   /* Data type tags — red pills */
   --data-type-bg:    rgba(239, 68, 68, 0.08);
-  --data-type-color: #dc2626e0;                      /* red-600 */
+  --data-type-color: #dc26afe0;                      /* red-600 */
 
   /* Background blobs — what the glassmorphism blurs against.
      Light mode: very subtle indigo / violet wash. */
@@ -128,8 +128,8 @@ html.dark {
   --concept-ds-color: #c4b5fd;                    /* purple-300 */
 
     /* Data type tags — red pills */
-  --data-type-bg:    rgba(244, 63, 94, 0.08);
-  --data-type-color: #e11d47d0;    
+  --data-type-bg:    rgba(244, 63, 94, 0.06);
+  --data-type-color: #e11dd1d0;    
 
   /* Background blobs — stronger saturation on dark so they read through the glass */
   --blob-primary:   rgba(99,  102, 241, 0.14);
@@ -466,7 +466,7 @@ header.hero .tagline {
 }
 
 .tech-category-title {
-  font-size:      0.75rem;
+  font-size:      0.85rem;
   font-weight:    600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -559,7 +559,7 @@ html.dark .proficiency-bar .chevron.empty path {
   padding:       0.75rem 1rem;
   background:    var(--btn-inactive-bg);
   border-radius: 0.5rem;
-  font-size:     0.75rem;
+  font-size:     0.85rem;
   color:         var(--tagline-color);
   transition:    background 0.3s ease, color 0.3s ease;
 }
@@ -568,6 +568,7 @@ html.dark .proficiency-bar .chevron.empty path {
   display:     flex;
   align-items: center;
   gap:         0.4rem;
+  font-size:     0.85rem;
 }
 
 /* Mini chevrons for legend — using unicode triangles for simplicity */

@@ -1,5 +1,6 @@
     <!-- ── PORTFOLIO VIEW ── -->
     <section x-show="view === 'portfolio'" x-transition class="space-y-6">
+
       <!-- Bayesian Inference App — accordion: synthetic summary always visible, details on expand -->
       <div class="card accordion-entry" data-id="bayesian"
            :class="{ 'card-highlight': highlight === 'bayesian' }"
@@ -56,6 +57,7 @@
           </div>
         </div>
       </div>
+
       <!-- UQ Initiation App — same accordion pattern -->
       <div class="card accordion-entry" data-id="uq"
            :class="{ 'card-highlight': highlight === 'uq' }"
@@ -98,9 +100,34 @@
               <span class="tech-tag">PyQt5</span>
             </div>
           </div>
-          <button @click.stop="switchTo('skills', 'stats')" class="cross-link mt-4">→ See related skills</button>
+          <button @click.stop="switchTo('skills', 'software')" class="cross-link mt-4">→ See related skills</button>
         </div>
       </div>
+
+      <!-- UQ Initiation App — same accordion pattern -->
+      <div class="card accordion-entry" data-id="imgAPI"
+           :class="{ 'card-highlight': highlight === 'imgAPI' }"
+           @click="toggleEntry('imgAPI')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Image processing API for high power tomography</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.uq }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          Work ongoing
+        </p>
+        <!-- Detailed -->
+        <div x-show="expanded.imgAPI" x-transition class="expanded-detail">
+          <p class="card-text">
+            Work ongoing
+          </p>
+            <div class="flex flex-wrap gap-2">
+            <span class="tech-tag">Python</span>
+            <span class="concept-cs">API Design</span>
+          </div>
+
+      </div>
+
       <!--
       <div class="card">
         <h2 class="section-title">GitHub Activity</h2>
