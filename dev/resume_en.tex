@@ -1,0 +1,172 @@
+%% William Fauriat - One-Page Resume
+%% Compile with: pdflatex resume.tex
+
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter} % Charter font for better screen rendering
+\usepackage[margin=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\setlength{\parskip}{0pt}
+
+% Custom color
+\definecolor{accentcolor}{RGB}{79,70,229}  % Indigo
+\definecolor{darkgray}{RGB}{64,64,64}
+\definecolor{mediumgray}{RGB}{102,102,102}
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdftitle={William Fauriat - Resume},
+    pdfauthor={William Fauriat}
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{accentcolor}}
+  {}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+% Subsection formatting (for job titles)
+\titleformat{\subsection}[runin]
+  {\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\resumeitem}[1]{\item\small{#1}}
+\newcommand{\experience}[4]{
+  \textbf{#1} \hfill \textcolor{mediumgray}{#2}\\
+  \textit{\color{mediumgray}#3}%
+  #4
+  \vspace{1mm}
+}
+
+% Reduce list spacing
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*, before=\vspace{-0.5mm}, after=\vspace{0.5mm}}
+
+\begin{document}
+
+% ========== HEADER ==========
+\begin{center}
+  {\LARGE\bfseries\color{accentcolor} WILLIAM FAURIAT}\\[1mm]
+  {\large Data Science Expert \& Full-Stack Developer for ML} 
+  \\[1mm]
+  \normalsize + 33(0)7.69.-.-.- ~ | ~ wfauriat@gmail.com \\[0.5mm] 
+  \textit{
+  Profile \& Web-CV @ \href{https://wfauriat.github.io}{wfauriat.github.io} ~~ | ~~
+  Developments \& Projects @ \href{https://github.com/wfauriat}{github.com/wfauriat}}
+\end{center}
+
+\vspace{0.2mm}
+
+% ========== PROFESSIONAL SUMMARY ==========
+\section*{Summary}
+\small
+Over 10 years of experience in statistics and data science applied across various industrial and scientific domains (automotive, maintenance, high-energy physics). Experienced researcher in Uncertainty Quantification (UQ), Bayesian inference, decision under uncertainty. I now seek to leverage my theoretical expertise and engineering perspective to develop and deploy applications: building and monitoring APIs and ML pipelines in production, tackling robust prediction and decision-making challenges.
+
+% ========== EXPERIENCE ==========
+\section*{Experience}
+
+\experience{Senior Data Scientist}{2021--present}{CEA (French Alternative Energies and Atomic Energy Commission) - Military Applications Division}{
+\begin{itemize}
+  \resumeitem{Audit of high-power tomography algorithms and uncertainty quantification}
+  \resumeitem{Development of analysis tools (APIs) and visualization aids (GUIs) for data exploitation}
+  \resumeitem{Bayesian inference-based calibration of simulation codes from experimental data}
+  \resumeitem{Robust optimization and ML for the design of inertial confinement fusion experiments}
+  \resumeitem{Training coordinator (internal sessions, 20 people): uncertainty handling in simulations}
+\end{itemize}
+}
+
+\experience{Post-doctoral Researcher}{2018--2020}{CentraleSupélec - Industrial Engineering Laboratory}{
+\begin{itemize}
+  \resumeitem{Research on optimal information collection -- Bayesian statistical decision theory}
+  \resumeitem{Application to inspection policy design for condition-based maintenance}
+  \resumeitem{Over 100 hours of teaching in systems reliability and industrial engineering -- Master's level}
+\end{itemize}
+}
+
+\experience{Sabbatical Year}{2017}{Travel across Asia, Oceania, and South America}
+
+
+\experience{Consultant Engineer}{2016}{ALTEN for PSA (now Stellantis)}{
+\begin{itemize}
+\item R\&D Engineer: design and validation of vehicle suspension systems
+\end{itemize}
+}
+
+\experience{Doctoral Research}{2013--2016}{Renault -- Université Clermont Auvergne (Industrial PhD -- CIFRE)}{
+\begin{itemize}
+  \resumeitem{Probabilistic modeling of road-induced loads -- validation in vibration fatigue}
+  \resumeitem{Exploitation of vehicle measurements for road profile estimation}
+\end{itemize}
+}
+
+% ========== EDUCATION ==========
+\section*{Education}
+
+\experience{Full-Stack Developer Certification}{2024}{Codecademy (online)}{\hspace{0.2cm}150+ hours of courses, projects and exams: React, Node.js, REST APIs, SQL, Git, CI/CD
+}
+
+\experience{PhD in Mechanical Engineering}{2016}{Université Clermont Auvergne}{}
+
+\experience{Engineering Degree in Mechanics}{2012}{IFMA -- Institut Français de Mécanique Avancée (now SIGMA Clermont)}{}
+
+
+
+% ========== SKILLS ==========
+\section*{Skills \& Expertise}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Expertise}
+\begin{itemize}
+
+  \resumeitem{Uncertainty Quantification (UQ)}
+  \resumeitem{Statistical Learning / Machine Learning (ML)}
+  \resumeitem{Bayesian Inference}
+  \resumeitem{Full-Stack Development}
+  \resumeitem{API design -- GUI design}
+  \resumeitem{LLM-assisted co-development -- AI agents}
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Tech Stack}
+\begin{itemize}
+  \resumeitem{\textbf{Languages:} Python (expert), JavaScript (intermediate), \\ SQL, R, C++ (familiar)}
+  \resumeitem{\textbf{Frontend (Web \& desktop):} HTML/CSS, React, PyQt5}
+  \resumeitem{\textbf{Backend:} Flask - FastAPI (Python), Node.js, Express (JS)}
+  \resumeitem{\textbf{Data/ML:} NumPy, SciPy, pandas, scikit-learn, PyTorch}
+  \resumeitem{\textbf{Tools:} Linux, Git, Docker, VSCode}
+\end{itemize}
+\end{minipage}
+
+% ========== PUBLICATIONS ==========
+\section*{Selected Publications}
+
+\small
+Fauriat, W. \& Zio, E. (2020). Optimization of an aperiodic sequential inspection and condition-based maintenance policy driven by value of information. \textit{Reliability Engineering \& System Safety}
+
+Fauriat, W., Mattrand, C., Gayton, N., Beakou, A., \& Cembrzynski, T. (2016). Estimation of road profile variability from measured vehicle responses. \textit{Vehicle System Dynamics}
+
+Fauriat, W. \& Gayton, N. (2014). AK-SYS: An adaptation of the AK-MCS method for system reliability. \textit{Reliability Engineering \& System Safety}
+
+% ========== PROJECTS ==========
+\section*{Developments -- Projects (see @ Github)}
+
+\textbf{Bayesian Inference Learning \& Experimentation GUI:} Full-Stack application: Bayesian inference core in pure Python (numpy) -- Two frontend versions, one in PyQt5 (desktop), one in React (Web). Backend (REST API) in Flask + Python with ML model comparison (sklearn) | deployed at \href{https://bi-webapp.onrender.com}{bi-webapp.onrender.com} (some waiting at cold start)
+
+\textbf{Other (training or ongoing projects):} PyQt GUI (UQ introduction): pure desktop ~ | ~ ``Argument Mapping'' Web App: pure web (React, React Flow) ~ | ~ Electricity demand forecasting: end-to-end ML pipeline (external API call, FastAPI backend, MLflow experiment tracking, Prefect orchestration, Streamlit dashboard, Docker containerization)
+
+\end{document}

@@ -1,0 +1,172 @@
+%% William Fauriat - One-Page Resume
+%% Compile with: pdflatex resume.tex
+
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter} % Charter font for better screen rendering
+\usepackage[margin=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\setlength{\parskip}{0pt}
+
+% Custom color
+\definecolor{accentcolor}{RGB}{79,70,229}  % Indigo
+\definecolor{darkgray}{RGB}{64,64,64}
+\definecolor{mediumgray}{RGB}{102,102,102}
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdftitle={William Fauriat - Resume},
+    pdfauthor={William Fauriat}
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{accentcolor}}
+  {}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+% Subsection formatting (for job titles)
+\titleformat{\subsection}[runin]
+  {\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\resumeitem}[1]{\item\small{#1}}
+\newcommand{\experience}[4]{
+  \textbf{#1} \hfill \textcolor{mediumgray}{#2}\\
+  \textit{\color{mediumgray}#3}%
+  #4
+  \vspace{1mm}
+}
+
+% Reduce list spacing
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*, before=\vspace{-0.5mm}, after=\vspace{0.5mm}}
+
+\begin{document}
+
+% ========== HEADER ==========
+\begin{center}
+  {\LARGE\bfseries\color{accentcolor} WILLIAM FAURIAT}\\[1mm]
+  {\large Expert en Science des Données et développeur Full-Stack pour le ML} 
+  \\[1mm]
+  \normalsize + 33(0)7.69.-.-.- ~ | ~ wfauriat@gmail.com \\[0.5mm] 
+  \textit{
+  Détails du profil - Web-CV @ \href{https://wfauriat.github.io}{wfauriat.github.io} ~~ | ~~
+  Développements - productions @ \href{https://github.com/wfauriat}{github.com/wfauriat}}
+\end{center}
+
+\vspace{0.2mm}
+
+% ========== PROFESSIONAL SUMMARY ==========
+\section*{Résumé}
+\small
+Plus de 10 ans d'expérience en Statistique et science des données dans divers domaines industriels et scientifiques (automobile, maintenance, physique des hautes énergies). Chercheur expérimenté en Quantification des Incertitudes (UQ), inférence Bayésienne et décision sous incertitudes. Aujourd'hui, je souhaite exploiter mes connaissances théoriques et mon recul d'ingénieur pour le développement et le déploiement d'applications : création et suivi en production d'APIs et de pipelines ML,  enjeux de prédiction et de décision robustes.
+
+% ========== EXPERIENCE ==========
+\section*{Expérience}
+
+\experience{Scientifique des données expert}{2021--aujourd'hui}{CEA (Commissariat à l’Énergie Atomique et aux Énergies Alternatives) - Direction des Applications Militaires}{
+\begin{itemize}
+  \resumeitem{Audit d'algorithmes de tomographie haute-puissance et prise en compte des incertitudes}
+  \resumeitem{Développement d'outils d'analyse (APIs) et d'aide à la visualisation (GUI) pour l'exploitation de données}
+  \resumeitem{Calibration par inférence Bayésienne de codes de simulation à partir de données expérimentales} 	 
+  \resumeitem{Optimisation robuste et ML pour la conception d'expériences de fusion par confinement inertiel}
+  \resumeitem{Coordinateur de formation (sessions internes, 20 personnes) : traitement des incertitudes dans les simulations}
+\end{itemize}
+}
+
+\experience{Chercheur post-doctoral}{2018--2020}{CentraleSupélec - Laboratoire de Génie Industriel}{
+\begin{itemize}
+  \resumeitem{Travaux de recherche sur la collection optimale d'information - théorie Bayésienne de la décision statistique}
+  \resumeitem{Application à l'élaboration de politiques d'inspection pour la maintenance conditionnelle}
+  \resumeitem{Plus de 100 heures d'enseignement données sur la fiabilité des systèmes et en ingénierie industrielle - niveau Master}
+\end{itemize}
+}
+
+\experience{Année sabbatique}{2017}{Voyages en Asie, Océanie et Amérique du Sud}
+
+
+\experience{Ingénieur consultant}{2016}{ALTEN pour PSA (aujourd'hui Stellantis)}{
+\begin{itemize}
+\item Ingénieur R\&D: conception et validation de systèmes de suspension de véhicules
+\end{itemize}
+}
+
+\experience{Travaux de doctorat}{2013--2016}{Renault - Université Clermont Auvergne (Thèse avec partenariat industriel - CIFRE)}{
+\begin{itemize}
+  \resumeitem{Modélisation probabiliste des chargements induits par la route - validation en endurance vibratoire}
+  \resumeitem{Exploitation des mesures sur véhicules pour l'estimation des profils de route}
+\end{itemize}
+}
+
+% ========== EDUCATION ==========
+\section*{Formation}
+
+\experience{Certification Développeur Full-Stack}{2024}{Codecademy (en ligne)}{\hspace{0.2cm}Plus de 150 heures de cours, projets et examens : React, Node.js, REST APIs, SQL, Git, CI/CD
+}
+
+\experience{Doctorat en Génie Mécanique}{2016}{Université Clermont Auvergne}{}
+
+\experience{Diplôme d'ingénieur en mécanique}{2012}{IFMA - Institut Français de Mécanique Avancée (aujourd'hui SIGMA Clermont)}{}
+
+
+
+% ========== SKILLS ==========
+\section*{Compétences et expertise}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Expertise}
+\begin{itemize}
+
+  \resumeitem{Quantification des inceritudes (UQ)}
+  \resumeitem{Apprentissage Statistique / Apprentissage Machine (ML)}
+  \resumeitem{Inférence Bayésienne}
+  \resumeitem{Développement Full-Stack}
+  \resumeitem{Conception d'APIs - conception de GUIs}
+  \resumeitem{Co-conception assistée par LLM - agent AI}
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Stack logiciel}
+\begin{itemize}
+  \resumeitem{\textbf{Langages:} Python (expert), JavaScript (intermédiaire), \\ SQL, R, C++ (familier)}
+  \resumeitem{\textbf{Frontend (Web \& desktop) :} HTML/CSS, React, PyQt5}
+  \resumeitem{\textbf{Backend :} Flask - FastAPI (Python), Node.js, Express (JS)}
+  \resumeitem{\textbf{Data/ML :} NumPy, SciPy, pandas, scikit-learn, PyTorch}
+  \resumeitem{\textbf{Tools:} Linux, Git, Docker, VSCode}
+\end{itemize}
+\end{minipage}
+
+% ========== PUBLICATIONS ==========
+\section*{Publications principales}
+
+\small
+Fauriat, W. \& Zio, E. (2020). Optimization of an aperiodic sequential inspection and condition-based maintenance policy driven by value of information. \textit{Reliability Engineering \& System Safety}
+
+Fauriat, W., Mattrand, C., Gayton, N., Beakou, A., \& Cembrzynski, T. (2016). Estimation of road profile variability from measured vehicle responses. \textit{Vehicle System Dynamics}
+
+Fauriat, W. \& Gayton, N. (2014). AK-SYS: An adaptation of the AK-MCS method for system reliability. \textit{Reliability Engineering \& System Safety}
+
+% ========== PROJECTS ==========
+\section*{Développements - Projets (voir @ Github)}
+
+\textbf{GUI d'initiation/expérimentation d'inférence Bayésienne :} Application Full-Stack : cœur d'inférence Bayésienne en Python (pur numpy) - Deux versions du Frontend, une en PyQt5 (desktop), une en React (Web). Backend (REST API) en Flask + Python et comparaison avec modèles ML (sklearn) | déployée sur \href{https://bi-webapp.onrender.com}{bi-webapp.onrender.com} (un peu d'attente au lancement)
+
+\textbf{Autres (projets à titre de formation ou en cours) : } PyQt GUI (initiation au UQ) : pur desktop ~ | ~  Web App d'"Argument Mapping" : pur web (React, React Flow)  ~ | ~ Prédiction de la demande électrique : pipeline ML de bout en bout (appel API externe, backend FastAPI, MLflow suivi d'expérience ML, orchestration Perfect, dashboard Streamlit, conteneurisation Docker) 
+
+\end{document}
