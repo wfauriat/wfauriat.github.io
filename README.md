@@ -9,5 +9,3 @@ The reader can switch between multiple views of the same resume content — a co
 - **Tailwind CSS** — layout and spacing utilities
 - **Custom CSS** — glassmorphism cards, transitions, full dark/light theming
 
-## Deployment
-Static site, no build step. Deploy directly on **GitHub Pages** by serving `index.html` from the repo root.
