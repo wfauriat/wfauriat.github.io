@@ -4,6 +4,15 @@ import tailwindcss from '@tailwindcss/vite'
 import fs from 'fs'
 import path from 'path'
 
+// In dev, the Vite SPA middleware intercepts /resume_*.pdf requests and serves index.html.
+// Workaround: embed PDFs as base64 data URLs at config time so no HTTP request is needed.
+// In production (GitHub Pages), static files are served directly — the normal path works fine.
+const toDataUrl = (filePath) =>
+  `data:application/pdf;base64,${fs.readFileSync(filePath).toString('base64')}`
+
+const pdfEnPath = path.resolve(__dirname, 'src/public/resume_en.pdf')
+const pdfFrPath = path.resolve(__dirname, 'src/public/resume_vf.pdf')
+
 export default defineConfig({
   plugins: [
     tailwindcss(),
@@ -20,8 +29,12 @@ export default defineConfig({
       }
     })
   ],
+  define: {
+    __PDF_DATA_URL_EN__: JSON.stringify(toDataUrl(pdfEnPath)),
+    __PDF_DATA_URL_FR__: JSON.stringify(toDataUrl(pdfFrPath)),
+  },
   root: 'src',
-  publicDir: 'public',
+  publicDir: path.resolve(__dirname, 'src/public'),
   build: {
     outDir: '../dist',
     emptyOutDir: true,

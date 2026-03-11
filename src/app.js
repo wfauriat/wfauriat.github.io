@@ -29,6 +29,11 @@ Alpine.start()
 function resumeApp() {
   return {
     // ── State ──────────────────────────────────────────────────
+    // Dev: data URL embedded at build time (Vite's SPA middleware intercepts static PDF paths).
+    // Production: static path served directly by GitHub Pages.
+    resumePdfUrlEn: import.meta.env.DEV ? __PDF_DATA_URL_EN__ : '/resume_en.pdf',
+    resumePdfUrlFr: import.meta.env.DEV ? __PDF_DATA_URL_FR__ : '/resume_vf.pdf',
+
     // 'view'  — which content section is visible. Matches the x-show conditions in HTML.
     view: sessionStorage.getItem('view') || 'profile',
 
