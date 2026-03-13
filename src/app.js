@@ -51,7 +51,7 @@ function resumeApp() {
     mobileMenuOpen: false,
 
     // 'lang' — current language (en or fr)
-    lang: localStorage.getItem('default-lang') || 'en',
+    lang: localStorage.getItem('default-lang') || 'fr',
 
     // Accordion state — Resume (experience), Portfolio, and Publications cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
@@ -87,12 +87,12 @@ function resumeApp() {
       const saved = localStorage.getItem('default-theme');
       if (saved !== null) {
         // User has an explicit preference stored — honour it.
-        this.isDark = saved === 'dark';
+        this.isDark = saved === 'light';
       } else {
         // No stored preference: detect the browser / OS setting.
         // prefers-color-scheme is a media query the browser exposes based on the
         // user's system theme (Settings → Appearance on most OS).
-        this.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        this.isDark = window.matchMedia('(prefers-color-scheme: light)').matches;
       }
 
       window.scrollTo(0, 0);
