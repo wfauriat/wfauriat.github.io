@@ -223,10 +223,7 @@ function resumeApp() {
         }
       }
 
-      return {
-        classes: classes,
-        indicator: ''  // No text indicators - visual states only
-      };
+      return classes;
     },
 
     // Return tooltip text for tri-state nav buttons
@@ -234,21 +231,23 @@ function resumeApp() {
     navTooltip(section) {
       const isActive = this.view === section;
       const hasAccordions = this.accordionSections.includes(section);
+      const isFr = this.lang === 'fr';
 
-      if (!hasAccordions) {
-        // Simple button - no accordion behavior
-        return `View ${section.charAt(0).toUpperCase() + section.slice(1)}`;
-      }
+      const sectionNames = {
+        en: { resume: 'Resume', portfolio: 'Portfolio', publications: 'Publications' },
+        fr: { resume: 'Expérience', portfolio: 'Réalisations', publications: 'Publications' }
+      };
+      const name = sectionNames[this.lang]?.[section]
+        ?? section.charAt(0).toUpperCase() + section.slice(1);
 
-      if (!isActive) {
-        // State 1: Not on this section yet
-        return `View ${section.charAt(0).toUpperCase() + section.slice(1)}`;
+      if (!hasAccordions || !isActive) {
+        return isFr ? `Voir ${name}` : `View ${name}`;
       } else if (!this.isAllExpanded(section)) {
         // State 2: On section but collapsed - clicking will expand all
-        return 'Click again to expand all';
+        return isFr ? 'Cliquer pour tout développer' : 'Click again to expand all';
       } else {
         // State 3: On section and expanded - clicking will collapse all
-        return 'Click again to collapse all';
+        return isFr ? 'Cliquer pour tout réduire' : 'Click again to collapse all';
       }
     }
   };

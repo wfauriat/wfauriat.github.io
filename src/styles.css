@@ -69,7 +69,10 @@
 
   /* Data type tags — red pills */
   --data-type-bg:    rgba(239, 68, 68, 0.08);
-  --data-type-color: #dc26afe0;                      /* red-600 */
+  --data-type-color: #dc2626;                        /* red-600 */
+
+  /* Skill tag / expanded-detail accent — indigo */
+  --skill-tag-bg: rgba(99, 102, 241, 0.12);          /* indigo tint */
 
   /* Background blobs — what the glassmorphism blurs against.
      Light mode: very subtle indigo / violet wash. */
@@ -127,9 +130,12 @@ html.dark {
   --concept-ds-bg:    rgba(147, 51, 234, 0.18);
   --concept-ds-color: #c4b5fd;                    /* purple-300 */
 
-    /* Data type tags — red pills */
+  /* Data type tags — red pills */
   --data-type-bg:    rgba(244, 63, 94, 0.06);
-  --data-type-color: #e11dd1d0;    
+  --data-type-color: #e11d47;                        /* rose-600 */
+
+  /* Skill tag / expanded-detail accent — indigo */
+  --skill-tag-bg: rgba(99, 102, 241, 0.20);          /* indigo tint */
 
   /* Background blobs — stronger saturation on dark so they read through the glass */
   --blob-primary:   rgba(99,  102, 241, 0.14);

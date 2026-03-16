@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr"
+<html :lang="lang"
       :class="{ dark: isDark }"
       x-data="resumeApp()">
 <head>
@@ -65,9 +65,9 @@
         </button>
         <div class="nav-tooltip-wrapper">
           <button @click="handleNavClick('resume')"
-                  :class="navBtnState('resume').classes"
+                  :class="navBtnState('resume')"
                   class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
-            <span x-text="lang === 'en' ? 'Resume' : 'Expérience'"></span><span x-text="navBtnState('resume').indicator" class="ml-0.5 text-xs"></span>
+            <span x-text="lang === 'en' ? 'Resume' : 'Expérience'"></span>
           </button>
           <span class="nav-tooltip" x-text="navTooltip('resume')"></span>
         </div>
@@ -78,17 +78,17 @@
         </button>
         <div class="nav-tooltip-wrapper">
           <button @click="handleNavClick('portfolio')"
-                  :class="navBtnState('portfolio').classes"
+                  :class="navBtnState('portfolio')"
                   class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
-            <span x-text="lang === 'en' ? 'Portfolio' : 'Réalisations'"></span><span x-text="navBtnState('portfolio').indicator" class="ml-0.5 text-xs"></span>
+            <span x-text="lang === 'en' ? 'Portfolio' : 'Réalisations'"></span>
           </button>
           <span class="nav-tooltip" x-text="navTooltip('portfolio')"></span>
         </div>
         <div class="nav-tooltip-wrapper">
           <button @click="handleNavClick('publications')"
-                  :class="navBtnState('publications').classes"
+                  :class="navBtnState('publications')"
                   class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer">
-            <span x-text="lang === 'en' ? 'Publications' : 'Publications'"></span><span x-text="navBtnState('publications').indicator" class="ml-0.5 text-xs"></span>
+            <span x-text="lang === 'en' ? 'Publications' : 'Publications'"></span>
           </button>
           <span class="nav-tooltip" x-text="navTooltip('publications')"></span>
         </div>
@@ -132,7 +132,7 @@
                 x-text="lang === 'en' ? 'Focus' : 'Objectifs'">
         </button>
         <button @click="handleNavClick('resume')"
-                :class="navBtnState('resume').classes"
+                :class="navBtnState('resume')"
                 class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer"
                 x-text="lang === 'en' ? 'Resume' : 'Expérience'">
         </button>
@@ -142,12 +142,12 @@
                 x-text="lang === 'en' ? 'Skills' : 'Compétences'">
         </button>
         <button @click="handleNavClick('portfolio')"
-                :class="navBtnState('portfolio').classes"
+                :class="navBtnState('portfolio')"
                 class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer"
                 x-text="lang === 'en' ? 'Portfolio' : 'Réalisations'">
         </button>
         <button @click="handleNavClick('publications')"
-                :class="navBtnState('publications').classes"
+                :class="navBtnState('publications')"
                 class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer"
                 x-text="lang === 'en' ? 'Publications' : 'Publications'">
         </button>
