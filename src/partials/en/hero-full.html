@@ -1,5 +1,6 @@
 <!-- ── FULL HERO (Profile & Contact views) ── -->
-<header x-show="['profile', 'contact'].includes(view)" x-transition class="hero">
+<header x-show="['profile', 'contact'].includes(view)" x-transition class="hero cursor-pointer"
+  @click="view = 'profile'">
   <!-- Text block (left) -->
   <div class="hero-text">
     <h1>William Fauriat</h1>

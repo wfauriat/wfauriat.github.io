@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="fr"
       :class="{ dark: isDark }"
       x-data="resumeApp()">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>William Fauriat — Data Scientist & Full-stack dev for ML</title>
+  <title>William Fauriat - Data Science & Full-stack dev for ML</title>
+
+  <!-- ─── Prevent theme flash ─── -->
+  <script>
+    (function() {
+      const saved = sessionStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? saved === 'dark' : prefersDark;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <!-- ─── SEO / social sharing ─── -->
   <meta name="description" content="Data Scientist & Full-stack dev for ML" />
   <meta name="author" content="William Fauriat" />
@@ -26,6 +39,7 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body class="min-h-screen font-sans">
   <!-- ─── TOP NAV: theme toggle + view switcher ─── -->
   <nav class="sticky top-0 z-50 backdrop-blur-md border-b">
@@ -42,7 +56,7 @@
         <button @click="view = 'profile'; closeMobileMenu()"
                 :class="activeBtn('profile')"
                 class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer"
-                x-text="lang === 'en' ? '&#8962; Home' : '&#8962; Acceuil'">
+                x-text="lang === 'en' ? '&#8962; Profile' : '&#8962; Profil'">
         </button>
         <button @click="view = 'focus'; closeMobileMenu()"
                 :class="activeBtn('focus')"
@@ -110,7 +124,7 @@
         <button @click="view = 'profile'; closeMobileMenu()"
                 :class="activeBtn('profile')"
                 class="px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 text-left cursor-pointer"
-                x-text="lang === 'en' ? '&#8962; Home' : '&#8962; Acceuil'">
+                x-text="lang === 'en' ? '&#8962; - Profile' : '&#8962; - Profil'">
         </button>
         <button @click="view = 'focus'; closeMobileMenu()"
                 :class="activeBtn('focus')"
@@ -173,18 +187,12 @@
   <!-- ─── FOOTER ─── -->
   <footer class="max-w-4xl mx-auto px-4 py-6 mt-10">
     <div x-show="lang === 'fr'" class="card-foot text-center text-sm opacity-75">
-      <!-- <p class="card-text mb-2">
-        <strong>⚠️ Work in progress</strong> — Information may not be exact or up to date
-      </p> -->
       <p class="card-text text-xs">
         Application en Page Simple (SPA) <em>co-conçue</em> avec un agent Claude code<br> - <br>
          W.Fauriat (conception & architecture, contenu) + agent IA (implementation alpine.js & tailwind CSS, packaging Vite)
       </p>
     </div>
     <div x-show="lang === 'en'" class="card-foot text-center text-sm opacity-75">
-      <!-- <p class="card-text mb-2">
-        <strong>⚠️ Work in progress</strong> — Information may not be exact or up to date
-      </p> -->
       <p class="card-text text-xs">
         Single Page Application <em>co-designed</em> with Claude code agent<br> - <br>
          W.Fauriat (design & architecture choices, content) + AI agent (alpine.js & tailwind CSS implementation, Vite bundling)

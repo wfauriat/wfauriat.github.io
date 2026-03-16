@@ -1,5 +1,6 @@
 <!-- ── COMPACT HERO BAR (all other views) ── -->
-<header x-show="!['profile', 'contact'].includes(view)" x-transition class="hero-bar">
+<header x-show="!['profile', 'contact'].includes(view)" x-transition class="hero-bar cursor-pointer"
+  @click="view = 'profile'">
   <img src="resources/FaceWilRed.png" alt="" class="hero-bar-photo">
   <div>
     <h1 class="hero-bar-name">William Fauriat</h1>
