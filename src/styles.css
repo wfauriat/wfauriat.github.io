@@ -190,6 +190,7 @@ nav, main {
 }
 
 nav {
+  position: sticky; top: 0; z-index: 50;
   background:             var(--nav-bg);
   border-bottom-color:    var(--nav-border);
   transition:             background 0.5s ease, border-color 0.5s ease;
@@ -358,6 +359,20 @@ header.hero .tagline {
   box-shadow: var(--card-hover-shadow);
 }
 
+.card-foot {
+  background:            var(--card-bg);
+  backdrop-filter:       blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border:                1px solid var(--card-border);
+  border-radius:         1rem;
+  padding:               1.75rem;
+  transition:            transform 0.2s ease, box-shadow 0.2s ease, background 0.4s ease, border-color 0.4s ease;
+}
+
+.card-foot:hover {
+  transform:  none;
+}
+
 /* Highlight pulse — triggered when arriving via a cross-link.
    Applied dynamically via :class in Alpine when this.highlight matches data-id. */
 .card-highlight {
@@ -400,10 +415,14 @@ header.hero .tagline {
 
 
 .card-focus {
-  border-top: 3px solid #4f46e5;  
+  font-size:   0.9375rem;          /* 15px — consistent base for all card body text */
+  line-height: 1.6;
+  color:       var(--card-text-color);
+  transition:  color 0.4s ease;
+  border-left: 3px solid #4f46e5;  
   box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
   /* border-left: 3px solid #4f46e5; */
-  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(99, 102, 241, 0.06) 100%);
+  /* background: linear-gradient(135deg, var(--card-bg) 0%, rgba(99, 102, 241, 0.06) 100%); */
 }
 
 .card-focus:hover {
