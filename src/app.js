@@ -27,6 +27,13 @@ window.Alpine = Alpine
 Alpine.start()
 
 function resumeApp() {
+
+  const savedTheme = sessionStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialIsDark = savedTheme !== null 
+    ? savedTheme === 'dark' 
+    : systemPrefersDark;
+
   return {
     // ── State ──────────────────────────────────────────────────
     // Dev: data URL embedded at build time (Vite's SPA middleware intercepts static PDF paths).
@@ -41,7 +48,7 @@ function resumeApp() {
     // Default value here is just a placeholder; init() immediately overwrites it
     // based on localStorage or system preference. We default to false (light) to
     // avoid a flash-of-dark if the user prefers light mode.
-    isDark: false,
+    isDark: initialIsDark,
 
     // 'highlight' — data-id of a card that should pulse when it appears.
     // Set by switchTo(), auto-cleared after 1.8s. null = no highlight.
@@ -84,17 +91,7 @@ function resumeApp() {
     // ── Lifecycle hook ─────────────────────────────────────────
     // Alpine calls init() automatically once the component is ready (like React's useEffect on mount).
     init() {
-      const saved = localStorage.getItem('default-theme');
-      if (saved !== null) {
-        // User has an explicit preference stored — honour it.
-        this.isDark = saved === 'light';
-      } else {
-        // No stored preference: detect the browser / OS setting.
-        // prefers-color-scheme is a media query the browser exposes based on the
-        // user's system theme (Settings → Appearance on most OS).
-        this.isDark = window.matchMedia('(prefers-color-scheme: light)').matches;
-      }
-
+      
       window.scrollTo(0, 0);
 
       this.$watch('view', (v) => {
@@ -109,7 +106,7 @@ function resumeApp() {
     // Toggle dark/light mode and persist the choice.
     toggleTheme() {
       this.isDark = !this.isDark;
-      localStorage.setItem('default-theme', this.isDark ? 'dark' : 'light');
+      sessionStorage.setItem('theme', this.isDark ? 'dark' : 'light'); 
     },
 
     // Toggle language between English and French
