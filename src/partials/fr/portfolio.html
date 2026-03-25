@@ -89,7 +89,7 @@
           - Demonstrateur de <strong>pipeline ML de bout en bout</strong> (end to end)
         </p>
         <p class="card-text mt-2">
-          - Pipeline complète : ingestion (DuckDB), ML (XGBoost / MLflow), serving (FastAPI / Streamlit), orchestration (Prefect), conteneurisé (Docker)
+          - Pipeline complet : ingestion (DuckDB), ML (XGBoost / MLflow), serving (FastAPI / Streamlit), orchestration (Prefect), conteneurisé (Docker)
         </p>
         <!-- Detailed -->
         <div x-show="expanded.energyML" x-transition class="expanded-detail">
@@ -184,6 +184,40 @@
       </div>
 
 
+      <!-- Carte C1 -->
+      <div class="card" x-data="{ open: false }">
+        <div class="flex items-center justify-between">
+          <h2 class="section-title mb-0">Cours Intro Probabilités - Statistiques</h2>
+          <div class="flex items-center gap-3">
+            <a :href="resumePdfUrlC1" download="C1.pdf" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              Télécharger le PDF
+            </a>
+            <button @click="open = !open" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              <span x-text="open ? 'Masquer' : 'Afficher'"></span>
+            </button>
+          </div>
+        </div>
+        <div x-show="open" x-transition class="mt-4">
+          <iframe :src="resumePdfUrlC1 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="CV PDF"></iframe>
+        </div>
+      </div>
+      <!-- Carte C2 -->
+      <div class="card" x-data="{ open: false }">
+        <div class="flex items-center justify-between">
+          <h2 class="section-title mb-0">Cours Decision sous Incertitude</h2>
+          <div class="flex items-center gap-3">
+            <a :href="resumePdfUrlC2" download="C2.pdf" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              Télécharger le PDF
+            </a>
+            <button @click="open = !open" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              <span x-text="open ? 'Masquer' : 'Afficher'"></span>
+            </button>
+          </div>
+        </div>
+        <div x-show="open" x-transition class="mt-4">
+          <iframe :src="resumePdfUrlC2 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="CV PDF"></iframe>
+        </div>
+      </div>
 
 
 

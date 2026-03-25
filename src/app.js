@@ -40,6 +40,9 @@ function resumeApp() {
     // Production: static path served directly by GitHub Pages.
     resumePdfUrlEn: import.meta.env.DEV ? __PDF_DATA_URL_EN__ : '/resume_en.pdf',
     resumePdfUrlFr: import.meta.env.DEV ? __PDF_DATA_URL_FR__ : '/resume_vf.pdf',
+    resumePdfUrlC1: import.meta.env.DEV ? __PDF_DATA_URL_C1__ : '/J1_ProbaStats.pdf',
+    resumePdfUrlC2: import.meta.env.DEV ? __PDF_DATA_URL_C2__ : '/J5_Decision.pdf',
+
 
     // 'view'  — which content section is visible. Matches the x-show conditions in HTML.
     view: sessionStorage.getItem('view') || 'profile',

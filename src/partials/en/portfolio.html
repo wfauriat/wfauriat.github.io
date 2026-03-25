@@ -182,7 +182,40 @@
       </div>
 
 
-
+      <!-- Carte C1 -->
+      <div class="card" x-data="{ open: false }">
+        <div class="flex items-center justify-between">
+          <h2 class="section-title mb-0">Course : Intrduction on probability & statistics</h2>
+          <div class="flex items-center gap-3">
+            <a :href="resumePdfUrlC1" download="C1.pdf" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              Download PDF
+            </a>
+            <button @click="open = !open" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              <span x-text="open ? 'Hide' : 'View'"></span>
+            </button>
+          </div>
+        </div>
+        <div x-show="open" x-transition class="mt-4">
+          <iframe :src="resumePdfUrlC1 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="CV PDF"></iframe>
+        </div>
+      </div>
+      <!-- Carte C2 -->
+      <div class="card" x-data="{ open: false }">
+        <div class="flex items-center justify-between">
+          <h2 class="section-title mb-0">Course :  Decision under uncertainty</h2>
+          <div class="flex items-center gap-3">
+            <a :href="resumePdfUrlC2" download="C2.pdf" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              Download PDF
+            </a>
+            <button @click="open = !open" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              <span x-text="open ? 'Hide' : 'View'"></span>
+            </button>
+          </div>
+        </div>
+        <div x-show="open" x-transition class="mt-4">
+          <iframe :src="resumePdfUrlC2 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="CV PDF"></iframe>
+        </div>
+      </div>
 
 
       <!-- Image Processing API -->

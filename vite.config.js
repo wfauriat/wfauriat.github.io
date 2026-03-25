@@ -12,6 +12,8 @@ const toDataUrl = (filePath) =>
 
 const pdfEnPath = path.resolve(__dirname, 'src/public/resume_en.pdf')
 const pdfFrPath = path.resolve(__dirname, 'src/public/resume_vf.pdf')
+const pdfcourse1 = path.resolve(__dirname, 'src/public/J1_ProbaStats.pdf')
+const pdfcourse2 = path.resolve(__dirname, 'src/public/J5_Decision.pdf')
 
 export default defineConfig({
   plugins: [
@@ -32,6 +34,8 @@ export default defineConfig({
   define: {
     __PDF_DATA_URL_EN__: JSON.stringify(toDataUrl(pdfEnPath)),
     __PDF_DATA_URL_FR__: JSON.stringify(toDataUrl(pdfFrPath)),
+    __PDF_DATA_URL_C1__: JSON.stringify(toDataUrl(pdfcourse1)),
+    __PDF_DATA_URL_C2__: JSON.stringify(toDataUrl(pdfcourse2)),
   },
   root: 'src',
   publicDir: path.resolve(__dirname, 'src/public'),
