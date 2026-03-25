@@ -6,23 +6,23 @@
            :class="{ 'card-highlight': highlight === 'bayesian' }"
            @click="toggleEntry('bayesian')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Demonstrateur Full-stack : Apprentissage de l'inference Bayésienne</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Demonstrateur Full-stack : Apprentissage de l'inférence Bayésienne</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.bayesian }">▾</span>
         </div>
         <!-- Synthetic: one-liner visible at all times -->
         <p class="card-text mt-2">
-          - Mise en place et maitrise d'un <strong>développement Full-stack</strong> : Backend en Flask/Python, Frontend en React
+          - Mise en place et maîtrise d'un <strong>développement Full-stack</strong> : Backend en Flask/Python, Frontend en React
         </p>
         <p class="card-text mt-2">
           - Application à l'enseignement de l'inférence Bayésienne - manipulation et visualisation
         </p>
         <p class="card-text mt-2">
-          - Développement de deux plateformes : <strong>Web</strong>(Flask - React), <strong>Desktop</strong> (PyQt) 
+          - Développement de deux plateformes : <strong>Web</strong> (Flask - React), <strong>Desktop</strong> (PyQt) 
         </p>
         <!-- Detailed: visible only when expanded -->
         <div x-show="expanded.bayesian" x-transition class="expanded-detail">
           <p class="card-text">
-            Détails sur les fonctionalités :
+            Détails sur les fonctionnalités :
           </p>
           <ul class="card-text mt-2">
             <li>Choix parmi plusieurs cas de regression (données synthétiques). Possibilité d'importer un jeu de données (CSV)</li>
@@ -69,7 +69,7 @@
            numpy seul + backend + frontend)
           </p>
         <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
-          <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Deploiement sur Render (à titre de visualisation 
+          <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Déploiement sur Render (à titre de visualisation 
             uniquement - compte gratuit = peu de ressource calcul, latence au démarrage)</a>
           <a href="https://github.com/wfauriat/BayesInfApp/" class="cross-link" target="_blank" rel="noopener">→ Code accessible sur Github</a>
         </div>
@@ -81,21 +81,20 @@
            :class="{ 'card-highlight': highlight === 'energyML' }"
            @click="toggleEntry('energyML')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Pipeline ML de boût en boût : prediction de la demande éléctrique </h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Pipeline ML de bout en bout : prediction de la demande électrique </h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.energyML }">▾</span>
         </div>
         <!-- Synthetic -->
         <p class="card-text mt-2">
-          - Demonstrateur de <strong>pipeline ML de boût en boût</strong> (end to end)
+          - Demonstrateur de <strong>pipeline ML de bout en bout</strong> (end to end)
         </p>
         <p class="card-text mt-2">
-          - Tech stack : DuckDB (données) + Pandas (feature engineering) + XGBoost (modèle) + MLflow (management modèles) 
-          + FastAPI (backend) + Streamlit (frontend / dashboard) + Perfect (orchestration) + Docker (déploiement local)
+          - Pipeline complète : ingestion (DuckDB), ML (XGBoost / MLflow), serving (FastAPI / Streamlit), orchestration (Prefect), conteneurisé (Docker)
         </p>
         <!-- Detailed -->
         <div x-show="expanded.energyML" x-transition class="expanded-detail">
           <p class="card-text">
-            Prédiction de la demande éléctrique à partir des données US - EIA (Energy Information Administration)
+            Prédiction de la demande électrique à partir des données US - EIA (Energy Information Administration)
           </p>
           <img src="resources/energyML.gif" alt="pipeline ML de bout en bout"
                style="max-width: 100%; height: auto;"
@@ -104,10 +103,11 @@
             <p class="tag-label">Concepts clés</p>
             <div class="flex flex-wrap gap-2">
               <span class="concept-cs">end-to-end ML pipeline</span>
-              <span class="concept-cs">Développment assisté par agent IA</span>
+              <span class="concept-cs">Développement assisté par agent IA</span>
               <span class="concept-ds">Machine Learning</span>
               <span class="concept-ds">Incertitude de prédiction</span>
             </div>
+          </div>
           <div class="mt-3">
             <p class="tag-label">Stack technique</p>
             <div class="flex flex-wrap gap-2">
@@ -117,14 +117,13 @@
               <span class="tech-tag">MLflow</span>
               <span class="tech-tag">FastAPI</span>
               <span class="tech-tag">Streamlit</span>
-              <span class="tech-tag">Perfect</span>
+              <span class="tech-tag">Prefect</span>
               <span class="tech-tag">Docker</span>
             </div>
           </div>
-          </div>
         </div>
         <p class="text-sm italic mt-6 mb-2">Développement intégralement réalisé par agent IA (claude sonnet/opus) - supervision humaine : 
-          2-3 jours de développement (planing, execution, verification)
+          2-3 jours de développement (planning, execution, verification)
         </p>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
           <a href="https://github.com/wfauriat/energy_predML/" class="cross-link" target="_blank" rel="noopener">→ Code accessible sur Github
@@ -145,7 +144,7 @@
         </div>
         <!-- Synthetic -->
         <p class="card-text mt-2">
-          - Objectif 1 : Prise en main du developpement de GUI/IHM dans le framework Qt / PyQt
+          - Objectif 1 : Prise en main du développement de GUI/IHM dans le framework Qt / PyQt
         </p>
         <p class="card-text mt-2">
           - Objectif 2 : Utiliser un GUI comme support à l'enseignement des questions de traitement et propagation d'incertitude
@@ -153,11 +152,11 @@
         <!-- Detailed -->
         <div x-show="expanded.uq" x-transition class="expanded-detail">
           <p class="card-text">
-            Détails sur les fonctionalités :
+            Détails sur les fonctionnalités :
           </p>
           <ul class="card-text mt-2">
             <li>Interface interactive pour les apprenants </li>
-            <li>Exemple simple de tir ballistique : action sur la vitesse et l'angle initial notamment</li>
+            <li>Exemple simple de tir balistique : action sur la vitesse et l'angle initial notamment</li>
             <li>Variation des paramètres et effet sur la trajectoire</li>
             <li>Identification d'un modèle de substitution, analyse de sensibilité</li>
           </ul>

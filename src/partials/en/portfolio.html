@@ -6,38 +6,51 @@
            :class="{ 'card-highlight': highlight === 'bayesian' }"
            @click="toggleEntry('bayesian')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Bayesian Inference App</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Full-stack Demonstrator: Bayesian Inference Learning</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.bayesian }">▾</span>
         </div>
         <!-- Synthetic: one-liner visible at all times -->
         <p class="card-text mt-2">
-          Full-stack educational app for interactive Bayesian inference via MCMC —
-          posterior visualization and classical ML comparison. Deployed in production.
+          - Setup and mastery of <strong>Full-stack development</strong>: Flask/Python backend, React frontend
+        </p>
+        <p class="card-text mt-2">
+          - Applied to teaching Bayesian inference — hands-on manipulation and visualization
+        </p>
+        <p class="card-text mt-2">
+          - Two platforms developed: <strong>Web</strong> (Flask - React), <strong>Desktop</strong> (PyQt)
         </p>
         <!-- Detailed: visible only when expanded -->
         <div x-show="expanded.bayesian" x-transition class="expanded-detail">
           <p class="card-text">
-            Modular architecture with a NumPy-only inference engine, a Flask REST API
-            (6 blueprints covering configuration, data, computation, and results), a
-            React frontend with Recharts visualizations, and a parallel PyQt5 desktop version.
+            Feature details:
           </p>
           <ul class="card-text mt-2">
-            <li>Metropolis-Hastings MCMC with adaptive proposal tuning during burn-in</li>
-            <li>Configurable priors — Uniform, Normal, Half-Normal per parameter</li>
-            <li>Direct Bayesian vs. scikit-learn model comparison (Linear, ElasticNet, RandomForest, SVR)</li>
-            <li>Custom CSV data upload alongside pre-built cases (polynomial regression, California housing)</li>
-            <li>Dual interface — web app accessible anywhere, desktop app for offline use</li>
+            <li>Choice among several regression cases (synthetic data). Option to import a custom dataset (CSV)</li>
+            <li>Configurable priors per parameter — Uniform, Normal, Half-Normal</li>
+            <li>Choice and tuning of inference algorithm (pure NumPy): Metropolis-Hastings MCMC, MHwGibbs</li>
+            <li>Bayesian regression vs. scikit-learn model comparison (Linear, ElasticNet, RandomForest, SVR)</li>
           </ul>
+          <p class="card-text text-xl mt-6 mb-2">
+            <strong>Web Application</strong>
+          </p>
           <img src="resources/BI_wepapp.gif" alt="Bayesian Inference App — live demo"
+               style="max-width: 100%; height: auto;"
+               class="mt-4 rounded">
+          <p class="card-text text-xl mt-6 mb-2">
+            <strong>Desktop Application</strong>
+          </p>
+          <img src="resources/BI_Qt.gif" alt="Bayesian Inference App — Desktop version"
                style="max-width: 100%; height: auto;"
                class="mt-4 rounded">
           <div class="mt-4">
             <p class="tag-label">Key concepts</p>
             <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">Statistical learning: regression</span>
               <span class="concept-ds">Bayesian Inference</span>
               <span class="concept-ds">MCMC</span>
-              <span class="concept-ds">Posterior Estimation</span>
-              <span class="concept-ds">Prior Distributions</span>
+              <span class="concept-ds">Prediction Uncertainty</span>
+              <span class="concept-cs">Full-stack Development</span>
+              <span class="concept-cs">Desktop Development</span>
             </div>
           </div>
           <div class="mt-3">
@@ -46,42 +59,104 @@
               <span class="tech-tag">React</span>
               <span class="tech-tag">Python</span>
               <span class="tech-tag">Flask</span>
-              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Numpy</span>
               <span class="tech-tag">PyQt5</span>
               <span class="tech-tag">scikit-learn</span>
             </div>
           </div>
-          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
-            <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Live demo</a>
-            <button @click.stop="switchTo('skills', 'techstack')" class="cross-link">→ See related skills</button>
-          </div>
+        </div>
+          <p class="text-sm italic mt-6 mb-2">Developed with light AI assistance: approximately 10 weeks of part-time development (NumPy inference core solo + backend + frontend)
+          </p>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+          <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Deployed on Render (for visualization only — free tier = limited compute, cold start latency)</a>
+          <a href="https://github.com/wfauriat/BayesInfApp/" class="cross-link" target="_blank" rel="noopener">→ Code available on Github</a>
         </div>
       </div>
+
+
+      <!-- energyML — same accordion pattern -->
+      <div class="card accordion-entry" data-id="energyML"
+           :class="{ 'card-highlight': highlight === 'energyML' }"
+           @click="toggleEntry('energyML')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">End-to-end ML Pipeline: Electricity Demand Prediction</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.energyML }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          - <strong>End-to-end ML pipeline</strong> demonstrator
+        </p>
+        <p class="card-text mt-2">
+          - Full pipeline: ingestion (DuckDB), ML (XGBoost / MLflow), serving (FastAPI / Streamlit), orchestration (Prefect), containerized (Docker)
+        </p>
+        <!-- Detailed -->
+        <div x-show="expanded.energyML" x-transition class="expanded-detail">
+          <p class="card-text">
+            Electricity demand prediction using US EIA (Energy Information Administration) data
+          </p>
+          <img src="resources/energyML.gif" alt="End-to-end ML pipeline"
+               style="max-width: 100%; height: auto;"
+               class="mt-4 rounded">
+            <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-cs">End-to-end ML pipeline</span>
+              <span class="concept-cs">AI agent-assisted development</span>
+              <span class="concept-ds">Machine Learning</span>
+              <span class="concept-ds">Prediction Uncertainty</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <p class="tag-label">Tech stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-tag">DuckDB</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">XGBoost</span>
+              <span class="tech-tag">MLflow</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Prefect</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-sm italic mt-6 mb-2">Development entirely carried out by AI agent (Claude Sonnet/Opus) — human supervision:
+          2-3 days of development (planning, execution, verification)
+        </p>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+          <a href="https://github.com/wfauriat/energy_predML/" class="cross-link" target="_blank" rel="noopener">→ Code available on Github
+            (co-developed with Claude Sonnet/Opus)
+          </a>
+        </div>
+
+      </div>
+
 
       <!-- UQ Initiation App — same accordion pattern -->
       <div class="card accordion-entry" data-id="uq"
            :class="{ 'card-highlight': highlight === 'uq' }"
            @click="toggleEntry('uq')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">UQ Initiation App</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Desktop Application: Uncertainty Quantification Training</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.uq }">▾</span>
         </div>
         <!-- Synthetic -->
         <p class="card-text mt-2">
-          Desktop tool for learning uncertainty quantification —
-          interactive simulations with a standalone PyQt GUI.
+          - Goal 1: Hands-on learning of GUI development within the Qt / PyQt framework
+        </p>
+        <p class="card-text mt-2">
+          - Goal 2: Using a GUI as a teaching tool for uncertainty treatment and propagation
         </p>
         <!-- Detailed -->
         <div x-show="expanded.uq" x-transition class="expanded-detail">
           <p class="card-text">
-            Standalone PyQt5 application designed as an accessible entry point into UQ concepts.
-            Bridges the gap between statistical theory and practical application through
-            guided, interactive workflows.
+            Feature details:
           </p>
           <ul class="card-text mt-2">
-            <li>Interactive interface for practitioners and learners alike</li>
-            <li>Covers core UQ methods — propagation of uncertainty through models</li>
-            <li>Self-contained: no external server or backend required</li>
+            <li>Interactive interface for learners</li>
+            <li>Simple ballistic trajectory example: control over initial velocity and angle</li>
+            <li>Parameter variation and effect on trajectory</li>
+            <li>Surrogate model identification, sensitivity analysis</li>
           </ul>
           <img src="resources/BallisticQT.gif" alt="UQ Initiation App — desktop GUI"
                style="max-width: 100%; height: auto;"
@@ -90,36 +165,42 @@
             <p class="tag-label">Key concepts</p>
             <div class="flex flex-wrap gap-2">
               <span class="concept-ds">Uncertainty Quantification</span>
-              <span class="concept-ds">Propagation of Uncertainty</span>
+              <span class="concept-ds">Uncertainty Propagation</span>
+              <span class="concept-ds">Statistical Learning</span>
             </div>
           </div>
           <div class="mt-3">
             <p class="tag-label">Tech stack</p>
             <div class="flex flex-wrap gap-2">
               <span class="tech-tag">Python</span>
+              <span class="tech-tag">Numpy</span>
               <span class="tech-tag">PyQt5</span>
+              <span class="tech-tag">scikit-learn</span>
             </div>
           </div>
-          <button @click.stop="switchTo('skills', 'techstack')" class="cross-link mt-4">→ See related skills</button>
         </div>
       </div>
+
+
+
+
 
       <!-- Image Processing API -->
       <!-- <div class="card accordion-entry" data-id="imgAPI"
            :class="{ 'card-highlight': highlight === 'imgAPI' }"
            @click="toggleEntry('imgAPI')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Image processing API for high power tomography</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Image processing API for high-power tomography</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.imgAPI }">▾</span>
         </div> -->
         <!-- Synthetic -->
         <!-- <p class="card-text mt-2">
-          Work ongoing
+          Work in progress
         </p> -->
         <!-- Detailed -->
         <!-- <div x-show="expanded.imgAPI" x-transition class="expanded-detail">
           <p class="card-text">
-            Work ongoing
+            Work in progress
           </p>
             <div class="flex flex-wrap gap-2">
             <span class="tech-tag">Python</span>
