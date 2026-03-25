@@ -69,6 +69,7 @@ function resumeApp() {
       phd_edu:    false,  // PhD education entry
       bayesian:   false,
       uq:         false,
+      energyML:   false,
       // imgAPI:     false,
       aksys:      false,  // AK-SYS publication
       voi:        false,   // Value of Information publication
@@ -84,7 +85,7 @@ function resumeApp() {
     sectionAccordions: {
       resume: ['CEA', 'postdoc', 'fullst_deg' ,'phd_edu'],
       skills: [],
-      portfolio: ['bayesian', 'uq'],
+      portfolio: ['bayesian', 'uq', 'energyML'],
       publications: ['aksys', 'voi', 'roadinf']
     },
 
