@@ -132,6 +132,48 @@
       </div>
 
 
+      <!-- LLM Core Primer — video artifact -->
+      <div class="card accordion-entry" data-id="llmcore"
+           :class="{ 'card-highlight': highlight === 'llmcore' }"
+           @click="toggleEntry('llmcore')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Video primer on LLM core concepts</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.llmcore }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          - Layman-friendly description of LLM-powered AI products
+        </p>
+        <p class="card-text mt-2">
+          - Walkthrough of core LLM mechanics: tokenization, embeddings, attention mechanism, transformer architecture, training and inference
+        </p>
+        <p class="card-text mt-2">
+          - 10-minute video with many visual examples
+        </p>
+        <p class="text-sm italic mt-6 mb-2">
+          Video is the record of a keyboard-controled single page slideshow build in Javascript. (JS rendered animation and navigation minimap is 90% AI work (Claude), design architecture is 50% AI work, content and ordering of content is 90% authored - 10 % AI output) 
+        </p>
+        <!-- Detailed: video player -->
+        <div x-show="expanded.llmcore" x-transition class="expanded-detail">
+          <video controls muted loop preload="metadata"
+                 src="resources/LLMcore_en_low.mp4"
+                 style="max-width: 100%; height: auto;"
+                 class="mt-4 rounded">
+            Your browser does not support the video tag.
+          </video>
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">AI and LLMs</span>
+              <span class="concept-ds">Machine Learning</span>
+              <span class="concept-cs">Computer Science</span>
+              <span class="concept-cs">JS-controlled slideshow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- UQ Initiation App — same accordion pattern -->
       <div class="card accordion-entry" data-id="uq"
            :class="{ 'card-highlight': highlight === 'uq' }"

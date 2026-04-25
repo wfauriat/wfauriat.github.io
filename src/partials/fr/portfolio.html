@@ -134,6 +134,48 @@
       </div>
 
 
+      <!-- LLM Core Primer — video artifact -->
+      <div class="card accordion-entry" data-id="llmcore"
+           :class="{ 'card-highlight': highlight === 'llmcore' }"
+           @click="toggleEntry('llmcore')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Vidéo d'introduction aux concepts clés des LLM</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.llmcore }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          - Description accessible des produits IA basés sur des LLMs
+        </p>
+        <p class="card-text mt-2">
+          - Présentation des mécanismes au cœur des LLMs : tokenisation, embeddings, mécanisme d'attention, architecture transformer, entraînement et inférence
+        </p>
+        <p class="card-text mt-2">
+          - Vidéo de 10 minutes, illustrée par de nombreux exemples visuels
+        </p>
+        <p class="text-sm italic mt-6 mb-2">
+          La vidéo est l'enregistrement d'un diaporama monopage piloté au clavier, développé en JavaScript. (Animations rendues en JS et minimap de navigation : 90 % réalisé par IA (Claude) ; choix architecturaux et design : 50 % IA ; contenu et ordonnancement : 90 % rédigé par l'auteur — 10 % issu de l'IA)
+        </p>
+        <!-- Detailed: video player -->
+        <div x-show="expanded.llmcore" x-transition class="expanded-detail">
+          <video controls muted loop preload="metadata"
+                 src="resources/LLMcore_vf_low.mp4"
+                 style="max-width: 100%; height: auto;"
+                 class="mt-4 rounded">
+            Votre navigateur ne prend pas en charge la lecture vidéo.
+          </video>
+          <div class="mt-4">
+            <p class="tag-label">Concepts clés</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">IA et LLMs</span>
+              <span class="concept-ds">Machine Learning</span>
+              <span class="concept-cs">Informatique</span>
+              <span class="concept-cs">Diaporama piloté en JS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- UQ Initiation App — same accordion pattern -->
       <div class="card accordion-entry" data-id="uq"
            :class="{ 'card-highlight': highlight === 'uq' }"
