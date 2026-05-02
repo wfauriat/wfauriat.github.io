@@ -71,6 +71,7 @@ function resumeApp() {
       fullst_deg: false,
       phd_edu:    false,  // PhD education entry
       bayesian:   false,
+      agentTraining: false,
       uq:         false,
       energyML:   false,
       llmcore:    false,
@@ -89,7 +90,7 @@ function resumeApp() {
     sectionAccordions: {
       resume: ['CEA', 'postdoc', 'fullst_deg' ,'phd_edu'],
       skills: [],
-      portfolio: ['bayesian', 'uq', 'energyML', 'llmcore'],
+      portfolio: ['bayesian', 'agentTraining', 'uq', 'energyML', 'llmcore'],
       publications: ['aksys', 'voi', 'roadinf']
     },
 

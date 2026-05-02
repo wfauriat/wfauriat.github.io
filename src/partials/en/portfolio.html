@@ -33,15 +33,21 @@
           <p class="card-text text-xl mt-6 mb-2">
             <strong>Web Application</strong>
           </p>
-          <img src="resources/BI_wepapp.gif" alt="Bayesian Inference App — live demo"
-               style="max-width: 100%; height: auto;"
-               class="mt-4 rounded">
+          <video controls muted loop preload="metadata"
+                 src="resources/demoBI.mp4"
+                 style="max-width: 100%; height: auto;"
+                 class="mt-4 rounded">
+            Your browser does not support the video tag.
+          </video>
           <p class="card-text text-xl mt-6 mb-2">
             <strong>Desktop Application</strong>
           </p>
-          <img src="resources/BI_Qt.gif" alt="Bayesian Inference App — Desktop version"
-               style="max-width: 100%; height: auto;"
-               class="mt-4 rounded">
+          <video controls muted loop preload="metadata"
+                 src="resources/demoBI_Qt.mp4"
+                 style="max-width: 100%; height: auto;"
+                 class="mt-4 rounded">
+            Your browser does not support the video tag.
+          </video>
           <div class="mt-4">
             <p class="tag-label">Key concepts</p>
             <div class="flex flex-wrap gap-2">
@@ -70,6 +76,76 @@
         <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
           <a href="https://bi-webapp.onrender.com/" class="cross-link" target="_blank" rel="noopener">→ Deployed on Render (for visualization only — free tier = limited compute, cold start latency)</a>
           <a href="https://github.com/wfauriat/BayesInfApp/" class="cross-link" target="_blank" rel="noopener">→ Code available on Github</a>
+        </div>
+      </div>
+
+
+      <!-- Agent Training — local agent built on LangGraph with Qwen3 8B -->
+      <div class="card accordion-entry" data-id="agentTraining"
+           :class="{ 'card-highlight': highlight === 'agentTraining' }"
+           @click="toggleEntry('agentTraining')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">REPL AI Agent: from scratch to LangGraph</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.agentTraining }">▾</span>
+        </div>
+        <!-- Synthetic -->
+        <p class="card-text mt-2">
+          - Build a <strong>Claude-Code-style AI coding assistant</strong> that runs entirely on a personal laptop — no cloud LLM API, no subscription
+        </p>
+        <p class="card-text mt-2">
+          - Built it twice: first <strong>by hand</strong> to understand every gear of the agent loop, then rebuilt on the industry-standard framework (<strong>LangGraph / LangChain</strong>)
+        </p>
+        <p class="card-text mt-2">
+          - Full set of features expected from a modern AI agent: tool use (web search, file editing, sandboxed code execution, document search), multi-agent collaboration, memory across sessions, safety prompts before destructive actions, evaluation harness
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.agentTraining" x-transition class="expanded-detail">
+          <p class="card-text">
+            Two implementations, built in sequence so the second can lean on the lessons from the first:
+          </p>
+          <ul class="card-text mt-2">
+            <li><strong>agent/</strong> — hand-rolled, no framework. A ~100-line loop ("send the user's question → if the model wants to call a tool, run it → loop"), 7 tools (web search, web fetch, file read/write, sandboxed Python execution in Docker, document search via embeddings/RAG), input validation, path-traversal defenses, full session logging</li>
+            <li><strong>lib_agent/</strong> — same goal, rebuilt on LangGraph. Adds: a supervisor that dispatches between specialized "researcher" and "coder" sub-agents, persistence so a conversation survives a restart, persistent facts that the agent remembers across sessions, automatic context summarization when conversations get long, approval prompts before risky actions (deleting a file, running code), a slash-command REPL, observability dashboard, and a 30-case automated evaluation suite</li>
+          </ul>
+          <p class="card-text text-xl mt-6 mb-2">
+            <strong>Live REPL demo (Qwen3 8B local on 8 GB GPU)</strong>
+          </p>
+          <video controls muted loop preload="metadata"
+                 src="resources/demoAgent.mp4"
+                 style="max-width: 100%; height: auto;"
+                 class="mt-4 rounded">
+            Your browser does not support the video tag.
+          </video>
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">Agentic AI</span>
+              <span class="concept-ds">LLM Tool Use</span>
+              <span class="concept-ds">RAG</span>
+              <span class="concept-ds">Multi-agent Orchestration</span>
+              <span class="concept-cs">Local LLM Deployment</span>
+              <span class="concept-cs">Sandboxing</span>
+              <span class="concept-cs">Human-in-the-loop</span>
+              <span class="concept-cs">Observability &amp; Eval</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <p class="tag-label">Tech stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LangGraph</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Ollama</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">SQLite</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-sm italic mt-6 mb-2">
+          Two developments: one AI-tutored but with fully hand-written code (no framework, from-scratch rebuild), one AI-coded with human supervision (LangGraph / LangChain)
+        </p>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+          <a href="https://github.com/wfauriat/AgentTraining" class="cross-link" target="_blank" rel="noopener">→ Code available on Github</a>
         </div>
       </div>
 

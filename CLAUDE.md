@@ -390,17 +390,12 @@ If views don't work on deployed site:
 - [x] Bilingual implementation (English/French toggle)
   - Partials organized in en/ and fr/ subdirectories
   - Language toggle button with localStorage persistence
-  - English content fully populated
-  - French translation in progress
+  - Full content populated and translated in both languages
 - [x] Footer with WIP notice and co-design attribution
-- [x] Content population complete for English (with known issues documented in CONTENT_REVIEW.md)
+- [x] Content population complete (EN + FR)
   - Profile, Focus, Resume, Skills, Portfolio, Publications, Contact sections
-  - 2 portfolio projects with demos (Bayesian Inference App, UQ Initiation App)
+  - Portfolio projects with demos (Bayesian Inference App, REPL AI Agent, energyML pipeline, LLM core primer, UQ Initiation App)
   - 3 publications with detailed contributions
   - Full experience and education timeline
-- [ ] Content fixes needed (see CONTENT_REVIEW.md for 6 critical issues)
-  - Broken cross-links between sections
-  - Incomplete publication entry (roadinf)
-  - Proficiency inconsistencies in Skills section
-- [ ] French translation pending (structure ready, content needs translation)
+  - Cross-links between Resume / Portfolio / Publications / Skills all valid
 - [ ] Tested across browsers (Chrome/Firefox/Safari)
