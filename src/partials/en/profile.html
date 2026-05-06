@@ -27,6 +27,33 @@
       <li>AI-assisted agentic coding and integration of automation in processes and products (AI/LLM)</li>
     </ul>
   </div>
+  <div class="card accordion-entry" data-id="profileLLM"
+       :class="{ 'card-highlight': highlight === 'profileLLM' }"
+       @click="toggleEntry('profileLLM')">
+    <div class="flex justify-between items-baseline flex-wrap gap-1">
+      <h2 class="section-title" style="margin-bottom: 0;">Let a LLM-based RAG agent tell you about me...</h2>
+      <span class="chevron" :class="{ 'chevron-open': expanded.profileLLM }">▾</span>
+    </div>
+    <p class="card-text mt-2">
+      Claude indexes an analysis of my GitHub repo into a profile digest, then a local Qwen3 agent retrieves it via RAG and reads it back.
+    </p>
+    <div x-show="expanded.profileLLM" x-transition class="expanded-detail">
+      <template x-if="expanded.profileLLM">
+        <video controls muted loop preload="none"
+               src="resources/profileByLLM.mp4"
+               style="max-width: 100%; height: auto;"
+               class="mt-2 rounded">
+          Your browser does not support the video tag.
+        </video>
+      </template>
+      <p class="text-sm italic mt-3 mb-2">
+        Two artifacts in one: a candid summary of my profile, and a live demo of my own work on agentic AI.
+      </p>
+      <p class="mt-3">
+        <button @click.stop="switchTo('portfolio', 'agentTraining')" class="cross-link">→ See the REPL agent in Portfolio</button>
+      </p>
+    </div>
+  </div>
   <p>
     <button @click="view = 'contact'" class="cross-link">See paper resume →</button>
   </p>

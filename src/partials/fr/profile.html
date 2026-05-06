@@ -27,6 +27,33 @@
       <li>Codage assisté par agent IA et intégration de logiques d'automatisation dans les process et les produits (IA/LLM)</li>
     </ul>
   </div>
+  <div class="card accordion-entry" data-id="profileLLM"
+       :class="{ 'card-highlight': highlight === 'profileLLM' }"
+       @click="toggleEntry('profileLLM')">
+    <div class="flex justify-between items-baseline flex-wrap gap-1">
+      <h2 class="section-title" style="margin-bottom: 0;">Laissez un agent RAG basé sur un LLM vous parler de moi...</h2>
+      <span class="chevron" :class="{ 'chevron-open': expanded.profileLLM }">▾</span>
+    </div>
+    <p class="card-text mt-2">
+      Claude indexe une analyse de mon dépôt GitHub pour en produire un résumé de mon profil, puis un agent Qwen3 local utilise la récupération de contenu et affiche la description du profil.
+    </p>
+    <div x-show="expanded.profileLLM" x-transition class="expanded-detail">
+      <template x-if="expanded.profileLLM">
+        <video controls muted loop preload="none"
+               src="resources/profileByLLM.mp4"
+               style="max-width: 100%; height: auto;"
+               class="mt-2 rounded">
+          Votre navigateur ne prend pas en charge la balise vidéo.
+        </video>
+      </template>
+      <p class="text-sm italic mt-3 mb-2">
+        Deux artefacts en un : une présentation candide de mon profil, et une démo de mon propre travail sur les agents IA.
+      </p>
+      <p class="mt-3">
+        <button @click.stop="switchTo('portfolio', 'agentTraining')" class="cross-link">→ Voir l'agent REPL dans le Portfolio</button>
+      </p>
+    </div>
+  </div>
   <p>
     <button @click="view = 'contact'" class="cross-link">Voir le CV papier →</button>
   </p>

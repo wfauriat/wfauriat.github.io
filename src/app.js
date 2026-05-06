@@ -69,6 +69,7 @@ function resumeApp() {
     // Accordion state — Resume (experience), Portfolio, and Publications cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
     expanded: {
+      profileLLM: false,  // Profile page: "Let a RAG agent tell you about me" video card
       CEA:        false,
       postdoc:    false,
       fullst_deg: false,
