@@ -63,6 +63,9 @@ function resumeApp() {
     // 'lang' — current language (en or fr)
     lang: localStorage.getItem('default-lang') || 'fr',
 
+    // Email assembled from parts to keep the literal address out of the static HTML (light scrape deterrent).
+    email: (() => { const p = ['wfauriat', 'gmail', 'com']; return `${p[0]}@${p[1]}.${p[2]}`; })(),
+
     // Accordion state — Resume (experience), Portfolio, and Publications cards.
     // Keys match the first argument passed to toggleEntry() in the HTML.
     expanded: {
