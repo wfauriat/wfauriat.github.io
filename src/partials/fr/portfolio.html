@@ -25,10 +25,10 @@
             Détails sur les fonctionnalités :
           </p>
           <ul class="card-text mt-2">
-            <li>Choix parmi plusieurs cas de regression (données synthétiques). Possibilité d'importer un jeu de données (CSV)</li>
+            <li>Choix parmi plusieurs cas de régression (données synthétiques). Possibilité d'importer un jeu de données (CSV)</li>
             <li>A priori configurables par paramètre — Uniforme, Normal, Demi-Normal </li>
             <li>Choix et réglage de l'algorithme d'inférence (pur Numpy) : Metropolis Hastings MCMC, MHwGibbs</li>
-            <li>Comparaison regression Bayésienne vs. modèles scikit-learn (Linear, ElasticNet, RandomForest, SVR)</li>
+            <li>Comparaison régression Bayésienne vs. modèles scikit-learn (Linear, ElasticNet, RandomForest, SVR)</li>
           </ul>
           <p class="card-text text-xl mt-6 mb-2">
             <strong>Application Web</strong>
@@ -51,7 +51,7 @@
           <div class="mt-4">
             <p class="tag-label">Concepts clés</p>
             <div class="flex flex-wrap gap-2">
-              <span class="concept-ds">Apprentissage statistique : regression</span>
+              <span class="concept-ds">Apprentissage statistique : régression</span>
               <span class="concept-ds">Inférence Bayésienne</span>
               <span class="concept-ds">MCMC</span>
               <span class="concept-ds">Incertitude de prédiction</span>
@@ -121,7 +121,7 @@
           <div class="mt-4">
             <p class="tag-label">Concepts clés</p>
             <div class="flex flex-wrap gap-2">
-              <span class="concept-ds">IA Agentique</span>
+              <span class="concept-ds">IA agentique</span>
               <span class="concept-ds">Tool Use LLM</span>
               <span class="concept-ds">RAG</span>
               <span class="concept-ds">Orchestration multi-agents</span>
@@ -160,7 +160,7 @@
            :class="{ 'card-highlight': highlight === 'energyML' }"
            @click="toggleEntry('energyML')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Pipeline ML de bout en bout : prediction de la demande électrique </h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Pipeline ML de bout en bout : prédiction de la demande électrique </h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.energyML }">▾</span>
         </div>
         <!-- Synthetic -->
@@ -253,7 +253,7 @@
           </div>
         </div>
         <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
-          <a href="https://www.youtube.com/watch?v=ZlN5mtdLAhE" class="cross-link" target="_blank" rel="noopener">→ Video disponible sur Youtube</a>
+          <a href="https://www.youtube.com/watch?v=ZlN5mtdLAhE" class="cross-link" target="_blank" rel="noopener">→ Vidéo disponible sur Youtube</a>
         </div>
       </div>
 
@@ -311,7 +311,7 @@
       <!-- Carte C1 -->
       <div class="card" x-data="{ open: false }">
         <div class="flex items-center justify-between">
-          <h2 class="section-title mb-0">Cours Intro Probabilités - Statistiques</h2>
+          <h2 class="section-title mb-0">Cours : Intro Probabilités - Statistiques</h2>
           <div class="flex items-center gap-3">
             <a :href="resumePdfUrlC1" download="C1.pdf" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
               Télécharger le PDF
@@ -322,13 +322,13 @@
           </div>
         </div>
         <div x-show="open" x-transition class="mt-4">
-          <iframe :src="resumePdfUrlC1 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="CV PDF"></iframe>
+          <iframe :src="resumePdfUrlC1 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="Cours PDF"></iframe>
         </div>
       </div>
       <!-- Carte C2 -->
       <div class="card" x-data="{ open: false }">
         <div class="flex items-center justify-between">
-          <h2 class="section-title mb-0">Cours Decision sous Incertitude</h2>
+          <h2 class="section-title mb-0">Cours : Décision sous Incertitude</h2>
           <div class="flex items-center gap-3">
             <a :href="resumePdfUrlC2" download="C2.pdf" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
               Télécharger le PDF
@@ -339,7 +339,7 @@
           </div>
         </div>
         <div x-show="open" x-transition class="mt-4">
-          <iframe :src="resumePdfUrlC2 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="CV PDF"></iframe>
+          <iframe :src="resumePdfUrlC2 + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="Cours PDF"></iframe>
         </div>
       </div>
 
