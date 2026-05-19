@@ -1,5 +1,63 @@
     <!-- ── PUBLICATIONS VIEW ── -->
     <section x-show="view === 'publications'" x-transition class="space-y-6">
+
+      <h3 class="pub-subheading">Articles</h3>
+
+      <!-- Frame Problem Preprint (2026) -->
+      <div class="card accordion-entry" data-id="frame"
+           :class="{ 'card-highlight': highlight === 'frame' }"
+           @click="toggleEntry('frame')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Le Problème du Cadre dans la Pratique Quantitative</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.frame }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong> (2026).
+          The frame problem in quantitative practice: ontological uncertainty and epistemic humility
+          in an age of automated inference. <em>Preprint</em>.
+          <span class="opacity-70">[lien arXiv à venir]</span>
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.frame" x-transition class="expanded-detail">
+          <p class="card-text">
+            Revue de synthèse à visée applicative défendant la thèse selon laquelle la pratique
+            quantitative — qu'elle relève des statistiques, de l'ingénierie ou de l'apprentissage
+            automatique — repose sur trois catégories distinctes d'incertitude : aléatoire,
+            épistémique et <em>de cadre</em> (ou ontologique). La troisième, résidu inévitable de
+            toute spécification finie, échappe structurellement à l'analyse formelle menée à
+            l'intérieur du cadre choisi, et concentre l'essentiel des défaillances aux conséquences
+            les plus lourdes. L'article expose pourquoi cette limite vaut tout autant pour le
+            raisonnement déductif que pour l'inductif, pourquoi aucun recours à un méta-niveau ne
+            dissout la régression, et pourquoi les conditions actuelles de l'inférence automatisée
+            rendent <em>l'humilité épistémique</em> d'autant plus nécessaire.
+          </p>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Contributions Clés</h4>
+            <ul class="card-text text-sm space-y-1">
+              <li>Rapprochement interdisciplinaire du problème du cadre, des statistiques et de la quantification d'incertitude en ingénierie jusqu'à l'IA et à l'apprentissage automatique</li>
+              <li>Taxonomie tripartite de l'incertitude (aléatoire / épistémique / de cadre) et mise en évidence de l'invisibilité structurelle de la troisième</li>
+              <li>Analyse ciblée pour cinq figures de la pratique — ingénieur, statisticien, mathématicien, praticien de l'apprentissage automatique, destinataire non spécialiste</li>
+              <li>L'humilité épistémique posée comme disposition pratique, avec ses implications pour les concepteurs, les décideurs, les institutions et la pédagogie</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="tag-label">Concepts clés</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">Problème du Cadre</span>
+              <span class="concept-ds">Incertitude Ontologique</span>
+              <span class="concept-ds">Humilité Épistémique</span>
+              <span class="concept-ds">Inférence Automatisée</span>
+              <span class="concept-ds">Quantification d'Incertitude</span>
+              <span class="concept-ds">Théorie de la Décision Statistique</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+            <span class="cross-link" style="opacity: 0.6; cursor: default;">lien arXiv à venir</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Value of Information Article (2020) -->
       <div class="card accordion-entry" data-id="voi"
            :class="{ 'card-highlight': highlight === 'voi' }"
@@ -43,9 +101,7 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832020306347"
-               class="cross-link" target="_blank" rel="noopener">→ Voir sur ScienceDirect</a>
-            <button @click.stop="switchTo('skills', 'competencies')" class="cross-link">→ Voir compétences associées</button>
-          </div>
+               class="cross-link" target="_blank" rel="noopener">→ Voir sur ScienceDirect</a>          </div>
         </div>
       </div>
 
@@ -91,9 +147,7 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://www.tandfonline.com/doi/full/10.1080/00423114.2016.1145243"
-               class="cross-link" target="_blank" rel="noopener">→ Voir sur Taylor & Francis</a>
-            <button @click.stop="switchTo('skills', 'competencies')" class="cross-link">→ Voir compétences associées</button>
-          </div>
+               class="cross-link" target="_blank" rel="noopener">→ Voir sur Taylor & Francis</a>          </div>
         </div>
       </div>
 
@@ -139,8 +193,65 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832013002949"
-               class="cross-link" target="_blank" rel="noopener">→ Voir sur ScienceDirect</a>
-            <button @click.stop="switchTo('skills', 'competencies')" class="cross-link">→ Voir compétences associées</button>
+               class="cross-link" target="_blank" rel="noopener">→ Voir sur ScienceDirect</a>          </div>
+        </div>
+      </div>
+
+      <h3 class="pub-subheading">Ouvrage</h3>
+
+      <!-- Discours de la Méthode au XXIe Siècle (2022) -->
+      <div class="card accordion-entry" data-id="book"
+           :class="{ 'card-highlight': highlight === 'book' }"
+           @click="toggleEntry('book')"
+           x-data="{ pdfOpen: true }">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">Un Discours de la Méthode au XXIe Siècle</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.book }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong> (2022).
+          <em>Un Discours de la Méthode au XXIe Siècle</em>. 292 pages.
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.book" x-transition class="expanded-detail">
+          <p class="card-text">
+            Essai interdisciplinaire sur la rationalité, la probabilité, la prise de décision
+            et les limites du raisonnement algorithmique. Construit autour d'une mise en scène
+            socratique — le Professeur Seracost et six étudiants débattant du supercalculateur
+            de leur université — l'ouvrage relie philosophie, mathématiques, ingénierie,
+            économie et informatique pour défendre l'idée que la rationalité est nécessairement
+            subjective, que le risque est relatif à l'observateur, et que les machines formelles
+            héritent de nos limites épistémiques sans les transcender.
+          </p>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Thèmes Clés</h4>
+            <ul class="card-text text-sm space-y-1">
+              <li>Bayésianisme subjectif (tradition de Finetti) comme fondement de la décision rationnelle en incertitude</li>
+              <li>Construction pédagogique des choix du quotidien vers la probabilité et la théorie de la décision formelles</li>
+              <li>Manifeste sur les limites de la rationalité algorithmique — <em>« formaliser, c'est déjà choisir »</em></li>
+              <li>Réflexion critique (écrite avant l'essor des LLM, 2020-2022) sur la confusion entre puissance de calcul et intelligence</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="tag-label">Concepts clés</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">Épistémologie</span>
+              <span class="concept-ds">Théorie de la Décision</span>
+              <span class="concept-ds">Bayésianisme Subjectif</span>
+              <span class="concept-ds">Rationalité &amp; Critique de l'IA</span>
+              <span class="concept-ds">Théorie des Probabilités</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 mt-4">
+            <button @click.stop="pdfOpen = !pdfOpen" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              <span x-text="pdfOpen ? 'Masquer le PDF' : 'Voir le PDF'"></span>
+            </button>
+            <a :href="resumePdfUrlBook" download="Fauriat_DiscoursMethode_XXIe.pdf" @click.stop class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              Télécharger le PDF
+            </a>          </div>
+          <div x-show="pdfOpen" x-transition class="mt-4" @click.stop>
+            <iframe :src="resumePdfUrlBook + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="PDF Ouvrage"></iframe>
           </div>
         </div>
       </div>

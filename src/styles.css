@@ -698,6 +698,23 @@ html.dark .proficiency-bar .chevron.empty path {
 
 }
 
+/* Subsection heading inside Publications view — separates Book from Articles. */
+.pub-subheading {
+  font-size:      0.75rem;
+  font-weight:    700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color:          var(--tagline-color);
+  margin-top:     0.5rem;
+  margin-bottom:  -0.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom:  1px solid var(--border);
+  transition:     color 0.4s ease, border-color 0.4s ease;
+}
+.pub-subheading:first-child {
+  margin-top: 0;
+}
+
 /* Small uppercase label above a tag row */
 .tag-label {
   font-size:      0.6875rem;

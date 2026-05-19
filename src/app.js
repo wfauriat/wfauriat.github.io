@@ -42,6 +42,7 @@ function resumeApp() {
     resumePdfUrlFr: import.meta.env.DEV ? __PDF_DATA_URL_FR__ : '/resume_vf.pdf',
     resumePdfUrlC1: import.meta.env.DEV ? __PDF_DATA_URL_C1__ : '/J1_ProbaStats.pdf',
     resumePdfUrlC2: import.meta.env.DEV ? __PDF_DATA_URL_C2__ : '/J5_Decision.pdf',
+    resumePdfUrlBook: import.meta.env.DEV ? __PDF_DATA_URL_BOOK__ : '/ManuscritPDFpub.pdf',
 
 
     // 'view'  — which content section is visible. Matches the x-show conditions in HTML.
@@ -83,7 +84,9 @@ function resumeApp() {
       // imgAPI:     false,
       aksys:      false,  // AK-SYS publication
       voi:        false,   // Value of Information publication
-      roadinf:    false
+      roadinf:    false,
+      frame:      false,  // Frame problem preprint (2026)
+      book:       false   // Discours de la Méthode au XXIe Siècle (2022)
     },
 
     // ── Accordion section config ───────────────────────────────
@@ -96,7 +99,7 @@ function resumeApp() {
       resume: ['CEA', 'postdoc', 'fullst_deg' ,'phd_edu'],
       skills: [],
       portfolio: ['bayesian', 'agentTraining', 'mediaElection27', 'uq', 'energyML', 'llmcore'],
-      publications: ['aksys', 'voi', 'roadinf']
+      publications: ['frame', 'voi', 'roadinf', 'aksys', 'book']
     },
 
     // ── Lifecycle hook ─────────────────────────────────────────

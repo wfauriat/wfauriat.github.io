@@ -1,5 +1,61 @@
     <!-- ── PUBLICATIONS VIEW ── -->
     <section x-show="view === 'publications'" x-transition class="space-y-6">
+
+      <h3 class="pub-subheading">Articles</h3>
+
+      <!-- Frame Problem Preprint (2026) -->
+      <div class="card accordion-entry" data-id="frame"
+           :class="{ 'card-highlight': highlight === 'frame' }"
+           @click="toggleEntry('frame')">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">The Frame Problem in Quantitative Practice</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.frame }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong> (2026).
+          The frame problem in quantitative practice: ontological uncertainty and epistemic humility
+          in an age of automated inference. <em>Preprint</em>.
+          <span class="opacity-70">[arXiv link pending]</span>
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.frame" x-transition class="expanded-detail">
+          <p class="card-text">
+            A synthetic, application-oriented review arguing that quantitative practice across
+            statistics, engineering, and machine learning operates under three distinct categories
+            of uncertainty — aleatory, epistemic, and <em>frame</em> (or ontological). The third,
+            the residue of finite specification, is structurally invisible to formal analysis within
+            the chosen frame and is the locus of most consequential failures. The paper traces why
+            the limit applies equally to deductive and inductive reasoning, why no meta-level procedure
+            dissolves the regress, and why current conditions of automated inference make
+            <em>epistemic humility</em> more, not less, important.
+          </p>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Key Contributions</h4>
+            <ul class="card-text text-sm space-y-1">
+              <li>Cross-disciplinary unification of the frame problem across statistics, engineering UQ, AI, and ML literatures</li>
+              <li>Three-category taxonomy of uncertainty (aleatory / epistemic / frame) and the structural invisibility of the third</li>
+              <li>Targeted analysis for five practices — engineer, statistician, mathematician, ML practitioner, non-specialist recipient</li>
+              <li>Epistemic humility framed as a practical disposition with implications for builders, decision-makers, institutions, and pedagogy</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">Frame Problem</span>
+              <span class="concept-ds">Ontological Uncertainty</span>
+              <span class="concept-ds">Epistemic Humility</span>
+              <span class="concept-ds">Automated Inference</span>
+              <span class="concept-ds">Uncertainty Quantification</span>
+              <span class="concept-ds">Statistical Decision Theory</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
+            <span class="cross-link" style="opacity: 0.6; cursor: default;">arXiv link pending</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Value of Information Article (2020) -->
       <div class="card accordion-entry" data-id="voi"
            :class="{ 'card-highlight': highlight === 'voi' }"
@@ -43,9 +99,7 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832020306347"
-               class="cross-link" target="_blank" rel="noopener">→ View on ScienceDirect</a>
-            <button @click.stop="switchTo('skills', 'competencies')" class="cross-link">→ See related skills</button>
-          </div>
+               class="cross-link" target="_blank" rel="noopener">→ View on ScienceDirect</a>          </div>
         </div>
       </div>
 
@@ -91,9 +145,7 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://www.tandfonline.com/doi/full/10.1080/00423114.2016.1145243"
-               class="cross-link" target="_blank" rel="noopener">→ View on Taylor & Francis</a>
-            <button @click.stop="switchTo('skills', 'competencies')" class="cross-link">→ See related skills</button>
-          </div>
+               class="cross-link" target="_blank" rel="noopener">→ View on Taylor & Francis</a>          </div>
         </div>
       </div>
 
@@ -139,8 +191,65 @@
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
             <a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832013002949"
-               class="cross-link" target="_blank" rel="noopener">→ View on ScienceDirect</a>
-            <button @click.stop="switchTo('skills', 'competencies')" class="cross-link">→ See related skills</button>
+               class="cross-link" target="_blank" rel="noopener">→ View on ScienceDirect</a>          </div>
+        </div>
+      </div>
+
+      <h3 class="pub-subheading">Book</h3>
+
+      <!-- Discours de la Méthode au XXIe Siècle (2022) -->
+      <div class="card accordion-entry" data-id="book"
+           :class="{ 'card-highlight': highlight === 'book' }"
+           @click="toggleEntry('book')"
+           x-data="{ pdfOpen: true }">
+        <div class="flex justify-between items-baseline flex-wrap gap-1">
+          <h2 class="section-title" style="margin-bottom: 0;">A Discourse on the Method for the 21st Century</h2>
+          <span class="chevron" :class="{ 'chevron-open': expanded.book }">▾</span>
+        </div>
+        <!-- Synthetic: citation info always visible -->
+        <p class="card-text text-sm mt-2">
+          <strong>Fauriat, W.</strong> (2022).
+          <em>Un Discours de la Méthode au XXIe Siècle</em>. 292 pages.
+          <span class="opacity-70">(Book — published in French)</span>
+        </p>
+        <!-- Detailed: visible only when expanded -->
+        <div x-show="expanded.book" x-transition class="expanded-detail">
+          <p class="card-text">
+            An interdisciplinary essay on rationality, probability, decision-making and the
+            limits of algorithmic reasoning. Built around a fictional Socratic framing —
+            Professor Seracost and six students debating their university's supercalculator —
+            the book bridges philosophy, mathematics, engineering, economics and computer science
+            to argue that rationality is necessarily subjective, that risk is observer-relative,
+            and that formal machines inherit (not transcend) our epistemic limitations.
+          </p>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold opacity-70 uppercase tracking-wide mb-1">Key Themes</h4>
+            <ul class="card-text text-sm space-y-1">
+              <li>Subjective Bayesianism (de Finetti tradition) as a foundation for rational decision under uncertainty</li>
+              <li>Pedagogical buildup from everyday choices to formal probability and decision theory</li>
+              <li>Manifesto on the limits of algorithmic rationality — <em>"formaliser, c'est déjà choisir"</em></li>
+              <li>Critical reflection (written pre-LLM, 2020-2022) on conflating computational power with intelligence</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="tag-label">Key concepts</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="concept-ds">Epistemology</span>
+              <span class="concept-ds">Decision Theory</span>
+              <span class="concept-ds">Bayesian Subjectivism</span>
+              <span class="concept-ds">Rationality &amp; AI Critique</span>
+              <span class="concept-ds">Probability Theory</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 mt-4">
+            <button @click.stop="pdfOpen = !pdfOpen" class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              <span x-text="pdfOpen ? 'Hide PDF' : 'View PDF'"></span>
+            </button>
+            <a :href="resumePdfUrlBook" download="Fauriat_DiscoursMethode_XXIe.pdf" @click.stop class="contact-link" style="font-size: 0.85rem; padding: 0.25rem 0.75rem; border: 1px solid var(--accent); border-radius: 6px;">
+              Download PDF
+            </a>          </div>
+          <div x-show="pdfOpen" x-transition class="mt-4" @click.stop>
+            <iframe :src="resumePdfUrlBook + '#navpanes=0&pagemode=none'" class="w-full rounded-lg border" style="height: 700px; border-color: var(--border);" title="Book PDF"></iframe>
           </div>
         </div>
       </div>
