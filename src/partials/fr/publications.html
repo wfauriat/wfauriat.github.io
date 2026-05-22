@@ -8,15 +8,15 @@
            :class="{ 'card-highlight': highlight === 'frame' }"
            @click="toggleEntry('frame')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Le Problème du Cadre dans la Pratique Quantitative</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Le problème du "cadre" dans la pratique quantitative</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.frame }">▾</span>
         </div>
         <!-- Synthetic: citation info always visible -->
         <p class="card-text text-sm mt-2">
           <strong>Fauriat, W.</strong> (2026).
           The frame problem in quantitative practice: ontological uncertainty and epistemic humility
-          in an age of automated inference. <em>Preprint</em>.
-          <span class="opacity-70">[lien arXiv à venir]</span>
+          in an age of automated inference. <a href="https://cea.hal.science/cea-05627052"
+               class="cross-link" target="_blank" rel="noopener">Preprint</a>.
         </p>
         <!-- Detailed: visible only when expanded -->
         <div x-show="expanded.frame" x-transition class="expanded-detail">
@@ -53,7 +53,8 @@
             </div>
           </div>
           <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">
-            <span class="cross-link" style="opacity: 0.6; cursor: default;">lien arXiv à venir</span>
+            <a href="https://cea.hal.science/cea-05627052"
+               class="cross-link" target="_blank" rel="noopener">→ Voir sur HAL</a>
           </div>
         </div>
       </div>
@@ -63,7 +64,7 @@
            :class="{ 'card-highlight': highlight === 'voi' }"
            @click="toggleEntry('voi')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Valeur de l'Information en Maintenance</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Valeur de l'information en maintenance</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.voi }">▾</span>
         </div>
         <!-- Synthetic: citation info always visible -->
@@ -156,7 +157,7 @@
            :class="{ 'card-highlight': highlight === 'aksys' }"
            @click="toggleEntry('aksys')">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">AK-SYS : Méthode de Fiabilité Système</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">AK-SYS : méthode de fiabilité système</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.aksys }">▾</span>
         </div>
         <!-- Synthetic: citation info always visible -->
@@ -205,7 +206,7 @@
            @click="toggleEntry('book')"
            x-data="{ pdfOpen: true }">
         <div class="flex justify-between items-baseline flex-wrap gap-1">
-          <h2 class="section-title" style="margin-bottom: 0;">Un Discours de la Méthode au XXIe Siècle</h2>
+          <h2 class="section-title" style="margin-bottom: 0;">Un discours de la méthode au XXIe siècle</h2>
           <span class="chevron" :class="{ 'chevron-open': expanded.book }">▾</span>
         </div>
         <!-- Synthetic: citation info always visible -->
